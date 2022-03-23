@@ -1,6 +1,8 @@
 // AutoIt3 Grammar
 // ==================
 //
+// Target AutoIt3 version is: 3.3.14.5
+//
 
 {
   var TYPES_TO_PROPERTY_NAMES = {
