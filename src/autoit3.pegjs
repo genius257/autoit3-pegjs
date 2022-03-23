@@ -102,7 +102,8 @@ VariableDeclaration
       return {
         type: "VariableDeclarator",
         id: id,
-        init: extractOptional(init, 1)
+        init: extractOptional(init, 1),
+        location: location(),
       };
     }
 
@@ -703,7 +704,8 @@ FunctionDeclaration
       type: "FunctionDeclaration",
       id: id,
       params: optionalList(extractOptional(params, 0)),
-      body: optionalList(body)
+      body: optionalList(body),
+      location: location()
     };
   }
 
@@ -761,6 +763,7 @@ VariableStatement
       static_: !!static_,
       type: "VariableDeclaration",
       declarations: declarations,
+      location: location(),
     }
   }
   / scope:($(LocalToken / GlobalToken / DimToken) __)? static_:(StaticToken __)? constant:(ConstToken __)? declarations:VariableDeclarationList EOS {
@@ -770,6 +773,7 @@ VariableStatement
       static_: !!static_,
       type: "VariableDeclaration",
       declarations: declarations,
+      location: location(),
     }
   }
   / RedimToken __ VariableIdentifier ("[" __ Expression __ "]")+
