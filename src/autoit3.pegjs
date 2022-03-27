@@ -62,7 +62,7 @@ PreProc
       file: file,
     };
   }
-  / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken) body:[a-z]i+ { //FIXME: allow anything except newline
+  / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken) body:(!Newline .)+ {
     return { type: "PreProcStatement", body: body };
   }
 
