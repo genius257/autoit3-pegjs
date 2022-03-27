@@ -60,6 +60,7 @@ PreProc
     return {
       type: "IncludeStatement",
       file: file,
+      location: location(),
     };
   }
   / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken) body:(!Newline .)+ {
