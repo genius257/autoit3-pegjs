@@ -824,7 +824,7 @@ IterationStatement
     NextToken
 
 EOS
-  = _ SingleLineComment? LineTerminatorSequence
+  = _ SingleLineComment? ( LineTerminatorSequence / EOF)
   / __ EOF
 
 EOF
