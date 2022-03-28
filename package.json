@@ -1,0 +1,28 @@
+{
+  "name": "autoit3-pegjs",
+  "version": "1.0.0",
+  "description": "A PEG.js parser for the AutoIt3 language",
+  "main": "out/autoit.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "peggy --plugin ./node_modules/ts-pegjs/src/tspegjs -o out/autoit3.ts --cache src/autoit3.pegjs",
+    "install": "build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genius257/autoit3-pegjs.git"
+  },
+  "keywords": [
+    "autoit3"
+  ],
+  "author": "genius257",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/genius257/autoit3-pegjs/issues"
+  },
+  "homepage": "https://github.com/genius257/autoit3-pegjs#readme",
+  "devDependencies": {
+    "peggy": "^1.2.0",
+    "ts-pegjs": "^1.2.2"
+  }
+}
