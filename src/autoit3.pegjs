@@ -644,14 +644,22 @@ RelationalOperator
   / $(">" !">")
 
 MultiplicativeExpression
-  = head:UnaryExpression
-    tail:(__ MultiplicativeOperator __ UnaryExpression)*
+  = head:ExponentialExpression
+    tail:(__ MultiplicativeOperator __ ExponentialExpression)*
     { return buildBinaryExpression(head, tail); }
 
 MultiplicativeOperator
   = $("*" !"=")
   / $("/" !"=")
   // $("%" !"=")
+
+ExponentialExpression
+  = head:UnaryExpression
+    tail:(__ ExponentialOperator __ UnaryExpression)*
+    { return buildBinaryExpression(head, tail); }
+
+ExponentialOperator
+  = $("^" !"=")
 
 UnaryExpression
   = LeftHandSideExpression
