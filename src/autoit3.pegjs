@@ -108,7 +108,14 @@ VariableDeclaration
       };
     }
 
-EnumDeclaration = VariableIdentifier (__ '=' __ Expression)?
+EnumDeclaration = id:VariableIdentifier init:(__ '=' __ AssignmentExpression)? {
+  return {
+    type: "VariableDeclarator",
+    id: id,
+    init: extractOptional(init, 3),
+    location: location(),
+  }
+}
 
 Initialiser
   = "=" !"=" __ expression:(AssignmentExpression / ArrayDeclaration) { return expression; }
@@ -786,7 +793,15 @@ VariableStatement
     }
   }
   / RedimToken __ VariableIdentifier ("[" __ Expression __ "]")+
-  / ((LocalToken / GlobalToken / DimToken) __)? (ConstToken __)? EnumToken __ EnumDeclarationList
+  / scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken __ declarations:EnumDeclarationList EOS {
+    return {
+      scope: extractOptional(scope, 0),
+      constant: !!constant,
+      static: false,
+      type: "VariableDeclaration",
+      declarations: declarations,
+    }
+  }
 
 ExpressionStatement
   = !FuncToken expression:Expression EOS {
