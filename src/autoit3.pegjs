@@ -873,7 +873,12 @@ Expression
     }
 
 ExitStatement
-  = ExitToken __ AssignmentExpression EOS
+  = ExitToken argument:(__ AssignmentExpression)? EOS {
+    return {
+      type: "ExitStatement",
+      argument: extractOptional(argument, 1),
+    }
+  }
 
 SwitchStatement
   = SwitchToken __ discriminant:Expression __ EOS
