@@ -293,8 +293,6 @@ Macro
     / "YEAR"i
     ) !IdentifierPart
 
-ExitExpression = ExitToken __ Expression
-
 NullLiteral = NullToken { return { type: "Literal", value: null }; }
 
 ReservedWord
