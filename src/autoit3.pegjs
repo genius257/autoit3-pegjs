@@ -360,7 +360,40 @@ ContinueLoopStatement = ContinueLoopToken (__ Expression)? EOS
 ContinueCaseStatement = ContinueCaseToken (__ Expression)? EOS
 
 SelectStatement = SelectToken EOS
-EndSelectToken EOS
+cases:SelectCaseBlock //FIXME: WIP. verify that requirements are not too loose.
+EndSelectToken EOS {
+    return {
+      type: "SelectStatement",
+      cases: cases
+    };
+  }
+
+SelectCaseBlock
+  = __
+    before:(SelectCaseClauses __)?
+    default_: DefaultClause __
+    after:(SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
+      return optionalList(extractOptional(before, 0))
+        .concat(default_)
+        .concat(optionalList(extractOptional(after, 0)));
+    }
+  / __ clauses:(SelectCaseClauses __)? { //FIXME: verify that "?" CAN be there
+    return optionalList(extractOptional(clauses, 0));
+  }
+
+SelectCaseClauses
+  = head:SelectCaseClause tail:(__ SelectCaseClause)* { return buildList(head, tail, 1); }
+
+SelectCaseClause
+  = CaseToken __ tests: AssignmentExpression EOS
+    consequent: (__ StatementList)?
+    {
+      return {
+        type: "SelectCase",
+        tests: tests,
+        consequent: optionalList(extractOptional(consequent, 1))
+      };
+    }
 
 BooleanLiteral 
     = TrueToken  { return { type: "Literal", value: true  }; }
@@ -759,6 +792,7 @@ Statement
   / ExitStatement
   / PreProcStatement
   / MultiLineComment
+  / SelectStatement
 
 EmptyStatement
   = __ LineTerminatorSequence { return { type: "EmptyStatement" }; }
