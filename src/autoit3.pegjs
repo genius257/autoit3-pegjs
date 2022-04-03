@@ -86,7 +86,7 @@ OptionalWhitespace = Whitespace?
 
 LineContinuation = LiteralWhitespace '_' Newline
 
-Newline = "\u000A" / "\u000D"
+Newline = LineTerminatorSequence
 
 EnumDeclarationList
   = head:EnumDeclaration tail:(__ "," __ EnumDeclaration)* {
