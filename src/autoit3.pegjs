@@ -170,7 +170,17 @@ MultiLineComment
 
 MultiLineCommentEndTag = '#' (CEToken / CommentsEndToken)
 
-ArrayDeclaration = "[" (__ Expression __ ("," __ Expression __)*)? __ "]"
+ArrayDeclaration = "[" __ elements:ArrayDeclarationElementList? __ "]" {
+  return {
+    type: "ArrayDeclaration",
+    elements: elements,
+  }
+}
+
+ArrayDeclarationElementList
+  = head:(Expression / ArrayDeclaration) tail:(__ "," __ (Expression / ArrayDeclaration))* {
+      return buildList(head, tail, 3);
+    }
 
 Identifier = !ReservedWord name:IdentifierName { return name; }
 
