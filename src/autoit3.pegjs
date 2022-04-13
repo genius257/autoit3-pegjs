@@ -902,18 +902,18 @@ ElseClause
 
 IterationStatement
   = DoToken __ EOS
-    __ body:StatementList __
+    __ body:StatementList? __
     UntilToken __ test:Expression __ EOS
-    { return { type: "DoWhileStatement", body: body, test: test }; }
+    { return { type: "DoWhileStatement", body: body ?? [], test: test }; }
   / WhileToken __ test:Expression __ EOS
-    __ body:StatementList __
+    __ body:StatementList? __
     WEndToken __ EOS
-    { return { type: "WhileStatement", test: test, body: body }; }
+    { return { type: "WhileStatement", test: test, body: body ?? [] }; }
   / ForToken __ VariableIdentifier __ "=" __ Expression __ ToToken __ Expression __ (StepToken __ Expression)? EOS
-      __ body:StatementList __
+      __ body:StatementList? __
     NextToken
   / ForToken __ VariableIdentifier __ InToken __ Expression
-      __ body:StatementList __
+      __ body:StatementList? __
     NextToken
 
 EOS
