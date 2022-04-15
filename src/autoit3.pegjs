@@ -84,7 +84,7 @@ Whitespace = LineContinuation LiteralWhitespace* / LiteralWhitespace+
 
 OptionalWhitespace = Whitespace?
 
-LineContinuation = LiteralWhitespace '_' Newline
+LineContinuation = LiteralWhitespace+ '_' LiteralWhitespace* SingleLineComment? Newline
 
 Newline = LineTerminatorSequence
 
