@@ -883,7 +883,7 @@ ExpressionStatement
 
 IfStatement
   = IfToken __ Expression __ ThenToken __ EOS
-       __ StatementList __
+       (__ StatementList __)?
     __ ElseIfClauses? __
     __ ElseClause? __
     EndIfToken EOS
@@ -894,11 +894,11 @@ ElseIfClauses
 
 ElseIfClause
   = ElseIfToken __ Expression __ ThenToken __ EOS
-    __ StatementList __
+    (__ StatementList __)?
 
 ElseClause
   = ElseToken __ EOS
-    __ StatementList __
+    (__ StatementList __)?
 
 IterationStatement
   = DoToken __ EOS
