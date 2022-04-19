@@ -991,6 +991,7 @@ CaseClause
         consequent: optionalList(extractOptional(consequent, 1))
       };
     }
+  / SingleLineComment EOS
 
 DefaultClause
   = CaseToken __ ElseToken __ EOS
