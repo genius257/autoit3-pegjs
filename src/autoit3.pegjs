@@ -497,8 +497,7 @@ DecimalLiteral
     }
 
 DecimalIntegerLiteral
-  = "0"
-  / NonZeroDigit DecimalDigit*
+  = DecimalDigit+
 
 ExponentPart
   = ExponentIndicator SignedInteger
