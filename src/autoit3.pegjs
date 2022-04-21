@@ -99,7 +99,7 @@ VariableDeclarationList
     }
 
 VariableDeclaration
-  = id:VariableIdentifier ("[" __ Expression __ "]")* init:(__ Initialiser)? {
+  = id:VariableIdentifier ("[" __ Expression? __ "]")* init:(__ Initialiser)? {
       return {
         type: "VariableDeclarator",
         id: id,
