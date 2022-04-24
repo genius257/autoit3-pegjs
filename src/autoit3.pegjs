@@ -370,6 +370,7 @@ ContinueLoopStatement = ContinueLoopToken (__ Expression)? EOS
 ContinueCaseStatement = ContinueCaseToken (__ Expression)? EOS
 
 SelectStatement = SelectToken EOS
+(EmptyStatement / __ SingleLineComment EOS)*
 cases:SelectCaseBlock //FIXME: WIP. verify that requirements are not too loose.
 EndSelectToken EOS {
     return {
