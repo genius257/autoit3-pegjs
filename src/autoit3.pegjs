@@ -862,7 +862,12 @@ VariableStatement
       location: location(),
     }
   }
-  / RedimToken __ VariableIdentifier ("[" __ Expression __ "]")+
+  / RedimToken __ head:RedimIdentifierExpression tail:(__ "," __ RedimIdentifierExpression)* EOS {
+    return {
+      type: "RedimExpression",
+      declarations: buildList(head, tail, 3),
+    };
+  }
   / scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken __ declarations:EnumDeclarationList EOS {
     return {
       scope: extractOptional(scope, 0),
@@ -872,6 +877,8 @@ VariableStatement
       declarations: declarations,
     }
   }
+
+  RedimIdentifierExpression = VariableIdentifier __ ("[" __ Expression __ "]")+
 
 ExpressionStatement
   = !FuncToken expression:Expression EOS {
