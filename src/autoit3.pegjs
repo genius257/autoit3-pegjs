@@ -889,23 +889,45 @@ ExpressionStatement
     }
 
 IfStatement
-  = IfToken __ Expression __ ThenToken __ EOS
-       (__ StatementList __)?
-    __ ElseIfClauses? __
-    __ ElseClause? __
-    EndIfToken EOS
-    / IfToken __ Expression __ ThenToken __ Statement
+  = IfToken __ test:Expression __ ThenToken __ EOS
+       consequent:(__ StatementList __)?
+    __ alternates:ElseIfClauses? __
+    __ alternate:ElseClause? __
+    EndIfToken EOS {
+      alternate = alternate ? [alternate] : [];
+      return {
+        type: "IfStatement",
+        test: test,
+        consequent: extractOptional(consequent, 1),
+        alternate: [...alternates ?? [], ...alternate]
+      }
+    }
+    / IfToken __ test:Expression __ ThenToken __ consequent:Statement {
+      return {
+        type: "IfStatement",
+        test: test,
+        consequent: consequent,
+      }
+    }
 
 ElseIfClauses
   = head:ElseIfClause tail:(__ ElseIfClause)* { return buildList(head, tail, 1); }
 
 ElseIfClause
-  = ElseIfToken __ Expression __ ThenToken __ EOS
-    (__ StatementList __)?
+  = ElseIfToken __ test:Expression __ ThenToken __ EOS
+    consequent:(__ StatementList __)? {
+      return {
+        type: "ElseIfStatement",
+        test: test,
+        consequent: extractOptional(consequent, 1),
+      }
+    }
 
 ElseClause
   = ElseToken __ EOS
-    (__ StatementList __)?
+    alternate:(__ StatementList __)? {
+      return extractOptional(alternate, 1);
+    }
 
 IterationStatement
   = DoToken __ EOS
