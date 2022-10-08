@@ -5,8 +5,8 @@
   "main": "out/autoit.ts",
   "scripts": {
     "test": "jest",
-    "build": "peggy --plugin ./node_modules/ts-pegjs/src/tspegjs -o out/autoit3.ts --cache src/autoit3.pegjs",
-    "install": "build"
+    "build": "peggy -o out/autoit3.js src/autoit3.pegjs",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
