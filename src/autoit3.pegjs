@@ -58,7 +58,7 @@ PreProc
   }
   / "#" 'include'i Whitespace file:IncludeFileNameLiteral { //FIXME: require once ore more whirespace
     return {
-      type: "IncludeStatement",
+      type: "IncludeStatement", //FIXME: move into a new rule IncludeStatement
       file: file,
       location: location(),
     };
@@ -188,7 +188,8 @@ IdentifierName "identifier"
   = head:IdentifierStart tail:IdentifierPart* {
       return {
         type: "Identifier",
-        name: head + tail.join("")
+        name: head + tail.join(""),
+        location: location(),
       };
     }
 
@@ -357,17 +358,47 @@ Keyword
 FutureReservedWord
     = "@RESERVED" //NOTE: no future reserved words so far
 
-WithStatement = WithToken (__ Expression) EOS //FIXME: WIP
-StatementList
-EndWithToken EOS
+WithStatement = WithToken object:(__ Expression) EOS //FIXME: WIP
+body:StatementList?
+EndWithToken EOS {
+  return {
+    type: "WithStatement",
+    object: extractOptional(object, 1),
+    body: optionalList(body),
+    location: location()
+  };
+}
 
-ReturnStatement = ReturnToken (__ Expression)? EOS
+ReturnStatement = ReturnToken value:(__ Expression)? EOS {
+  return {
+    type: "ReturnStatement",
+    value: extractOptional(value, 1),
+    location: location()
+  };
+}
 
-ExitLoopStatement = ExitLoopToken (__ Expression)? EOS
+ExitLoopStatement = ExitLoopToken level:(__ Expression)? EOS {
+  return {
+    type: "ExitLoopStatement",
+    level: extractOptional(level, 1),
+    location: location()
+  };
+}
 
-ContinueLoopStatement = ContinueLoopToken (__ Expression)? EOS
+ContinueLoopStatement = ContinueLoopToken level:(__ Expression)? EOS {
+  return {
+    type: "ContinueLoopStatement",
+    level: extractOptional(level, 1),
+    location: location()
+  };
+}
 
-ContinueCaseStatement = ContinueCaseToken (__ Expression)? EOS
+ContinueCaseStatement = ContinueCaseToken EOS {
+  return {
+    type: "ContinueCaseStatement",
+    location: location()
+  };
+}
 
 SelectStatement = SelectToken EOS
 (EmptyStatement / __ SingleLineComment EOS)*
@@ -878,7 +909,11 @@ VariableStatement
     }
   }
 
-  RedimIdentifierExpression = VariableIdentifier __ ("[" __ Expression __ "]")+
+  RedimIdentifierExpression = VariableIdentifier __ ("[" __ Expression __ "]")+ { //FIXME: implement the expressions array as a nested rule.
+    return {
+      type: "RedimIdentifierExpression"
+    };
+  }
 
 ExpressionStatement
   = !FuncToken expression:Expression EOS {
