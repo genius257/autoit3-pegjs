@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/genius257/autoit3-pegjs#readme",
   "devDependencies": {
-    "peggy": "^1.2.0",
-    "ts-pegjs": "^1.2.2"
+    "peggy": "^2.0.1"
   }
 }
