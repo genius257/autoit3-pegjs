@@ -2,7 +2,7 @@
   "name": "autoit3-pegjs",
   "version": "1.0.0",
   "description": "A PEG.js parser for the AutoIt3 language",
-  "main": "out/autoit.ts",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
     "build": "peggy -o out/autoit3.js src/autoit3.pegjs",
