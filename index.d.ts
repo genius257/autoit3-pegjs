@@ -11,6 +11,8 @@ type AnyCase<T extends string> =
     T extends `${infer F}${infer R}` ? `${Uppercase<F> | Lowercase<F>}${AnyCase<R>}` :
     ""
 
+export type SyntaxError = SyntaxError;
+
 export interface AutoItParser extends Parser {
     parse(input: string, options?: ParserOptions): Program;
 }
