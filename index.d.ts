@@ -1,4 +1,4 @@
-import { LocationRange as PeggyLocationRange, Parser, ParserOptions } from "peggy"
+import { LocationRange as PeggyLocationRange, Parser, ParserOptions, parser as PeggyParser } from "peggy"
 
 /**
  * @see https://stackoverflow.com/a/64932909/3958400
@@ -11,7 +11,7 @@ type AnyCase<T extends string> =
     T extends `${infer F}${infer R}` ? `${Uppercase<F> | Lowercase<F>}${AnyCase<R>}` :
     ""
 
-export type SyntaxError = SyntaxError;
+export type SyntaxError = PeggyParser.SyntaxError;
 
 export interface AutoItParser extends Parser {
     parse(input: string, options?: ParserOptions): Program;
