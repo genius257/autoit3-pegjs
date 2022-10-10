@@ -242,12 +242,7 @@ export type EnumDeclaration = {
     location: PeggyLocationRange,
 }
 
-export type LeftHandSideExpression = {
-    type: "VariableDeclarator",
-    id: VariableIdentifier,
-    init: AssignmentExpression|null,
-    location: PeggyLocationRange,
-}
+export type LeftHandSideExpression = CallExpression|MemberExpression
 
 export type ConditionalExpression = {
     type: "ConditionalExpression",
@@ -268,16 +263,19 @@ export type SelectCaseClauses = SelectCaseClause[]
 
 export type Initialiser = AssignmentExpression | ArrayDeclaration;
 
-export type LogicalORExpression = LogicalExpressions<NotExpression, [string, LogicalANDOperator, string, NotExpression]>
+export type LogicalORExpression = LogicalExpression<LogicalOROperator, LogicalANDExpression>
+export type LogicalANDExpression = LogicalExpression<LogicalANDOperator, NotExpression>
 
-export type LogicalANDOperator = [string, string];
+export type LogicalOROperator = [OrToken, string];
+export type LogicalANDOperator = [AndToken, string];
+export type OrToken = AnyCase<"Or">;
+export type AndToken = AnyCase<"And">;
 
-export type LogicalExpressions<X extends Array<any>, Y extends Array<any>> = LogicalExpression<X, Y>[];
-export type LogicalExpression<result extends Array<any>, element extends Array<any>> = {
+export type LogicalExpression<Operator, T> = {
     type: "LogicalExpression",
-    operator: element[1],
-    left: result,
-    right: element[3]
+    operator: Operator,
+    left: T,
+    right: T,
 }
 
 export type CaseClause = {
@@ -303,15 +301,14 @@ export type CaseValueList = Array<SwitchCaseValue>;
 
 export type ArrayDeclarationElementList = Array<Expression|ArrayDeclaration>;
 
-export type EqualityExpression = BinaryExpressions<RelationalExpression, [string, EqualityOperator, string, RelationalExpression]>
+export type EqualityExpression = BinaryExpression<EqualityOperator, RelationalExpression>
 
-export type BinaryExpressions<X, Y extends Array<any>> = Array<BinaryExpression<X, Y>>
-export type BinaryExpression<result, element extends Array<any>> = {
+export type BinaryExpression<Operator, T> = {
     type: "BinaryExpression",
-    operator: element[1],
-    left: result,
-    right: element[3]
-}
+    operator: Operator,
+    left: T,
+    right: T
+}|T;
 
 export type SwitchCaseValue = {
     type: "SwitchCaseRange",
@@ -319,14 +316,14 @@ export type SwitchCaseValue = {
     to: Expression,
 }
 
-export type RelationalExpression = BinaryExpressions<AdditiveExpression, [string, RelationalOperator, string, AdditiveExpression]>;
+export type RelationalExpression = BinaryExpression<RelationalOperator, AdditiveExpression>;
 
 export type EqualityOperator = "==" |
 //| "!=="
 "="
 //| "!="
 
-export type AdditiveExpression = BinaryExpressions<MultiplicativeExpression, [string, AdditiveOperator, string, MultiplicativeExpression]>;
+export type AdditiveExpression = BinaryExpression<AdditiveOperator, MultiplicativeExpression>;
 
 export type RelationalOperator = "<="
 | ">="
@@ -334,13 +331,13 @@ export type RelationalOperator = "<="
 | "<"
 | ">"
 
-export type MultiplicativeExpression = BinaryExpressions<ExponentialExpression, [string, MultiplicativeOperator, string, ExponentialExpression]>;
+export type MultiplicativeExpression = BinaryExpression<MultiplicativeOperator, ExponentialExpression>;
 
 export type AdditiveOperator = "+"
 | "-"
 | "&"
 
-export type ExponentialExpression = BinaryExpressions<UnaryExpression, [string, ExponentialOperator, string, UnaryExpression]>;
+export type ExponentialExpression = BinaryExpression<ExponentialOperator, UnaryExpression>;
 
 export type MultiplicativeOperator = "*"
 | "/"
@@ -362,3 +359,47 @@ export type UnaryOperator =
   | "-"
   //| "~"
   //| "!"
+
+export type CallExpression = { //FIXME
+    type: "CallExpression",
+    callee: MemberExpression,
+    arguments: Arguments,
+}
+
+type _MemberExpression = {
+    type: "MemberExpression",
+    object: _MemberExpression|PrimaryExpression,
+    property: Expression|IdentifierName,
+    computed: boolean,
+}
+
+export type MemberExpression = _MemberExpression|PrimaryExpression|Macro
+
+export type Arguments = ArgumentList
+export type ArgumentList = Array<AssignmentExpression>
+
+export type PrimaryExpression = 
+Identifier
+|VariableIdentifier
+|Literal
+//|ArrayLiteral
+//|ObjectLiteral
+//|Expression//FIXME:this create circular reference.
+|DefaultToken
+
+export type Macro = string;//TODO: for now just a simple type, more specific implementaion could be made later.
+export type DefaultToken = AnyCase<"Default">;
+
+export type Literal =
+NullLiteral
+|BooleanLiteral
+|NumericLiteral
+|StringLiteral
+
+export type NullLiteral = { type: "Literal", value: null }
+export type BooleanLiteral = { type: "Literal", value: boolean }
+export type NumericLiteral = HexIntegerLiteral|DecimalLiteral
+export type StringLiteral = { type: "Literal", value: string }
+
+export type HexIntegerLiteral = { type: "Literal", value: number }
+export type DecimalLiteral = { type: "Literal", value: number }
