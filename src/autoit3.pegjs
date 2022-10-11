@@ -567,6 +567,8 @@ MemberExpression
     / Macro
 
 
+DefaultKeyword = DefaultToken { return { type: "Keyword", value: "Default" }; }
+
 PrimaryExpression
   = Identifier
   / VariableIdentifier
@@ -575,7 +577,7 @@ PrimaryExpression
   // ObjectLiteral
   / "(" __ expression:Expression __ ")" { return expression; }
   //FIXME: rules below are not sure if belong
-  / DefaultToken
+  / DefaultKeyword
 
   //FIXME: all NewExpression are MemberExpression
 

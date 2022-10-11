@@ -385,10 +385,10 @@ Identifier
 //|ArrayLiteral
 //|ObjectLiteral
 |ExpressionStatement //FIXME:changed from expression to expressionstatement, to solve circular reference. Make sure this is correct.
-|DefaultToken
+|DefaultKeyword
 
 export type Macro = ["@", string, undefined];//FIXME
-export type DefaultToken = AnyCase<"Default">;
+export type DefaultKeyword = { type: "Keyword", value: "Default" }
 
 export type Literal =
 NullLiteral
