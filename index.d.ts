@@ -276,7 +276,7 @@ export type LogicalExpression<Operator, T> = {
     operator: Operator,
     left: T,
     right: T,
-}
+} | T;
 
 export type CaseClause = {
     type: "SwitchCase",
