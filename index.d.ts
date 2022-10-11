@@ -384,7 +384,7 @@ Identifier
 |Literal
 //|ArrayLiteral
 //|ObjectLiteral
-//|Expression//FIXME:this create circular reference.
+|ExpressionStatement //FIXME:changed from expression to expressionstatement, to solve circular reference. Make sure this is correct.
 |DefaultToken
 
 export type Macro = ["@", string, undefined];//FIXME
