@@ -387,7 +387,7 @@ Identifier
 //|Expression//FIXME:this create circular reference.
 |DefaultToken
 
-export type Macro = string;//TODO: for now just a simple type, more specific implementaion could be made later.
+export type Macro = ["@", string, undefined];//FIXME
 export type DefaultToken = AnyCase<"Default">;
 
 export type Literal =
