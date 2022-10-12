@@ -152,7 +152,7 @@ StringLiteral "string"
 Comment = SingleLineComment / MultiLineComment
 
 SingleLineComment = ';' body:([^\u000A\u000D]*) {
-  return {type: "SingleLineComment", body: body.join("")}
+  return {type: "SingleLineComment", body: body.join(""), location: location()}
 }
 
 MultiLineCommentStartTag = "#" (CSToken / CommentsStartToken)

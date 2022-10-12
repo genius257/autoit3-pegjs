@@ -71,6 +71,7 @@ export type EmptyStatement = {
 export type SingleLineComment = {
     type: "SingleLineComment",
     body: string,
+    location: PeggyLocationRange,
 }
 
 export type ExpressionStatement = {
