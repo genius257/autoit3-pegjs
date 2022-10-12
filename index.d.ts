@@ -110,6 +110,7 @@ export type IterationStatement = {
     type: "WhileStatement",
     test: Expression,
     body: StatementList,
+    location: PeggyLocationRange,
 } //FIXME: for and for in not ready
 
 export type ContinueLoopStatement = {

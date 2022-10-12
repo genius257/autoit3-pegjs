@@ -987,7 +987,7 @@ IterationStatement
   / WhileToken __ test:Expression __ EOS
     __ body:StatementList? __
     WEndToken __ EOS
-    { return { type: "WhileStatement", test: test, body: body ?? [] }; }
+    { return { type: "WhileStatement", test: test, body: body ?? [], location: location() }; }
   / ForToken __ VariableIdentifier __ "=" __ Expression __ ToToken __ Expression __ (StepToken __ Expression)? EOS
       __ body:StatementList? __
     NextToken
