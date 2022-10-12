@@ -142,7 +142,8 @@ export type WithStatement = {
 export type SwitchStatement = {
     type: "SwitchStatement",
     discriminant: Expression,
-    cases: CaseBlock
+    cases: CaseBlock,
+    location: PeggyLocationRange,
 }
 
 export type ExitStatement = {

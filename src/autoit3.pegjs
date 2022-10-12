@@ -1039,7 +1039,8 @@ SwitchStatement
     return {
       type: "SwitchStatement",
       discriminant: discriminant,
-      cases: cases
+      cases: cases,
+      location: location(),
     };
   }
 
