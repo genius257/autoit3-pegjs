@@ -77,6 +77,7 @@ export type SingleLineComment = {
 export type ExpressionStatement = {
     type: "ExpressionStatement",
     expression: Expression,
+    location: PeggyLocationRange,
 }
 
 export type IfStatement = {

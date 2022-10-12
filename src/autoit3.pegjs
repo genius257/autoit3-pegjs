@@ -931,7 +931,8 @@ ExpressionStatement
   = !FuncToken expression:Expression EOS {
       return {
         type: "ExpressionStatement",
-        expression: expression
+        expression: expression,
+        location: location(),
       };
     }
 
