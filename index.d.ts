@@ -49,7 +49,7 @@ export type VariableStatement = {
 } | {
     type: "RedimExpression",
     declarations: Array<RedimIdentifierExpression>,
-    loction: PeggyLocationRange,
+    location: PeggyLocationRange,
 } | {
     scope: LocalToken|GlobalToken|DimToken,
     constant: boolean,
