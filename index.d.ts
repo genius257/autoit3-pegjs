@@ -56,6 +56,7 @@ export type VariableStatement = {
     static: false,
     type: "VariableDeclaration",
     declarations: EnumDeclarationList,
+    location: PeggyLocationRange,
 }
 
 export type LocalToken = AnyCase<"Local">

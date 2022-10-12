@@ -917,6 +917,7 @@ VariableStatement
       static: false,
       type: "VariableDeclaration",
       declarations: declarations,
+      location: location(),
     }
   }
 
