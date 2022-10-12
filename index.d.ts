@@ -175,6 +175,7 @@ export type MultiLineComment = {
 export type SelectStatement = {
     type: "SelectStatement",
     cases: SelectCaseBlock,
+    location: PeggyLocationRange,
 }
 
 export type Identifier = IdentifierName;

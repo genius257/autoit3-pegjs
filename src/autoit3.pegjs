@@ -412,7 +412,8 @@ cases:SelectCaseBlock //FIXME: WIP. verify that requirements are not too loose.
 EndSelectToken EOS {
     return {
       type: "SelectStatement",
-      cases: cases
+      cases: cases,
+      location: location(),
     };
   }
 
