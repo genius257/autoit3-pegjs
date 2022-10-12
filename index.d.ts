@@ -13,6 +13,8 @@ type AnyCase<T extends string> =
 
 export type SyntaxError = PeggyParser.SyntaxError;
 
+export type LocationRange = PeggyLocationRange;
+
 export interface AutoItParser extends Parser {
     parse(input: string, options?: ParserOptions): Program;
 }
