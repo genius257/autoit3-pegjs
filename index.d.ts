@@ -65,6 +65,7 @@ export type DimToken = AnyCase<"Dim">
 
 export type EmptyStatement = {
     type: "EmptyStatement",
+    location: PeggyLocationRange,
 };
 
 export type SingleLineComment = {

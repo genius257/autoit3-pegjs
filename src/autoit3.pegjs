@@ -874,7 +874,7 @@ Statement
   / SelectStatement
 
 EmptyStatement
-  = __ LineTerminatorSequence { return { type: "EmptyStatement" }; }
+  = __ LineTerminatorSequence { return { type: "EmptyStatement", location: location() }; }
 
 
 StatementList
