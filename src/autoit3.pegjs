@@ -983,7 +983,7 @@ IterationStatement
   = DoToken __ EOS
     __ body:StatementList? __
     UntilToken __ test:Expression __ EOS
-    { return { type: "DoWhileStatement", body: body ?? [], test: test }; }
+    { return { type: "DoWhileStatement", body: body ?? [], test: test, location: location() }; }
   / WhileToken __ test:Expression __ EOS
     __ body:StatementList? __
     WEndToken __ EOS

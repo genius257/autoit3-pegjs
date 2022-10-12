@@ -104,7 +104,8 @@ export type ElseClause = StatementList|null;
 export type IterationStatement = {
     type: "DoWhileStatement",
     body: StatementList,
-    test: Expression
+    test: Expression,
+    location: PeggyLocationRange,
 } | {
     type: "WhileStatement",
     test: Expression,
