@@ -1028,6 +1028,7 @@ ExitStatement
     return {
       type: "ExitStatement",
       argument: extractOptional(argument, 1),
+      location: location(),
     }
   }
 

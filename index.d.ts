@@ -149,6 +149,7 @@ export type SwitchStatement = {
 export type ExitStatement = {
     type: "ExitStatement",
     argument: AssignmentExpression|null,
+    location: PeggyLocationRange,
 }
 
 export type PreProcStatement = PreProc;
