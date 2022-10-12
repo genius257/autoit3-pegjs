@@ -84,11 +84,13 @@ export type IfStatement = {
     type: "IfStatement",
     test: Expression,
     consequent: StatementList|null,
-    alternate: ElseIfClauses|Array<ElseClause>//FIXME not sure if & or | sould be used!
+    alternate: ElseIfClauses|Array<ElseClause>,//FIXME not sure if & or | sould be used!
+    location: PeggyLocationRange,
 } | {
     type: "IfStatement",
     test: Expression,
     consequent: Statement,
+    location: PeggyLocationRange,
 }
 
 export type ElseIfClauses = Array<ElseIfClause>

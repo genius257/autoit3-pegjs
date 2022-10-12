@@ -947,7 +947,8 @@ IfStatement
         type: "IfStatement",
         test: test,
         consequent: extractOptional(consequent, 1),
-        alternate: [...alternates ?? [], ...alternate]
+        alternate: [...alternates ?? [], ...alternate],
+        location: location(),
       }
     }
     / IfToken __ test:Expression __ ThenToken __ consequent:Statement {
@@ -955,6 +956,7 @@ IfStatement
         type: "IfStatement",
         test: test,
         consequent: consequent,
+        location: location(),
       }
     }
 
