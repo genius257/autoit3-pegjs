@@ -907,6 +907,7 @@ VariableStatement
     return {
       type: "RedimExpression",
       declarations: buildList(head, tail, 3),
+      location: location(),
     };
   }
   / scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken __ declarations:EnumDeclarationList EOS {
