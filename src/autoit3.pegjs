@@ -202,7 +202,7 @@ IdentifierPart
   / DecimalDigit
 
 Macro
-    = "@" (
+    = value: $("@" (
     "AppDataCommonDir"i
     / "AppDataDir"i
     / "AutoItExe"i
@@ -302,7 +302,12 @@ Macro
     / "WorkingDir"i
     / "YDAY"i
     / "YEAR"i
-    ) !IdentifierPart
+    )) !IdentifierPart {
+  return {
+      type: "Macro",
+      value: value,
+  };
+}
 
 NullLiteral = NullToken { return { type: "Literal", value: null }; }
 

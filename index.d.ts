@@ -390,7 +390,7 @@ Identifier
 |ExpressionStatement //FIXME:changed from expression to expressionstatement, to solve circular reference. Make sure this is correct.
 |DefaultKeyword
 
-export type Macro = ["@", string, undefined];//FIXME
+export type Macro = { type: "Macro", value: string }
 export type DefaultKeyword = { type: "Keyword", value: "Default" }
 
 export type Literal =
