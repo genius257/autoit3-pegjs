@@ -165,6 +165,7 @@ MultiLineComment
         typeof match === "string" && typeof match === typeof carry[carry.length-1] ? carry[carry.length-1]+=match : carry.push(match);
         return carry;
       }, []).concat(extractOptional(afterBody, 1) ?? [])),
+      location: location(),
     };
   }
 
