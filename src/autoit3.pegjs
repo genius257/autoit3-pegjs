@@ -54,7 +54,7 @@ Start
 
 PreProc
   = "#include-once"i {
-    return { type: "IncludeOnceStatement" };
+    return { type: "IncludeOnceStatement", location: location() };
   }
   / "#" 'include'i Whitespace file:IncludeFileNameLiteral { //FIXME: require once ore more whirespace
     return {

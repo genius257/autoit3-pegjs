@@ -154,7 +154,8 @@ export type ExitStatement = {
 
 export type PreProcStatement = PreProc;
 export type PreProc = {
-    type: "IncludeOnceStatement"
+    type: "IncludeOnceStatement",
+    location: PeggyLocationRange,
 } | {
     type: "IncludeStatement",
     file: IncludeFileNameLiteral,
