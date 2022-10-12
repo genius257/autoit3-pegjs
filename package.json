@@ -21,7 +21,7 @@
     "url": "https://github.com/genius257/autoit3-pegjs/issues"
   },
   "homepage": "https://github.com/genius257/autoit3-pegjs#readme",
-  "devDependencies": {
+  "dependencies": {
     "peggy": "^2.0.1"
   }
 }
