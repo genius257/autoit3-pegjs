@@ -295,7 +295,10 @@ export type ArrayDeclaration = {
     elements: ArrayDeclarationElementList|null,
 }
 
-export type NotExpression = [string, string, EqualityExpression] | EqualityExpression
+export type NotExpression = {
+    type: "NotExpression",
+    value: EqualityExpression,
+} | EqualityExpression
 
 export type CaseValueList = Array<SwitchCaseValue>;
 

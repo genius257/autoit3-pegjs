@@ -690,7 +690,10 @@ LogicalANDOperator
  = AndToken WhiteSpace //FIXME: we need to allow multiple whitespaces
 
 NotExpression
-  = (NotToken __) EqualityExpression //FIXME: return ast object LIKE buildLogicalExpression does, but for NOT Expression
+  = (NotToken __) value:EqualityExpression { return {
+    type: "NotExpression",
+    value: value
+  } }
   / EqualityExpression
 
 EqualityExpression //FIXME: support NOT
