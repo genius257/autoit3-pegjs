@@ -163,6 +163,7 @@ export type PreProc = {
 } | {
     type: "PreProcStatement",
     body: string,
+    location: PeggyLocationRange,
 }
 
 export type MultiLineComment = {

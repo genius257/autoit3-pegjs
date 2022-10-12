@@ -64,7 +64,7 @@ PreProc
     };
   }
   / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken) body:(!Newline .)+ {
-    return { type: "PreProcStatement", body: body };
+    return { type: "PreProcStatement", body: body, location: location() };
   }
 
 IncludeFileNameLiteral
