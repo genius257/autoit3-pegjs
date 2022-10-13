@@ -770,7 +770,8 @@ UnaryExpression
         type: "UnaryExpression",
         operator: operator,
         argument: argument,
-        prefix: true
+        prefix: true,
+        location: location(),
       };
     }
 

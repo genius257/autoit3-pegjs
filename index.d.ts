@@ -373,7 +373,8 @@ export type UnaryExpression = LeftHandSideExpression | {
     type: "UnaryExpression",
     operator: UnaryOperator,
     argument: UnaryExpression,
-    prefix: true
+    prefix: true,
+    location: PeggyLocationRange,
 }
 
 export type ExponentialOperator = "^"
