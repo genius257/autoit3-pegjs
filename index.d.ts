@@ -333,7 +333,8 @@ export type BinaryExpression<Operator, T> = {
     type: "BinaryExpression",
     operator: Operator,
     left: T,
-    right: T
+    right: T,
+    location: PeggyLocationRange,
 }|T;
 
 export type SwitchCaseValue = {
