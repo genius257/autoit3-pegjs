@@ -1087,7 +1087,8 @@ CaseClause
       return {
         type: "SwitchCase",
         tests: tests,
-        consequent: optionalList(extractOptional(consequent, 1))
+        consequent: optionalList(extractOptional(consequent, 1)),
+        location: location(),
       };
     }
   / SingleLineComment EOS

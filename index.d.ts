@@ -309,6 +309,7 @@ export type CaseClause = {
     type: "SwitchCase",
     tests: CaseValueList,
     consequent: StatementList,
+    location: PeggyLocationRange,
 } | SingleLineComment;
 
 export type SelectCaseClause = {
