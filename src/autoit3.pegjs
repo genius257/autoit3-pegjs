@@ -144,10 +144,10 @@ Integer = [0-9]+
 //FIXME: !('"' / LineTerminator) instead of [^"]
 StringLiteral "string"
   = '"' chars:([^"] / '""')* '"' {
-    return { type: "Literal", value: chars.join("") }
+    return { type: "Literal", value: chars.join(""), location: location(), }
   }
   / "'" chars:([^'] / "''")* "'" {
-    return { type: "Literal", value: chars.join("") }
+    return { type: "Literal", value: chars.join(""), location: location(), }
   }
 
 Comment = SingleLineComment / MultiLineComment
