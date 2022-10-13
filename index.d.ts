@@ -224,12 +224,14 @@ export type AssignmentExpression = {
     type: "AssignmentExpression",
     operator: "=",
     left: LeftHandSideExpression,
-    right: AssignmentExpression
+    right: AssignmentExpression,
+    location: PeggyLocationRange,
 } | {
     type: "AssignmentExpression",
     operator: AssignmentOperator,
     left: LeftHandSideExpression,
-    right: AssignmentExpression
+    right: AssignmentExpression,
+    location: PeggyLocationRange,
 } | ConditionalExpression;
 
 export type AssignmentOperator = "*=" | "/=" | "+=" | "-=" | "&=";

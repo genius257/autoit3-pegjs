@@ -644,7 +644,8 @@ AssignmentExpression
         type: "AssignmentExpression",
         operator: "=",
         left: left,
-        right: right
+        right: right,
+        location: location(),
       };
     }
   / left:LeftHandSideExpression __
@@ -655,7 +656,8 @@ AssignmentExpression
         type: "AssignmentExpression",
         operator: operator,
         left: left,
-        right: right
+        right: right,
+        location: location(),
       };
     }
   / ConditionalExpression
