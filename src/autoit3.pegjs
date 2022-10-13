@@ -592,12 +592,12 @@ PrimaryExpression
 CallExpression
   = head:(
       callee:MemberExpression __ args:Arguments {
-        return { type: "CallExpression", callee: callee, arguments: args };
+        return { type: "CallExpression", callee: callee, arguments: args, location: location() };
       }
     )
     tail:(
         __ args:Arguments {
-          return { type: "CallExpression", arguments: args };
+          return { type: "CallExpression", arguments: args, location: location() };
         }
       / __ "[" __ property:Expression __ "]" {
           return {

@@ -390,6 +390,7 @@ export type CallExpression = { //FIXME
     type: "CallExpression",
     callee: MemberExpression,
     arguments: Arguments,
+    location: PeggyLocationRange,
 }
 
 type _MemberExpression = {
