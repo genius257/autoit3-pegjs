@@ -415,7 +415,7 @@ Identifier
 |ExpressionStatement //FIXME:changed from expression to expressionstatement, to solve circular reference. Make sure this is correct.
 |DefaultKeyword
 
-export type Macro = { type: "Macro", value: string }
+export type Macro = { type: "Macro", value: string, location: PeggyLocationRange, }
 export type DefaultKeyword = { type: "Keyword", value: "Default", location: PeggyLocationRange, }
 
 export type Literal =

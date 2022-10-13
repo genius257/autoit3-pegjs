@@ -308,6 +308,7 @@ Macro
   return {
       type: "Macro",
       value: value,
+      location: location(),
   };
 }
 
