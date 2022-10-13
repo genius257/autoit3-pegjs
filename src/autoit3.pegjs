@@ -178,6 +178,7 @@ ArrayDeclaration = "[" __ elements:ArrayDeclarationElementList? __ "]" {
   return {
     type: "ArrayDeclaration",
     elements: elements,
+    location: location(),
   }
 }
 

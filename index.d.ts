@@ -319,6 +319,7 @@ export type SelectCaseClause = {
 export type ArrayDeclaration = {
     type: "ArrayDeclaration",
     elements: ArrayDeclarationElementList|null,
+    location: PeggyLocationRange,
 }
 
 export type NotExpression = {
