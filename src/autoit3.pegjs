@@ -568,7 +568,8 @@ MemberExpression
           type: "MemberExpression",
           object: result,
           property: element.property,
-          computed: element.computed
+          computed: element.computed,
+          location: location(),
         };
       }, head);
     }
@@ -603,14 +604,16 @@ CallExpression
           return {
             type: "MemberExpression",
             property: property,
-            computed: true
+            computed: true,
+            location: location(),
           };
         }
       / __ "." __ property:IdentifierName {
           return {
             type: "MemberExpression",
             property: property,
-            computed: false
+            computed: false,
+            location: location(),
           };
         }
     )*

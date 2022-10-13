@@ -398,6 +398,7 @@ type _MemberExpression = {
     object: _MemberExpression|PrimaryExpression,
     property: Expression|IdentifierName,
     computed: boolean,
+    location: PeggyLocationRange,
 }
 
 export type MemberExpression = _MemberExpression|PrimaryExpression|Macro
