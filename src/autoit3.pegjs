@@ -136,7 +136,7 @@ HexDigit
 
 HexIntegerLiteral
     = "0x"i digits:$HexDigit+ {
-        return { type: "Literal", value: parseInt(digits, 16) };
+        return { type: "Literal", value: parseInt(digits, 16), location: location(), };
     }
 
 Integer = [0-9]+
