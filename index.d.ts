@@ -282,6 +282,7 @@ export type DefaultClause = {
     type: "SwitchCase",
     test: null,
     consequent: StatementList,
+    location: PeggyLocationRange,
 }
 
 export type SelectCaseClauses = SelectCaseClause[]
