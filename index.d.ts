@@ -184,6 +184,7 @@ export type Identifier = IdentifierName;
 export type IdentifierName = {
     type: "Identifier",
     name: string,
+    location: PeggyLocationRange,
 }
 
 export type FormalParameterList = Array<FormalParameter>;
