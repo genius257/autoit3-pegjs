@@ -320,6 +320,7 @@ export type ArrayDeclaration = {
 export type NotExpression = {
     type: "NotExpression",
     value: EqualityExpression,
+    location: PeggyLocationRange,
 } | EqualityExpression
 
 export type CaseValueList = Array<SwitchCaseValue>;

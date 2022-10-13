@@ -703,7 +703,8 @@ LogicalANDOperator
 NotExpression
   = (NotToken __) value:EqualityExpression { return {
     type: "NotExpression",
-    value: value
+    value: value,
+    location: location(),
   } }
   / EqualityExpression
 
