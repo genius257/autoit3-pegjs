@@ -298,6 +298,7 @@ export type LogicalExpression<Operator, T> = {
     operator: Operator,
     left: T,
     right: T,
+    location: PeggyLocationRange,
 } | T;
 
 export type CaseClause = {
