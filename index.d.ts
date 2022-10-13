@@ -424,7 +424,7 @@ NullLiteral
 |NumericLiteral
 |StringLiteral
 
-export type NullLiteral = { type: "Literal", value: null }
+export type NullLiteral = { type: "Literal", value: null, location: PeggyLocationRange, }
 export type BooleanLiteral = { type: "Literal", value: boolean }
 export type NumericLiteral = HexIntegerLiteral|DecimalLiteral
 export type StringLiteral = { type: "Literal", value: string }

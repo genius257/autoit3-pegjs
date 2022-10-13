@@ -311,7 +311,7 @@ Macro
   };
 }
 
-NullLiteral = NullToken { return { type: "Literal", value: null }; }
+NullLiteral = NullToken { return { type: "Literal", value: null, location: location(), }; }
 
 ReservedWord
     = Keyword
