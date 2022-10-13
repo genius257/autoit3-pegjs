@@ -430,4 +430,4 @@ export type NumericLiteral = HexIntegerLiteral|DecimalLiteral
 export type StringLiteral = { type: "Literal", value: string }
 
 export type HexIntegerLiteral = { type: "Literal", value: number, location: PeggyLocationRange, }
-export type DecimalLiteral = { type: "Literal", value: number }
+export type DecimalLiteral = { type: "Literal", value: number, location: PeggyLocationRange, }

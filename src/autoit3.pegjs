@@ -527,13 +527,13 @@ NonZeroDigit
 
 DecimalLiteral
   = DecimalIntegerLiteral "." DecimalDigit* ExponentPart? {
-      return { type: "Literal", value: parseFloat(text()) };
+      return { type: "Literal", value: parseFloat(text()), location: location(), };
     }
   / "." DecimalDigit+ ExponentPart? {
-      return { type: "Literal", value: parseFloat(text()) };
+      return { type: "Literal", value: parseFloat(text()), location: location(), };
     }
   / DecimalIntegerLiteral ExponentPart? {
-      return { type: "Literal", value: parseFloat(text()) };
+      return { type: "Literal", value: parseFloat(text()), location: location(), };
     }
 
 DecimalIntegerLiteral
