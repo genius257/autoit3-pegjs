@@ -678,7 +678,8 @@ AssignmentExpression
         type: "ConditionalExpression",
         test: test,
         consequent: consequent,
-        alternate: alternate
+        alternate: alternate,
+        location: location(),
       };
     }
   / LogicalORExpression

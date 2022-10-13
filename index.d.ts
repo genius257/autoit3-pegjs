@@ -270,6 +270,7 @@ export type ConditionalExpression = {
     test: LogicalORExpression,
     consequent: AssignmentExpression,
     alternate: AssignmentExpression,
+    location: PeggyLocationRange,
 } | LogicalORExpression;
 
 export type CaseClauses = Array<CaseClause>;
