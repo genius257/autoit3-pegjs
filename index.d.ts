@@ -316,6 +316,7 @@ export type SelectCaseClause = {
     type: "SelectCase",
     tests: AssignmentExpression,
     consequent: StatementList,
+    loaction: PeggyLocationRange,
 }
 
 export type ArrayDeclaration = {
