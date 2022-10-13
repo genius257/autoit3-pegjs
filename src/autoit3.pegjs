@@ -446,8 +446,8 @@ SelectCaseClause
     }
 
 BooleanLiteral 
-    = TrueToken  { return { type: "Literal", value: true  }; }
-    / FalseToken { return { type: "Literal", value: false }; }
+    = TrueToken  { return { type: "Literal", value: true, location: location(), }; }
+    / FalseToken { return { type: "Literal", value: false, location: location(), }; }
 
 Literal
     = NullLiteral
