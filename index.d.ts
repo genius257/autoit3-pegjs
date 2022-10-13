@@ -416,7 +416,7 @@ Identifier
 |DefaultKeyword
 
 export type Macro = { type: "Macro", value: string }
-export type DefaultKeyword = { type: "Keyword", value: "Default" }
+export type DefaultKeyword = { type: "Keyword", value: "Default", location: PeggyLocationRange, }
 
 export type Literal =
 NullLiteral
