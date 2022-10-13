@@ -842,6 +842,7 @@ FormalParameter
       byref: true,
       id: id,
       init: extractOptional(init, 2),
+      location: location(),
     };
   }
   / byref:(ByRefToken __)? ConstToken __ id:VariableIdentifier __ init:("=" __ Expression)? {
@@ -851,6 +852,7 @@ FormalParameter
       "const": true,
       id: id,
       init: extractOptional(init, 2),
+      location: location(),
     };
   }
   / id:VariableIdentifier __ init:("=" __ Expression)? {
@@ -860,6 +862,7 @@ FormalParameter
       byref: true,
       id: id,
       init: extractOptional(init, 2),
+      location: location(),
     };
   }
 

@@ -194,18 +194,21 @@ export type FormalParameter = {
     byref: true,
     id: VariableIdentifier,
     init: Expression,
+    location: PeggyLocationRange,
 } | {
     type: "Parameter",
     byref: boolean,
     "const": true,
     id: VariableIdentifier,
     init: Expression,
+    location: PeggyLocationRange,
 } | {
     type: "Parameter",
     "const": false,
     byref: true,
     id: VariableIdentifier ,
     init: Expression,
+    location: PeggyLocationRange,
 }
 
 export type StatementList = Array<Statement>;
