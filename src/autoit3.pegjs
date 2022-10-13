@@ -123,7 +123,8 @@ Initialiser
 VariableIdentifier = '$' head:[a-zA-Z_] tail:[0-9a-zA-Z_]*
   {return {
     type: "VariableIdentifier",
-    name: head + tail.join("")
+    name: head + tail.join(""),
+    location: location(),
   }}
 
 ArrayExpression = ArrayDeclaration

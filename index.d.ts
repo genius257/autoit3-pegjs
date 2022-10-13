@@ -244,6 +244,7 @@ export type SelectCaseBlock = [...SelectCaseClauses, DefaultClause, ...SelectCas
 export type VariableIdentifier = {
     type: "VariableIdentifier",
     name: string,
+    location: PeggyLocationRange,
 };
 
 export type VariableDeclaration = {
