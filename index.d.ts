@@ -280,7 +280,7 @@ export type CaseClauses = Array<CaseClause>;
 
 export type DefaultClause = {
     type: "SwitchCase",
-    test: null,
+    tests: null,
     consequent: StatementList,
     location: PeggyLocationRange,
 }

@@ -1100,7 +1100,7 @@ DefaultClause
     {
       return {
         type: "SwitchCase",
-        test: null,
+        tests: null,
         consequent: optionalList(extractOptional(consequent, 1)),
         location: location(),
       };
