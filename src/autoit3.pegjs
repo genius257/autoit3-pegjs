@@ -875,7 +875,7 @@ FormalParameter
 Statement
   = VariableStatement //TODO: should we dilute?
   / EmptyStatement
-  / SingleLineComment EOS
+  / slc:SingleLineComment EOS {return slc;}
   / ExpressionStatement
   / IfStatement
   / IterationStatement
