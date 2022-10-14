@@ -349,6 +349,7 @@ export type SwitchCaseValue = {
     type: "SwitchCaseRange",
     from: Expression,
     to: Expression,
+    location: PeggyLocationRange,
 }
 
 export type RelationalExpression = BinaryExpression<RelationalOperator, AdditiveExpression>;

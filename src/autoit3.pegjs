@@ -1117,6 +1117,7 @@ SwitchCaseValue
       type: "SwitchCaseRange",
       from: from,
       to: to,
+      location: location(),
     }
   }
   / Expression
