@@ -65,7 +65,7 @@ PreProc
       location: location(),
     };
   }
-  / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken) body:(!Newline .)+ {
+  / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken) body:$(!Newline .)+ {
     return { type: "PreProcStatement", body: body, location: location() };
   }
 
