@@ -861,7 +861,7 @@ FormalParameter
     return {
       type: "Parameter",
       "const": false,
-      byref: true,
+      byref: false,
       id: id,
       init: extractOptional(init, 2),
       location: location(),

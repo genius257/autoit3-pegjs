@@ -205,7 +205,7 @@ export type FormalParameter = {
 } | {
     type: "Parameter",
     "const": false,
-    byref: true,
+    byref: false,
     id: VariableIdentifier ,
     init: Expression,
     location: PeggyLocationRange,
