@@ -292,8 +292,8 @@ export type Initialiser = AssignmentExpression | ArrayDeclaration;
 export type LogicalORExpression = LogicalExpression<LogicalOROperator, LogicalANDExpression>
 export type LogicalANDExpression = LogicalExpression<LogicalANDOperator, NotExpression>
 
-export type LogicalOROperator = [OrToken, string];
-export type LogicalANDOperator = [AndToken, string];
+export type LogicalOROperator = OrToken;
+export type LogicalANDOperator = AndToken;
 export type OrToken = AnyCase<"Or">;
 export type AndToken = AnyCase<"And">;
 

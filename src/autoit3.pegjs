@@ -703,10 +703,10 @@ LogicalANDExpression
     { return buildLogicalExpression(head, tail); }
 
 LogicalOROperator
-  = OrToken
+  = $OrToken
 
 LogicalANDOperator
- = AndToken WhiteSpace //FIXME: we need to allow multiple whitespaces
+ = $AndToken
 
 NotExpression
   = (NotToken __) value:EqualityExpression { return {
