@@ -113,7 +113,21 @@ export type IterationStatement = {
     test: Expression,
     body: StatementList,
     location: PeggyLocationRange,
-} //FIXME: for and for in not ready
+} | {
+    type: "ForStatement",
+    id: VariableIdentifier,
+    init: Expression,
+    test: Expression,
+    update: Expression|null,
+    body: StatementList,
+    location: PeggyLocationRange,
+} | {
+    type: "ForInStatement",
+    left: VariableIdentifier,
+    right: Expression,
+    body: StatementList,
+    location: PeggyLocationRange,
+}
 
 export type ContinueLoopStatement = {
     type: "ContinueLoopStatement",

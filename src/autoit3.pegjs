@@ -1007,12 +1007,14 @@ IterationStatement
     __ body:StatementList? __
     WEndToken __ EOS
     { return { type: "WhileStatement", test: test, body: body ?? [], location: location() }; }
-  / ForToken __ VariableIdentifier __ "=" __ Expression __ ToToken __ Expression __ (StepToken __ Expression)? EOS
+  / ForToken __ id:VariableIdentifier __ "=" __ init:Expression __ ToToken __ test:Expression __ update:(StepToken __ Expression)? EOS
       __ body:StatementList? __
-    NextToken
-  / ForToken __ VariableIdentifier __ InToken __ Expression
+    NextToken __ EOS
+    { return { type: "ForStatement", id: id, init: init, test: test, update: extractOptional(update, 1), body: optionalList(body), location: location() }; }
+  / ForToken __ left:VariableIdentifier __ InToken __ right:Expression
       __ body:StatementList? __
-    NextToken
+    NextToken __ EOS
+    { return { type: "ForInStatement", left: left, right: right, body: optionalList(body), location: location() } }
 
 EOS
   = _ SingleLineComment? ( LineTerminatorSequence / EOF)
