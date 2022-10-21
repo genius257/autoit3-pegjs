@@ -1011,7 +1011,7 @@ IterationStatement
   / ForToken __ id:VariableIdentifier __ "=" __ init:Expression __ ToToken __ test:Expression __ update:(StepToken __ Expression)? EOS
       __ body:StatementList? __
     NextToken __ EOS
-    { return { type: "ForStatement", id: id, init: init, test: test, update: extractOptional(update, 1), body: optionalList(body), location: location() }; }
+    { return { type: "ForStatement", id: id, init: init, test: test, update: extractOptional(update, 2), body: optionalList(body), location: location() }; }
   / ForToken __ left:VariableIdentifier __ InToken __ right:Expression
       __ body:StatementList? __
     NextToken __ EOS
