@@ -58,10 +58,11 @@ PreProc
   = "#include-once"i {
     return { type: "IncludeOnceStatement", location: location() };
   }
-  / "#" 'include'i Whitespace file:IncludeFileNameLiteral { //FIXME: require once ore more whirespace
+  / "#" 'include'i Whitespace file:IncludeFileName { //FIXME: require once ore more whirespace
     return {
       type: "IncludeStatement", //FIXME: move into a new rule IncludeStatement
-      file: file,
+      library: file[0],
+      file: file[1],
       location: location(),
     };
   }
@@ -69,15 +70,15 @@ PreProc
     return { type: "PreProcStatement", body: body, location: location() };
   }
 
-IncludeFileNameLiteral
-  = "<" file:[^:?"<>]+ ">" {
-    return file.join("");
+IncludeFileName
+  = "<" file:$[^:?"<>]+ ">" {
+    return [true, file];
   }
-  / '"' file:[^:?"<>]+ '"' {
-    return file.join("");
+  / '"' file:$[^:?"<>]+ '"' {
+    return [false, file];
   }
-  / "'" file:[^:?"'<>]+ "'" {
-    return file.join("");
+  / "'" file:$[^:?"'<>]+ "'" {
+    return [false, file];
   }
 
 LiteralWhitespace = "\u0009" / "\u0020"

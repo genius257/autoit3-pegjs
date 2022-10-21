@@ -174,7 +174,8 @@ export type PreProc = {
     location: PeggyLocationRange,
 } | {
     type: "IncludeStatement",
-    file: IncludeFileNameLiteral,
+    library: IncludeFileName[0]
+    file: IncludeFileName[1],
     location: PeggyLocationRange,
 } | {
     type: "PreProcStatement",
@@ -256,7 +257,7 @@ export type AssignmentOperator = "*=" | "/=" | "+=" | "-=" | "&=";
 export type CaseBlock = [...CaseClauses, DefaultClause, ...CaseClauses];
 
 /** File URI */
-export type IncludeFileNameLiteral = string;
+export type IncludeFileName = [boolean, string];
 
 export type SelectCaseBlock = [...SelectCaseClauses, DefaultClause, ...SelectCaseClauses];
 
