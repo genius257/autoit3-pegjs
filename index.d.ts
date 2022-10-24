@@ -172,16 +172,18 @@ export type PreProcStatement = PreProc;
 export type PreProc = {
     type: "IncludeOnceStatement",
     location: PeggyLocationRange,
-} | {
-    type: "IncludeStatement",
-    library: IncludeFileName[0]
-    file: IncludeFileName[1],
-    location: PeggyLocationRange,
-} | {
+} | IncludeStatement | {
     type: "PreProcStatement",
     body: string,
     location: PeggyLocationRange,
 }
+
+export type IncludeStatement = {
+    type: "IncludeStatement",
+    library: IncludeFileName[0]
+    file: IncludeFileName[1],
+    location: PeggyLocationRange,
+};
 
 export type MultiLineComment = {
     type: "MultiLineComment",
