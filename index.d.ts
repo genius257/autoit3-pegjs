@@ -1,4 +1,4 @@
-import { LocationRange as PeggyLocationRange, Parser, ParserOptions, parser as PeggyParser } from "peggy"
+import { LocationRange as PeggyLocationRange, Location as PeggyLocation, Parser, ParserOptions, parser as PeggyParser } from "peggy"
 
 /**
  * @see https://stackoverflow.com/a/64932909/3958400
@@ -13,6 +13,7 @@ type AnyCase<T extends string> =
 
 export type SyntaxError = PeggyParser.SyntaxError;
 
+export type Location = PeggyLocation;
 export type LocationRange = PeggyLocationRange;
 
 export interface AutoItParser extends Parser {
