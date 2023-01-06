@@ -582,7 +582,7 @@ MemberExpression
     / Macro
 
 
-DefaultKeyword = DefaultToken { return { type: "Keyword", value: "Default" }; }
+DefaultKeyword = DefaultToken { return { type: "Keyword", value: "Default", location: location() }; }
 
 PrimaryExpression
   = Identifier
