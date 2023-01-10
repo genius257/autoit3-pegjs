@@ -58,7 +58,7 @@ PreProc
   = "#include-once"i {
     return { type: "IncludeOnceStatement", location: location() };
   }
-  / "#" IncludeToken LiteralWhitespace* file:IncludeFileName {
+  / "#" IncludeToken LiteralWhitespace* file:IncludeFileName Whitespace {
     return {
       type: "IncludeStatement", //FIXME: move into a new rule IncludeStatement
       library: file[0],
