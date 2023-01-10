@@ -1000,7 +1000,8 @@ ElseClause
     consequent:(__ StatementList __)? {
       return {
         type: "ElseStatement",
-        consequent: extractOptional(consequent, 1)
+        consequent: extractOptional(consequent, 1),
+        location: location(),
       }
     }
 

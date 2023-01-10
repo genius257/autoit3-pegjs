@@ -101,11 +101,12 @@ export type ElseIfClause = {
     type: "ElseIfStatement",
     test: Expression,
     consequent: StatementList|null,
-    location: PeggyLocationRange
+    location: PeggyLocationRange,
 }
 export type ElseClause = {
     type: "ElseStatement",
-    consequent: StatementList|null
+    consequent: StatementList|null,
+    location: PeggyLocationRange,
 };
 
 export type IterationStatement = {
