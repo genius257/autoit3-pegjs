@@ -138,8 +138,9 @@ HexDigit
   = [0-9a-f]i
 
 HexIntegerLiteral
-    = "0x"i digits:$HexDigit+ {
-        return { type: "Literal", value: parseInt(digits, 16), location: location(), };
+    = "0x"i digits:$HexDigit* {
+        var value = digits === "" ? 0 : parseInt(digits, 16);
+        return { type: "Literal", value: value, location: location(), };
     }
 
 Integer = [0-9]+
