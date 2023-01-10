@@ -101,6 +101,7 @@ export type ElseIfClause = {
     type: "ElseIfStatement",
     test: Expression,
     consequent: StatementList|null,
+    location: PeggyLocationRange
 }
 export type ElseClause = StatementList|null;
 
