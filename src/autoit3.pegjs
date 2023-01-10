@@ -66,7 +66,7 @@ PreProc
       location: location(),
     };
   }
-  / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken) body:$(!Newline .)+ {
+  / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken / IncludeToken) body:$(!Newline .)+ {
     return { type: "PreProcStatement", body: body, location: location() };
   }
 
@@ -492,6 +492,7 @@ ForToken           = "For"i            !IdentifierPart
 FuncToken          = "Func"i           !IdentifierPart
 GlobalToken        = "Global"i         !IdentifierPart
 IfToken            = "If"i             !IdentifierPart
+IncludeToken       = "Include"i        !IdentifierPart
 InToken            = "In"i             !IdentifierPart
 LocalToken         = "Local"i          !IdentifierPart
 NextToken          = "Next"i           !IdentifierPart
