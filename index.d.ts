@@ -103,7 +103,10 @@ export type ElseIfClause = {
     consequent: StatementList|null,
     location: PeggyLocationRange
 }
-export type ElseClause = StatementList|null;
+export type ElseClause = {
+    type: "ElseStatement",
+    consequent: StatementList|null
+};
 
 export type IterationStatement = {
     type: "DoWhileStatement",

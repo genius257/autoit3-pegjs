@@ -997,8 +997,11 @@ ElseIfClause
 
 ElseClause
   = ElseToken __ EOS
-    alternate:(__ StatementList __)? {
-      return extractOptional(alternate, 1);
+    consequent:(__ StatementList __)? {
+      return {
+        type: "ElseStatement",
+        consequent: extractOptional(consequent, 1)
+      }
     }
 
 IterationStatement
