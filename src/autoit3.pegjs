@@ -599,8 +599,6 @@ PrimaryExpression
   //FIXME: rules below are not sure if belong
   / DefaultKeyword
 
-  //FIXME: all NewExpression are MemberExpression
-
 CallExpression
   = head:(
       callee:MemberExpression __ args:Arguments {
