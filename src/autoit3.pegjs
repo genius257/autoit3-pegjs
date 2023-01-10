@@ -1026,9 +1026,8 @@ EOS
 EOF
   = !.
 
-WhiteSpace = Whitespace
 __ //FIXME: support line continuation
-  = WhiteSpace*
+  = Whitespace*
 //FIXME: implement this
 _ = __
 
