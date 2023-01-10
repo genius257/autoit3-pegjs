@@ -58,16 +58,19 @@ PreProc
   = "#include-once"i {
     return { type: "IncludeOnceStatement", location: location() };
   }
-  / "#" IncludeToken LiteralWhitespace* file:IncludeFileName Whitespace {
+  / IncludeStatement
+  / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken / IncludeToken) body:$(!Newline .)+ {
+    return { type: "PreProcStatement", body: body, location: location() };
+  }
+
+IncludeStatement
+  = "#" IncludeToken LiteralWhitespace* file:IncludeFileName (Whitespace/SingleLineComment) {
     return {
-      type: "IncludeStatement", //FIXME: move into a new rule IncludeStatement
+      type: "IncludeStatement",
       library: file[0],
       file: file[1],
       location: location(),
     };
-  }
-  / "#" !(CSToken / CEToken / CommentsStartToken / CommentsEndToken / IncludeToken) body:$(!Newline .)+ {
-    return { type: "PreProcStatement", body: body, location: location() };
   }
 
 IncludeFileName
