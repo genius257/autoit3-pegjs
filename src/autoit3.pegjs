@@ -904,7 +904,7 @@ StatementList
   = head:Statement tail:(__ Statement)* { return buildList(head, tail, 1); }
 
 //NOTE: VariableDeclarationStatement
-//FIXME: update syntax to use new identifiers, expressions and statements
+
 VariableStatement
   = static_:(StaticToken __)? scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? declarations:VariableDeclarationList EOS {
     return {
