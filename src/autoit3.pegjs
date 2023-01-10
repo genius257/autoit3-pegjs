@@ -991,6 +991,7 @@ ElseIfClause
         type: "ElseIfStatement",
         test: test,
         consequent: extractOptional(consequent, 1),
+        location: location(),
       }
     }
 
