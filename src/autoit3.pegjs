@@ -1053,7 +1053,7 @@ Expression
     }
 
 ExitStatement
-  = ExitToken argument:(__ AssignmentExpression)? EOS {
+  = ExitToken argument:(__ AssignmentExpression / __ "(" __ ")" { return null; } )? EOS {
     return {
       type: "ExitStatement",
       argument: extractOptional(argument, 1),
