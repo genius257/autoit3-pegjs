@@ -64,7 +64,7 @@ PreProc
   }
 
 IncludeStatement
-  = "#" IncludeToken LiteralWhitespace* file:IncludeFileName (Whitespace/SingleLineComment) {
+  = "#" IncludeToken LiteralWhitespace* file:IncludeFileName (Whitespace/SingleLineComment)? {
     return {
       type: "IncludeStatement",
       library: file[0],
