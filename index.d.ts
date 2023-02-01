@@ -431,6 +431,7 @@ type _MemberExpression = {
     type: "MemberExpression",
     object: _MemberExpression|PrimaryExpression,
     property: Expression|IdentifierName,
+    /** true if array accessor, false if object property */
     computed: boolean,
     location: PeggyLocationRange,
 }
