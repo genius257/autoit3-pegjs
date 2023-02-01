@@ -290,7 +290,6 @@ Macro
     / "SW_MAXIMIZE"i
     / "SW_MINIMIZE"i
     / "SW_RESTORE"i
-    / "SW_SHOW"i
     / "SW_SHOWDEFAULT"i
     / "SW_SHOWMAXIMIZED"i
     / "SW_SHOWMINIMIZED"i
@@ -298,6 +297,7 @@ Macro
     / "SW_SHOWNA"i
     / "SW_SHOWNOACTIVATE"i
     / "SW_SHOWNORMAL"i
+    / "SW_SHOW"i
     / "SW_UNLOCK"i
     / "SystemDir"i
     / "TAB"i
