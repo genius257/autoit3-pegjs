@@ -126,10 +126,10 @@ EnumDeclaration = id:VariableIdentifier init:(__ '=' __ AssignmentExpression)? {
 Initialiser
   = "=" !"=" __ expression:(AssignmentExpression / ArrayDeclaration) { return expression; }
 
-VariableIdentifier = '$' head:[a-zA-Z_] tail:[0-9a-zA-Z_]*
+VariableIdentifier = '$' name:$[0-9a-zA-Z_]+
   {return {
     type: "VariableIdentifier",
-    name: head + tail.join(""),
+    name: name,
     location: location(),
   }}
 
