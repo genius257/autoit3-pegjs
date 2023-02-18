@@ -933,13 +933,15 @@ VariableStatement
       location: location(),
     };
   }
-  / scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken __ declarations:EnumDeclarationList EOS {
+  / scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace [+\-*]? $[0-9]+ )? __ declarations:EnumDeclarationList EOS {
     return {
       scope: extractOptional(scope, 0),
       constant: !!constant,
       static: false,
-      type: "VariableDeclaration",
+      type: "EnumDeclaration",
       declarations: declarations,
+      stepoperator: extractOptional(step, 3),
+      stepval: parseInt(extractOptional(step, 4)),
       location: location(),
     }
   }

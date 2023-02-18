@@ -57,8 +57,10 @@ export type VariableStatement = {
     scope: LocalToken|GlobalToken|DimToken,
     constant: boolean,
     static: false,
-    type: "VariableDeclaration",
+    type: "EnumDeclaration",
     declarations: EnumDeclarationList,
+    stepoperator: "+"|"-"|"*",
+    stepval: number,
     location: PeggyLocationRange,
 }
 
