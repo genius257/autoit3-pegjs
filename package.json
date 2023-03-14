@@ -1,6 +1,6 @@
 {
   "name": "autoit3-pegjs",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A PEG.js parser for the AutoIt3 language",
   "main": "index.js",
   "scripts": {
