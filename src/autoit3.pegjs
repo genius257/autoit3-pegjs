@@ -74,13 +74,13 @@ IncludeStatement
   }
 
 IncludeFileName
-  = "<" file:$[^:?"<>]+ ">" {
+  = "<" file:$(([a-zA-Z]":")?[^:?"<>]+) ">" {
     return [true, file];
   }
-  / '"' file:$[^:?"<>]+ '"' {
+  / '"' file:$(([a-zA-Z]":")?[^:?"<>]+) '"' {
     return [false, file];
   }
-  / "'" file:$[^:?"'<>]+ "'" {
+  / "'" file:$(([a-zA-Z]":")?[^:?"'<>]+) "'" {
     return [false, file];
   }
 
