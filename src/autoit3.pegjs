@@ -893,7 +893,7 @@ Statement
   //NOTE: below here is new unsure rules
   / ExitStatement
   / PreProcStatement
-  / MultiLineComment
+  / mlc:MultiLineComment EOS {return mlc;}
   / SelectStatement
 
 EmptyStatement
