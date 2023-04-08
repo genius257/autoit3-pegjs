@@ -166,13 +166,10 @@ SingleLineComment = ';' body:([^\u000A\u000D]*) {
 MultiLineCommentStartTag = "#" (CSToken / CommentsStartToken)
 
 MultiLineComment
-  = MultiLineCommentStartTag beforeBody:(LiteralWhitespace $(!Newline .)*)? body:(MultiLineComment/!(Newline Whitespace* MultiLineCommentEndTag) .)* Newline Whitespace* MultiLineCommentEndTag afterBody:(LiteralWhitespace+ $(!Newline .)*)? {
+  = MultiLineCommentStartTag beforeBody:$(LiteralWhitespace $(!Newline .)*)? body:$((MultiLineComment/!(Newline Whitespace* MultiLineCommentEndTag) .)* Newline Whitespace*) MultiLineCommentEndTag afterBody:$(LiteralWhitespace+ $(!Newline .)*)? {
     return {
       type: "MultiLineComment",
-      body: (extractOptional(beforeBody, 1) !== null ? [extractOptional(beforeBody, 1)] : []).concat(body.map((match) => match[1] ?? match).reduce((carry, match) => {
-        typeof match === "string" && typeof match === typeof carry[carry.length-1] ? carry[carry.length-1]+=match : carry.push(match);
-        return carry;
-      }, []).concat(extractOptional(afterBody, 1) ?? [])),
+      body: beforeBody+body,
       location: location(),
     };
   }
