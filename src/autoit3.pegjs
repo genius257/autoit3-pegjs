@@ -166,7 +166,7 @@ SingleLineComment = ';' body:([^\u000A\u000D]*) {
 MultiLineCommentStartTag = "#" (CSToken / CommentsStartToken)
 
 MultiLineComment
-  = MultiLineCommentStartTag beforeBody:$(LiteralWhitespace $(!Newline .)*)? body:$((MultiLineComment/!(Newline Whitespace* MultiLineCommentEndTag) .)* Newline Whitespace*) MultiLineCommentEndTag afterBody:$(LiteralWhitespace+ $(!Newline .)*)? {
+  = MultiLineCommentStartTag beforeBody:$($(!Newline .)*)? body:$((MultiLineComment/!(Newline Whitespace* MultiLineCommentEndTag) .)* Newline Whitespace*) MultiLineCommentEndTag afterBody:$($(!Newline .)*)? {
     return {
       type: "MultiLineComment",
       body: beforeBody+body,
@@ -467,13 +467,13 @@ Literal
 AndToken           = "And"i            !IdentifierPart
 ByRefToken         = "ByRef"i          !IdentifierPart
 CaseToken          = "Case"i           !IdentifierPart
-CEToken            = "ce"i             !IdentifierPart
-CommentsStartToken = "comments-start"i !IdentifierPart
-CommentsEndToken   = "comments-end"i   !IdentifierPart
+CEToken            = "ce"i
+CommentsStartToken = "comments-start"i
+CommentsEndToken   = "comments-end"i
 ConstToken         = "Const"i          !IdentifierPart
 ContinueCaseToken  = "ContinueCase"i   !IdentifierPart
 ContinueLoopToken  = "ContinueLoop"i   !IdentifierPart
-CSToken            = "cs"i             !IdentifierPart
+CSToken            = "cs"i
 DefaultToken       = "Default"i        !IdentifierPart
 DimToken           = "Dim"i            !IdentifierPart
 DoToken            = "Do"i             !IdentifierPart
