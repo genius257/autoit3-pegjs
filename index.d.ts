@@ -422,7 +422,7 @@ export type UnaryOperator =
   //| "~"
   //| "!"
 
-export type CallExpression = { //FIXME
+export type CallExpression = {
     type: "CallExpression",
     callee: MemberExpression,
     arguments: Arguments,
