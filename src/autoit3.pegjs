@@ -1062,6 +1062,7 @@ ExitStatement
 
 SwitchStatement
   = SwitchToken __ discriminant:Expression __ EOS
+    EmptyStatement*
     cases:CaseBlock
   EndSwitchToken EOS
   {
