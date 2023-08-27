@@ -457,8 +457,8 @@ BooleanLiteral
     / FalseToken { return { type: "Literal", value: false, location: location(), }; }
 
 Literal
-    = NullLiteral
-    / BooleanLiteral
+    = NullLiteral !AdditiveOperator
+    / BooleanLiteral !AdditiveOperator
     / NumericLiteral
     / StringLiteral
 
@@ -594,7 +594,7 @@ PrimaryExpression
   // ObjectLiteral
   / "(" __ expression:Expression __ ")" { return expression; }
   //FIXME: rules below are not sure if belong
-  / DefaultKeyword
+  / DefaultKeyword !AdditiveOperator
 
 CallExpression
   = head:(
