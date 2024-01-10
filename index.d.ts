@@ -94,7 +94,7 @@ export type IfStatement = {
 } | {
     type: "IfStatement",
     test: Expression,
-    consequent: Statement,
+    consequent: ExpressionStatement|VariableStatement,
     location: PeggyLocationRange,
 }
 
