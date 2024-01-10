@@ -1102,7 +1102,7 @@ CaseClause
         location: location(),
       };
     }
-  / SingleLineComment EOS
+  / slc:SingleLineComment EOS {return slc;}
 
 DefaultClause
   = CaseToken __ ElseToken __ EOS
