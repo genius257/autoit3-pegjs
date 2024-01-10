@@ -943,9 +943,11 @@ VariableStatement
     }
   }
 
-  RedimIdentifierExpression = VariableIdentifier __ ("[" __ Expression __ "]")+ { //FIXME: implement the expressions array as a nested rule.
+  RedimIdentifierExpression = id:VariableIdentifier __ ("[" __ Expression __ "]")+ { //FIXME: implement the expressions array as a nested rule.
     return {
-      type: "RedimIdentifierExpression"
+      type: "RedimIdentifierExpression",
+      id: id,
+      location: location(),
     };
   }
 

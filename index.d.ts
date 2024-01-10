@@ -242,6 +242,8 @@ export type VariableDeclarationList = Array<VariableDeclaration>;
 
 export type RedimIdentifierExpression = {
     type: "RedimIdentifierExpression",
+    id: VariableIdentifier,
+    location: PeggyLocationRange,
 }
 
 export type EnumDeclarationList = Array<EnumDeclaration>;
