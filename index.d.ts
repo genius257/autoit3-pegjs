@@ -64,9 +64,9 @@ export type VariableStatement = {
     location: PeggyLocationRange,
 }
 
-export type LocalToken = AnyCase<"Local">
-export type GlobalToken = AnyCase<"Global">
-export type DimToken = AnyCase<"Dim">
+export type LocalToken = "local"
+export type GlobalToken = "global"
+export type DimToken = "dim"
 
 export type EmptyStatement = {
     type: "EmptyStatement",

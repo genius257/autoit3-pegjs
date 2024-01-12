@@ -905,7 +905,7 @@ StatementList
 VariableStatement
   = static_:(StaticToken __)? scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? declarations:VariableDeclarationList EOS {
     return {
-      scope: extractOptional(scope, 0),
+      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
       constant: !!constant,
       static_: !!static_,
       type: "VariableDeclaration",
@@ -915,7 +915,7 @@ VariableStatement
   }
   / scope:($(LocalToken / GlobalToken / DimToken) __)? static_:(StaticToken __)? constant:(ConstToken __)? declarations:VariableDeclarationList EOS {
     return {
-      scope: extractOptional(scope, 0),
+      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
       constant: !!constant,
       static_: !!static_,
       type: "VariableDeclaration",
@@ -932,7 +932,7 @@ VariableStatement
   }
   / scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace [+\-*]? $[0-9]+ )? __ declarations:EnumDeclarationList EOS {
     return {
-      scope: extractOptional(scope, 0),
+      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
       constant: !!constant,
       static: false,
       type: "EnumDeclaration",
