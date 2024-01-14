@@ -54,7 +54,7 @@ export type VariableStatement = {
     declarations: Array<RedimIdentifierExpression>,
     location: PeggyLocationRange,
 } | {
-    scope: LocalToken|GlobalToken|DimToken,
+    scope: LocalToken|GlobalToken|DimToken|null,
     constant: boolean,
     static: false,
     type: "EnumDeclaration",
