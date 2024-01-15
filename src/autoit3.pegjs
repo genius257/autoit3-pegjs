@@ -457,8 +457,8 @@ BooleanLiteral
     / FalseToken { return { type: "Literal", value: false, location: location(), }; }
 
 Literal
-    = NullLiteral !AdditiveOperator
-    / BooleanLiteral !AdditiveOperator
+    = literal:NullLiteral !AdditiveOperator { return literal; }
+    / literal:BooleanLiteral !AdditiveOperator { return literal; }
     / NumericLiteral
     / StringLiteral
 
