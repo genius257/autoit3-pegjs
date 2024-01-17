@@ -594,7 +594,7 @@ PrimaryExpression
   // ObjectLiteral
   / "(" __ expression:Expression __ ")" { return expression; }
   //FIXME: rules below are not sure if belong
-  / DefaultKeyword !AdditiveOperator
+  / Keyword:DefaultKeyword !AdditiveOperator { return Keyword; }
 
 CallExpression
   = head:(
