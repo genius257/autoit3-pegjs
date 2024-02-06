@@ -975,7 +975,7 @@ IfStatement
         location: location(),
       }
     }
-    / IfToken __ test:Expression __ ThenToken __ !(EmptyStatement/Comment) consequent:(ExpressionStatement/VariableStatement) {
+    / IfToken __ test:Expression __ ThenToken __ !(EmptyStatement/Comment) consequent:(ExpressionStatement/VariableStatement/ContinueLoopStatement/ContinueCaseStatement/ExitLoopStatement/ReturnStatement/ExitStatement) {
       return {
         type: "IfStatement",
         test: test,
