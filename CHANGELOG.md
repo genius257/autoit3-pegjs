@@ -101,8 +101,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.1.4...HEAD
-[1.1.4]: https://github.com/genius257/autoit3-pegjs/compare/1.1.4...1.1.5
+[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.1.5...HEAD
+[1.1.5]: https://github.com/genius257/autoit3-pegjs/compare/1.1.4...1.1.5
+[1.1.4]: https://github.com/genius257/autoit3-pegjs/compare/1.1.3...1.1.4
 [1.1.4]: https://github.com/genius257/autoit3-pegjs/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/genius257/autoit3-pegjs/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/genius257/autoit3-pegjs/compare/1.1.1...1.1.2
