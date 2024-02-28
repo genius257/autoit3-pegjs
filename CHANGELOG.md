@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.6] - 2024-02-28
+
+### Fixed
+
+- Fixed problems with expected and allowed keywords for VariableDeclarations ( #33, #34 )
+
 ## [1.1.5] - 2024-02-07
 
 ### Added
