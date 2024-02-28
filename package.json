@@ -3,7 +3,7 @@
   "description": "A PEG.js parser for the AutoIt3 language",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "vitest",
     "build": "peggy -o out/autoit3.js src/autoit3.pegjs --cache",
     "install": "npm run build"
   },
@@ -24,6 +24,7 @@
     "peggy": "^2.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.15.3"
+    "@types/node": "^18.15.3",
+    "vitest": "^1.3.1"
   }
 }
