@@ -94,6 +94,11 @@ LineContinuation = LiteralWhitespace+ '_' LiteralWhitespace* SingleLineComment? 
 
 Newline = LineTerminatorSequence
 
+ConstDeclarationList
+  = head: ConstDeclaration tail:(__ "," __ ConstDeclaration)* {
+    return buildList(head, tail, 3);
+  }
+
 EnumDeclarationList
   = head:EnumDeclaration tail:(__ "," __ EnumDeclaration)* {
       return buildList(head, tail, 3);
@@ -122,6 +127,16 @@ EnumDeclaration = id:VariableIdentifier init:(__ '=' __ AssignmentExpression)? {
     location: location(),
   }
 }
+
+ConstDeclaration
+  = id:VariableIdentifier __ '=' __ init:AssignmentExpression {
+    return {
+      type: "VariableDeclarator",
+      id: id,
+      init: init,
+      location: location(),
+    }
+  }
 
 Initialiser
   = "=" !"=" __ expression:(AssignmentExpression / ArrayDeclaration) { return expression; }
@@ -903,23 +918,53 @@ StatementList
 //NOTE: VariableDeclarationStatement
 
 VariableStatement
-  = static_:(StaticToken __)? scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? declarations:VariableDeclarationList EOS {
+  = scope:($(LocalToken / GlobalToken / DimToken) __) declarations:VariableDeclarationList EOS {
     return {
       scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
-      constant: !!constant,
-      static_: !!static_,
+      constant: false,
+      static_: false,
       type: "VariableDeclaration",
       declarations: declarations,
       location: location(),
     }
   }
-  / scope:($(LocalToken / GlobalToken / DimToken) __)? static_:(StaticToken __)? constant:(ConstToken __)? declarations:VariableDeclarationList EOS {
+  / scope:($(LocalToken / GlobalToken / DimToken) __)? ConstToken __ declarations:ConstDeclarationList EOS {
     return {
       scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
-      constant: !!constant,
-      static_: !!static_,
+      constant: true,
+      static_: false,
       type: "VariableDeclaration",
       declarations: declarations,
+      location: location(),
+    }
+  }
+  / scope:($(LocalToken / GlobalToken) __)? StaticToken __ declarations:VariableDeclarationList EOS {
+    return {
+      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
+      constant: false,
+      static_: true,
+      type: "VariableDeclaration",
+      declarations: declarations,
+      location: location(),
+    }
+  }
+  / StaticToken __ scope:($(LocalToken / GlobalToken) __)? declarations:VariableDeclarationList EOS {
+    return {
+      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
+      constant: false,
+      static_: true,
+      type: "VariableDeclaration",
+      declarations: declarations,
+      location: location(),
+    }
+  }
+  / declaration:ConstDeclaration EOS {
+    return {
+      scope: null,
+      constant: false,
+      static_: false,
+      type: "VariableDeclaration",
+      declarations: [declaration],
       location: location(),
     }
   }
