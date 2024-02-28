@@ -1,0 +1,1512 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`VariableDeclaration 1`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 2`] = `[SyntaxError: Expected " ", "$", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 3`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "L" found.]`;
+
+exports[`VariableDeclaration 4`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 5`] = `[SyntaxError: Expected " ", "$", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 6`] = `[SyntaxError: Expected " ", "$", "Global", "Local", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 7`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 8`] = `[SyntaxError: Expected " ", "$", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 9`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "G" found.]`;
+
+exports[`VariableDeclaration 10`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 11`] = `[SyntaxError: Expected " ", "$", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 12`] = `[SyntaxError: Expected " ", "$", "Global", "Local", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 13`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 14`] = `[SyntaxError: Expected " ", "$", "Const", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 15`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "D" found.]`;
+
+exports[`VariableDeclaration 16`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 17`] = `[SyntaxError: Expected " ", "$", "Global", "Local", "\\t", or "_" but "D" found.]`;
+
+exports[`VariableDeclaration 18`] = `[SyntaxError: Expected " ", "$", "Global", "Local", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 19`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 21,
+                "line": 1,
+                "offset": 20,
+              },
+              "source": undefined,
+              "start": {
+                "column": 13,
+                "line": 1,
+                "offset": 12,
+              },
+            },
+            "name": "local_g",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 25,
+                "line": 1,
+                "offset": 24,
+              },
+              "source": undefined,
+              "start": {
+                "column": 24,
+                "line": 1,
+                "offset": 23,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 25,
+              "line": 1,
+              "offset": 24,
+            },
+            "source": undefined,
+            "start": {
+              "column": 13,
+              "line": 1,
+              "offset": 12,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 25,
+          "line": 1,
+          "offset": 24,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 20`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 22,
+                "line": 1,
+                "offset": 21,
+              },
+              "source": undefined,
+              "start": {
+                "column": 14,
+                "line": 1,
+                "offset": 13,
+              },
+            },
+            "name": "local_h",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 22,
+              "line": 1,
+              "offset": 21,
+            },
+            "source": undefined,
+            "start": {
+              "column": 14,
+              "line": 1,
+              "offset": 13,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 22,
+          "line": 1,
+          "offset": 21,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 21`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "L" found.]`;
+
+exports[`VariableDeclaration 22`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 22,
+                "line": 1,
+                "offset": 21,
+              },
+              "source": undefined,
+              "start": {
+                "column": 14,
+                "line": 1,
+                "offset": 13,
+              },
+            },
+            "name": "local_j",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 22,
+              "line": 1,
+              "offset": 21,
+            },
+            "source": undefined,
+            "start": {
+              "column": 14,
+              "line": 1,
+              "offset": 13,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 22,
+          "line": 1,
+          "offset": 21,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 23`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 15,
+                "line": 1,
+                "offset": 14,
+              },
+              "source": undefined,
+              "start": {
+                "column": 7,
+                "line": 1,
+                "offset": 6,
+              },
+            },
+            "name": "local_k",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 15,
+              "line": 1,
+              "offset": 14,
+            },
+            "source": undefined,
+            "start": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 15,
+          "line": 1,
+          "offset": 14,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 24`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 23,
+                "line": 1,
+                "offset": 22,
+              },
+              "source": undefined,
+              "start": {
+                "column": 14,
+                "line": 1,
+                "offset": 13,
+              },
+            },
+            "name": "global_g",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 27,
+                "line": 1,
+                "offset": 26,
+              },
+              "source": undefined,
+              "start": {
+                "column": 26,
+                "line": 1,
+                "offset": 25,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 27,
+              "line": 1,
+              "offset": 26,
+            },
+            "source": undefined,
+            "start": {
+              "column": 14,
+              "line": 1,
+              "offset": 13,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 27,
+          "line": 1,
+          "offset": 26,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 25`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 24,
+                "line": 1,
+                "offset": 23,
+              },
+              "source": undefined,
+              "start": {
+                "column": 15,
+                "line": 1,
+                "offset": 14,
+              },
+            },
+            "name": "global_h",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 24,
+              "line": 1,
+              "offset": 23,
+            },
+            "source": undefined,
+            "start": {
+              "column": 15,
+              "line": 1,
+              "offset": 14,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 23,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 26`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "G" found.]`;
+
+exports[`VariableDeclaration 27`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 24,
+                "line": 1,
+                "offset": 23,
+              },
+              "source": undefined,
+              "start": {
+                "column": 15,
+                "line": 1,
+                "offset": 14,
+              },
+            },
+            "name": "global_j",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 24,
+              "line": 1,
+              "offset": 23,
+            },
+            "source": undefined,
+            "start": {
+              "column": 15,
+              "line": 1,
+              "offset": 14,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 23,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 28`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 17,
+                "line": 1,
+                "offset": 16,
+              },
+              "source": undefined,
+              "start": {
+                "column": 8,
+                "line": 1,
+                "offset": 7,
+              },
+            },
+            "name": "global_k",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 17,
+              "line": 1,
+              "offset": 16,
+            },
+            "source": undefined,
+            "start": {
+              "column": 8,
+              "line": 1,
+              "offset": 7,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 17,
+          "line": 1,
+          "offset": 16,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 29`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 17,
+                "line": 1,
+                "offset": 16,
+              },
+              "source": undefined,
+              "start": {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "name": "dim_g",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 21,
+                "line": 1,
+                "offset": 20,
+              },
+              "source": undefined,
+              "start": {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 21,
+              "line": 1,
+              "offset": 20,
+            },
+            "source": undefined,
+            "start": {
+              "column": 11,
+              "line": 1,
+              "offset": 10,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 21,
+          "line": 1,
+          "offset": 20,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "dim",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 30`] = `[SyntaxError: Expected " ", "$", "Const", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 31`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "D" found.]`;
+
+exports[`VariableDeclaration 32`] = `[SyntaxError: Expected " ", "$", "Global", "Local", "\\t", or "_" but "D" found.]`;
+
+exports[`VariableDeclaration 33`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+              "source": undefined,
+              "start": {
+                "column": 5,
+                "line": 1,
+                "offset": 4,
+              },
+            },
+            "name": "dim_k",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 11,
+              "line": 1,
+              "offset": 10,
+            },
+            "source": undefined,
+            "start": {
+              "column": 5,
+              "line": 1,
+              "offset": 4,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 11,
+          "line": 1,
+          "offset": 10,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "dim",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 34`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 35`] = `[SyntaxError: Expected " ", "$", "Global", "Local", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 36`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 9,
+                "line": 1,
+                "offset": 8,
+              },
+              "source": undefined,
+              "start": {
+                "column": 7,
+                "line": 1,
+                "offset": 6,
+              },
+            },
+            "name": "n",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 13,
+                "line": 1,
+                "offset": 12,
+              },
+              "source": undefined,
+              "start": {
+                "column": 12,
+                "line": 1,
+                "offset": 11,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 13,
+              "line": 1,
+              "offset": 12,
+            },
+            "source": undefined,
+            "start": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 13,
+          "line": 1,
+          "offset": 12,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 37`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 10,
+                "line": 1,
+                "offset": 9,
+              },
+              "source": undefined,
+              "start": {
+                "column": 8,
+                "line": 1,
+                "offset": 7,
+              },
+            },
+            "name": "o",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 1,
+              "offset": 9,
+            },
+            "source": undefined,
+            "start": {
+              "column": 8,
+              "line": 1,
+              "offset": 7,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 10,
+          "line": 1,
+          "offset": 9,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 38`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 3,
+                "line": 1,
+                "offset": 2,
+              },
+              "source": undefined,
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "name": "p",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 7,
+                "line": 1,
+                "offset": 6,
+              },
+              "source": undefined,
+              "start": {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+            "source": undefined,
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 7,
+          "line": 1,
+          "offset": 6,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 39`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 8,
+                "line": 1,
+                "offset": 7,
+              },
+              "source": undefined,
+              "start": {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "name": "q",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 1,
+              "offset": 7,
+            },
+            "source": undefined,
+            "start": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 8,
+          "line": 1,
+          "offset": 7,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static": false,
+      "stepoperator": null,
+      "stepval": NaN,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 40`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+              "source": undefined,
+              "start": {
+                "column": 12,
+                "line": 1,
+                "offset": 11,
+              },
+            },
+            "name": "local_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 1,
+              "offset": 19,
+            },
+            "source": undefined,
+            "start": {
+              "column": 12,
+              "line": 1,
+              "offset": 11,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 20,
+          "line": 1,
+          "offset": 19,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static": false,
+      "stepoperator": null,
+      "stepval": NaN,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 41`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "L" found.]`;
+
+exports[`VariableDeclaration 42`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 22,
+                "line": 1,
+                "offset": 21,
+              },
+              "source": undefined,
+              "start": {
+                "column": 13,
+                "line": 1,
+                "offset": 12,
+              },
+            },
+            "name": "global_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 22,
+              "line": 1,
+              "offset": 21,
+            },
+            "source": undefined,
+            "start": {
+              "column": 13,
+              "line": 1,
+              "offset": 12,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 22,
+          "line": 1,
+          "offset": 21,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static": false,
+      "stepoperator": null,
+      "stepval": NaN,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 43`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "G" found.]`;
+
+exports[`VariableDeclaration 44`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 16,
+                "line": 1,
+                "offset": 15,
+              },
+              "source": undefined,
+              "start": {
+                "column": 10,
+                "line": 1,
+                "offset": 9,
+              },
+            },
+            "name": "dim_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 16,
+              "line": 1,
+              "offset": 15,
+            },
+            "source": undefined,
+            "start": {
+              "column": 10,
+              "line": 1,
+              "offset": 9,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 16,
+          "line": 1,
+          "offset": 15,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "dim",
+      "static": false,
+      "stepoperator": null,
+      "stepval": NaN,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 45`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "D" found.]`;
+
+exports[`VariableDeclaration 46`] = `[SyntaxError: Expected " ", "$", "Global", "Local", "\\t", or "_" but "E" found.]`;
+
+exports[`VariableDeclaration 47`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "S" found.]`;
+
+exports[`VariableDeclaration 48`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+              "source": undefined,
+              "start": {
+                "column": 12,
+                "line": 1,
+                "offset": 11,
+              },
+            },
+            "name": "const_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 1,
+              "offset": 19,
+            },
+            "source": undefined,
+            "start": {
+              "column": 12,
+              "line": 1,
+              "offset": 11,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 20,
+          "line": 1,
+          "offset": 19,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static": false,
+      "stepoperator": null,
+      "stepval": NaN,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 49`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 50`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 32,
+                "line": 1,
+                "offset": 31,
+              },
+              "source": undefined,
+              "start": {
+                "column": 18,
+                "line": 1,
+                "offset": 17,
+              },
+            },
+            "name": "local_const_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 32,
+              "line": 1,
+              "offset": 31,
+            },
+            "source": undefined,
+            "start": {
+              "column": 18,
+              "line": 1,
+              "offset": 17,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 32,
+          "line": 1,
+          "offset": 31,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static": false,
+      "stepoperator": null,
+      "stepval": NaN,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 51`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 52`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "L" found.]`;
+
+exports[`VariableDeclaration 53`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "L" found.]`;
+
+exports[`VariableDeclaration 54`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "L" found.]`;
+
+exports[`VariableDeclaration 55`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 56`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 34,
+                "line": 1,
+                "offset": 33,
+              },
+              "source": undefined,
+              "start": {
+                "column": 19,
+                "line": 1,
+                "offset": 18,
+              },
+            },
+            "name": "global_const_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 1,
+              "offset": 33,
+            },
+            "source": undefined,
+            "start": {
+              "column": 19,
+              "line": 1,
+              "offset": 18,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 34,
+          "line": 1,
+          "offset": 33,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static": false,
+      "stepoperator": null,
+      "stepval": NaN,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 57`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 58`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "G" found.]`;
+
+exports[`VariableDeclaration 59`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "G" found.]`;
+
+exports[`VariableDeclaration 60`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "G" found.]`;
+
+exports[`VariableDeclaration 61`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 62`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 28,
+                "line": 1,
+                "offset": 27,
+              },
+              "source": undefined,
+              "start": {
+                "column": 16,
+                "line": 1,
+                "offset": 15,
+              },
+            },
+            "name": "dim_const_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 1,
+              "offset": 27,
+            },
+            "source": undefined,
+            "start": {
+              "column": 16,
+              "line": 1,
+              "offset": 15,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 28,
+          "line": 1,
+          "offset": 27,
+        },
+        "source": undefined,
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "dim",
+      "static": false,
+      "stepoperator": null,
+      "stepval": NaN,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 63`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "C" found.]`;
+
+exports[`VariableDeclaration 64`] = `[SyntaxError: Expected " ", "$", "Enum", "\\t", or "_" but "D" found.]`;
+
+exports[`VariableDeclaration 65`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "D" found.]`;
+
+exports[`VariableDeclaration 66`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "D" found.]`;
+
+exports[`VariableDeclaration 67`] = `[SyntaxError: Expected " ", "$", "Step", "\\t", or "_" but "C" found.]`;
