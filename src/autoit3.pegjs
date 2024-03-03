@@ -982,8 +982,8 @@ VariableStatement
       static: false,
       type: "EnumDeclaration",
       declarations: declarations,
-      stepoperator: extractOptional(step, 3),
-      stepval: parseInt(extractOptional(step, 4)),
+      stepoperator: extractOptional(step, 3) ?? '+',
+      stepval: parseInt(extractOptional(step, 4) ?? 1),
       location: location(),
     }
   }
