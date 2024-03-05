@@ -218,21 +218,21 @@ export type FormalParameter = {
     "const": boolean,
     byref: true,
     id: VariableIdentifier,
-    init: Expression,
+    init: Expression|null,
     location: PeggyLocationRange,
 } | {
     type: "Parameter",
     byref: boolean,
     "const": true,
     id: VariableIdentifier,
-    init: Expression,
+    init: Expression|null,
     location: PeggyLocationRange,
 } | {
     type: "Parameter",
     "const": false,
     byref: false,
     id: VariableIdentifier ,
-    init: Expression,
+    init: Expression|null,
     location: PeggyLocationRange,
 }
 
