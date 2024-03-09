@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.7] - 2024-03-09
+
 ### Fixed
 
 - Missing `Null` as a possible value for Parameter AST object init property
+- EnumDeclaration AST object could have properties `stepoperator` could be null
+- EnumDeclaration AST object could have properties `stepval` could be NaN
 
 ## [1.1.6] - 2024-02-28
 
