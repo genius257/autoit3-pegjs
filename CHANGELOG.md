@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Missing `Null` as a possible value for Parameter AST object init property
+
 ## [1.1.6] - 2024-02-28
 
 ### Fixed
