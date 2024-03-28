@@ -36,6 +36,7 @@ export type Statement = VariableStatement|EmptyStatement|SingleLineComment|Expre
 
 export type FunctionDeclaration = {
     type: "FunctionDeclaration",
+    volatile: boolean,
     id: Identifier,
     params: FormalParameterList,
     body: StatementList,

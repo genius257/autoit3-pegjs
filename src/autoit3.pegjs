@@ -829,11 +829,12 @@ PreProcStatement = preproc:PreProc EOS {
 }
 
 FunctionDeclaration
-  = ("Volatile" __)? FuncToken __ id:Identifier __
+  = volatile:(VolatileToken __)? FuncToken __ id:Identifier __
   "(" __ params:(FormalParameterList __)? __ ")" EOS
   __ body:StatementList? __ EndFuncToken EOS {
     return {
       type: "FunctionDeclaration",
+      volatile: volatile !== null,
       id: id,
       params: optionalList(extractOptional(params, 0)),
       body: optionalList(body),
