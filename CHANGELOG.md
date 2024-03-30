@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0]
+
+### Added
+
+- `volatile` property for `FunctionDeclaration` AST object
+- `dimensions` property for variable declarations on `VariableDeclaration` and `ConstDeclaration`
+
+### Fixed
+
+- Declaring array dimensions was missing on `ConstDeclaration`
+
 ## [1.1.7] - 2024-03-09
 
 ### Fixed
@@ -115,7 +126,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/v1.1.7...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/genius257/autoit3-pegjs/compare/1.1.7...1.2.0
 [1.1.7]: https://github.com/genius257/autoit3-pegjs/compare/1.1.6...1.1.7
 [1.1.6]: https://github.com/genius257/autoit3-pegjs/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/genius257/autoit3-pegjs/compare/1.1.4...1.1.5
