@@ -283,6 +283,7 @@ export type VariableIdentifier = {
 export type VariableDeclaration = {
     type: "VariableDeclarator",
     id: VariableIdentifier,
+    dimensions: Array<Expression|null>,
     init: Initialiser|null,
     location: PeggyLocationRange,
 }

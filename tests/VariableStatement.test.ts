@@ -90,6 +90,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: {
                             type: 'Literal',
                             value: 1,
@@ -167,6 +168,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: null,
                         location: {
                             start: {
@@ -230,6 +232,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: null,
                         location: {
                             start: {
@@ -291,6 +294,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: null,
                         location: {
                             start: {
@@ -369,6 +373,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         location: {
                             start: {
                                 line: 1,
@@ -429,6 +434,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: null,
                         location: {
                             start: {
@@ -492,6 +498,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: null,
                         location: {
                             start: {
@@ -553,6 +560,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: null,
                         location: {
                             start: {
@@ -614,6 +622,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: {
                             type: 'Literal',
                             value: 1,
@@ -695,6 +704,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: null,
                         location: {
                             start: {
@@ -759,6 +769,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: {
                             type: 'Literal',
                             value: 1,
@@ -836,6 +847,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: null,
                         location: {
                             start: {
@@ -897,6 +909,7 @@ test('VariableDeclaration', () => {
                                 source: undefined,
                             }
                         },
+                        dimensions: [],
                         init: {
                             type: 'Literal',
                             value: 1,
@@ -1477,4 +1490,154 @@ test('VariableDeclaration', () => {
     assertParserError('Const Enum Dim $const_dim_u', 11);
     assertParserError('Enum Dim Const $const_dim_v', 5);
     assertParserError('Enum Const Dim $enum_dim_w', 5);
+});
+
+test('Constant array declaration with dimensions specified', () => {
+    expect(parser.parse('Const $const_array[3] = [1, 2, 3]')).toStrictEqual({
+        type: 'Program',
+        body: [
+            {
+                type: 'VariableDeclaration',
+                scope: null,
+                constant: true,
+                static_: false,
+                declarations: [
+                    {
+                        type: 'VariableDeclarator',
+                        id: {
+                            type: 'VariableIdentifier',
+                            name: 'const_array',
+                            location: {
+                                start: {
+                                    line: 1,
+                                    column: 7,
+                                    offset: 6,
+                                },
+                                end: {
+                                    line: 1,
+                                    column: 19,
+                                    offset: 18,
+                                },
+                                source: undefined,
+                            }
+                        },
+                        dimensions: [
+                            {
+                                type: 'Literal',
+                                value: 3,
+                                location: {
+                                    start: {
+                                        line: 1,
+                                        column: 20,
+                                        offset: 19,
+                                    },
+                                    end: {
+                                        line: 1,
+                                        column: 21,
+                                        offset: 20,
+                                    },
+                                    source: undefined,
+                                }
+                            }
+                        ],
+                        init: {
+                            type: 'ArrayDeclaration',
+                            elements: [
+                                {
+                                    type: 'Literal',
+                                    value: 1,
+                                    location: {
+                                        start: {
+                                            line: 1,
+                                            column: 26,
+                                            offset: 25,
+                                        },
+                                        end: {
+                                            line: 1,
+                                            column: 27,
+                                            offset: 26,
+                                        },
+                                        source: undefined,
+                                    }
+                                },
+                                {
+                                    type: 'Literal',
+                                    value: 2,
+                                    location: {
+                                        start: {
+                                            line: 1,
+                                            column: 29,
+                                            offset: 28,
+                                        },
+                                        end: {
+                                            line: 1,
+                                            column: 30,
+                                            offset: 29,
+                                        },
+                                        source: undefined,
+                                    }
+                                },
+                                {
+                                    type: 'Literal',
+                                    value: 3,
+                                    location: {
+                                        start: {
+                                            line: 1,
+                                            column: 32,
+                                            offset: 31,
+                                        },
+                                        end: {
+                                            line: 1,
+                                            column: 33,
+                                            offset: 32,
+                                        },
+                                        source: undefined,
+                                    }
+                                },
+                            ],
+                            location: {
+                                start: {
+                                    line: 1,
+                                    column: 25,
+                                    offset: 24,
+                                },
+                                end: {
+                                    line: 1,
+                                    column: 34,
+                                    offset: 33,
+                                },
+                                source: undefined,
+                            },
+                        },
+                        location: {
+                            start: {
+                                line: 1,
+                                column: 7,
+                                offset: 6,
+                            },
+                            end: {
+                                line: 1,
+                                column: 34,
+                                offset: 33,
+                            },
+                            source: undefined,
+                        },
+                    },
+                ],
+                location: {
+                    start: {
+                        line: 1,
+                        column: 1,
+                        offset: 0,
+                    },
+                    end: {
+                        line: 1,
+                        column: 34,
+                        offset: 33,
+                    },
+                    source: undefined,
+                },
+            }
+        ]
+    } satisfies Program);
 });

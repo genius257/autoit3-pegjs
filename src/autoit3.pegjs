@@ -110,10 +110,11 @@ VariableDeclarationList
     }
 
 VariableDeclaration
-  = id:VariableIdentifier (__ "[" __ Expression? __ "]")* init:(__ Initialiser)? {
+  = id:VariableIdentifier dimensions:(__ "[" __ @Expression? __ "]" )* init:(__ Initialiser)? {
       return {
         type: "VariableDeclarator",
         id: id,
+        dimensions: dimensions,
         init: extractOptional(init, 1),
         location: location(),
       };
@@ -129,10 +130,11 @@ EnumDeclaration = id:VariableIdentifier init:(__ '=' __ AssignmentExpression)? {
 }
 
 ConstDeclaration
-  = id:VariableIdentifier __ '=' __ init:AssignmentExpression {
+  = id:VariableIdentifier dimensions:(__ "[" __ @Expression? __ "]")* __ '=' __ init:(AssignmentExpression/ArrayDeclaration) {
     return {
       type: "VariableDeclarator",
       id: id,
+      dimensions: dimensions,
       init: init,
       location: location(),
     }
