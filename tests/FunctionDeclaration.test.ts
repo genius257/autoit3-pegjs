@@ -44,7 +44,8 @@ test('FunctionDeclaration', () => {
                         offset: 37,
                     },
                     source: undefined,
-                }
+                },
+                volatile: false,
             }
         ]
     } satisfies Program);
@@ -179,7 +180,8 @@ test('FunctionDeclaration', () => {
                         offset: 59,
                     },
                     source: undefined,
-                }
+                },
+                volatile: false,
             }
         ]
     } satisfies Program)
