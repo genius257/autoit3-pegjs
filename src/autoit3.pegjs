@@ -10,13 +10,9 @@
     MemberExpression: "object",
   };
 
-  function extractOptional(optional, index) {
-    return optional ? optional[index] : null;
+  function extractList(list, index) {
+    return list.map(function(element) { return element[index]; });
   }
-
-    function extractList(list, index) {
-      return list.map(function(element) { return element[index]; });
-    }
 
   function buildList(head, tail, index) {
     return [head].concat(extractList(tail, index));
