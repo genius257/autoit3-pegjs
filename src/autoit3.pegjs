@@ -110,21 +110,21 @@ VariableDeclarationList
     }
 
 VariableDeclaration
-  = id:VariableIdentifier dimensions:(__ "[" __ @Expression? __ "]" )* init:(__ Initialiser)? {
+  = id:VariableIdentifier dimensions:(__ "[" __ @Expression? __ "]" )* init:(__ @Initialiser)? {
       return {
         type: "VariableDeclarator",
         id: id,
         dimensions: dimensions,
-        init: extractOptional(init, 1),
+        init: init,
         location: location(),
       };
     }
 
-EnumDeclaration = id:VariableIdentifier init:(__ '=' __ AssignmentExpression)? {
+EnumDeclaration = id:VariableIdentifier init:(__ '=' __ @AssignmentExpression)? {
   return {
     type: "VariableDeclarator",
     id: id,
-    init: extractOptional(init, 3),
+    init: init,
     location: location(),
   }
 }
@@ -388,37 +388,37 @@ Keyword
 FutureReservedWord
     = "@RESERVED" //NOTE: no future reserved words so far
 
-WithStatement = WithToken object:(__ Expression) EOS //FIXME: WIP
+WithStatement = WithToken object:(__ @Expression) EOS //FIXME: WIP
 body:StatementList?
 EndWithToken EOS {
   return {
     type: "WithStatement",
-    object: extractOptional(object, 1),
+    object: object,
     body: optionalList(body),
     location: location()
   };
 }
 
-ReturnStatement = ReturnToken value:(__ Expression)? EOS {
+ReturnStatement = ReturnToken value:(__ @Expression)? EOS {
   return {
     type: "ReturnStatement",
-    value: extractOptional(value, 1),
+    value: value,
     location: location()
   };
 }
 
-ExitLoopStatement = ExitLoopToken level:(__ Expression)? EOS {
+ExitLoopStatement = ExitLoopToken level:(__ @Expression)? EOS {
   return {
     type: "ExitLoopStatement",
-    level: extractOptional(level, 1),
+    level: level,
     location: location()
   };
 }
 
-ContinueLoopStatement = ContinueLoopToken level:(__ Expression)? EOS {
+ContinueLoopStatement = ContinueLoopToken level:(__ @Expression)? EOS {
   return {
     type: "ContinueLoopStatement",
-    level: extractOptional(level, 1),
+    level: level,
     location: location()
   };
 }
@@ -443,15 +443,15 @@ EndSelectToken EOS {
 
 SelectCaseBlock
   = __
-    before:(SelectCaseClauses __)?
+    before:(@SelectCaseClauses __)?
     default_: DefaultClause __
-    after:(SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return optionalList(extractOptional(before, 0))
+    after:(@SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
+      return optionalList(before)
         .concat(default_)
-        .concat(optionalList(extractOptional(after, 0)));
+        .concat(optionalList(after));
     }
-  / __ clauses:(SelectCaseClauses __)? { //FIXME: verify that "?" CAN be there
-    return optionalList(extractOptional(clauses, 0));
+  / __ clauses:(@SelectCaseClauses __)? { //FIXME: verify that "?" CAN be there
+    return optionalList(clauses);
   }
 
 SelectCaseClauses
@@ -459,12 +459,12 @@ SelectCaseClauses
 
 SelectCaseClause
   = CaseToken __ tests: AssignmentExpression EOS
-    consequent: (__ StatementList)?
+    consequent: (__ @StatementList)?
     {
       return {
         type: "SelectCase",
         tests: tests,
-        consequent: optionalList(extractOptional(consequent, 1)),
+        consequent: optionalList(consequent),
         location: location(),
       };
     }
@@ -648,8 +648,8 @@ CallExpression
     }
 
 Arguments
-  = "(" __ args:(ArgumentList __)? ")" {
-      return optionalList(extractOptional(args, 0));
+  = "(" __ args:(@ArgumentList __)? ")" {
+      return optionalList(args);
     }
 
 ArgumentList
@@ -832,13 +832,13 @@ PreProcStatement = preproc:PreProc EOS {
 
 FunctionDeclaration
   = volatile:(VolatileToken __)? FuncToken __ id:Identifier __
-  "(" __ params:(FormalParameterList __)? __ ")" EOS
+  "(" __ params:(@FormalParameterList __)? __ ")" EOS
   __ body:StatementList? __ EndFuncToken EOS {
     return {
       type: "FunctionDeclaration",
       volatile: volatile !== null,
       id: id,
-      params: optionalList(extractOptional(params, 0)),
+      params: optionalList(params),
       body: optionalList(body),
       location: location()
     };
@@ -856,33 +856,33 @@ FormalParameterList
 // HACK: start of custom support of function arguements with default value
 //FIXME: currently this allows ($a, $b = 123, $c) but no parameters without Initializer allowed after first parameter with Initializer occurred
 FormalParameter
-  = _const:(ConstToken __)? ByRefToken __ id:VariableIdentifier __ init:("=" __ Expression)? {
+  = _const:(@ConstToken __)? ByRefToken __ id:VariableIdentifier __ init:("=" __ @Expression)? {
     return {
       type: "Parameter",
-      "const": !!extractOptional(_const, 0),
+      "const": !!_const,
       byref: true,
       id: id,
-      init: extractOptional(init, 2),
+      init: init,
       location: location(),
     };
   }
-  / byref:(ByRefToken __)? ConstToken __ id:VariableIdentifier __ init:("=" __ Expression)? {
+  / byref:(@ByRefToken __)? ConstToken __ id:VariableIdentifier __ init:("=" __ @Expression)? {
     return {
       type: "Parameter",
-      byref: !!extractOptional(byref, 0),
+      byref: !!byref,
       "const": true,
       id: id,
-      init: extractOptional(init, 2),
+      init: init,
       location: location(),
     };
   }
-  / id:VariableIdentifier __ init:("=" __ Expression)? {
+  / id:VariableIdentifier __ init:("=" __ @Expression)? {
     return {
       type: "Parameter",
       "const": false,
       byref: false,
       id: id,
-      init: extractOptional(init, 2),
+      init: init,
       location: location(),
     };
   }
@@ -1010,7 +1010,7 @@ ExpressionStatement
 
 IfStatement
   = IfToken __ test:Expression __ ThenToken __ EOS
-       consequent:(__ StatementList __)?
+       consequent:(__ @StatementList __)?
     __ alternates:ElseIfClauses? __
     __ alternate:ElseClause? __
     EndIfToken EOS {
@@ -1018,7 +1018,7 @@ IfStatement
       return {
         type: "IfStatement",
         test: test,
-        consequent: extractOptional(consequent, 1),
+        consequent: consequent,
         alternate: [...alternates ?? [], ...alternate],
         location: location(),
       }
@@ -1037,21 +1037,21 @@ ElseIfClauses
 
 ElseIfClause
   = ElseIfToken __ test:Expression __ ThenToken __ EOS
-    consequent:(__ StatementList __)? {
+    consequent:(__ @StatementList __)? {
       return {
         type: "ElseIfStatement",
         test: test,
-        consequent: extractOptional(consequent, 1),
+        consequent: consequent,
         location: location(),
       }
     }
 
 ElseClause
   = ElseToken __ EOS
-    consequent:(__ StatementList __)? {
+    consequent:(__ @StatementList __)? {
       return {
         type: "ElseStatement",
-        consequent: extractOptional(consequent, 1),
+        consequent: consequent,
         location: location(),
       }
     }
@@ -1065,10 +1065,10 @@ IterationStatement
     __ body:StatementList? __
     WEndToken __ EOS
     { return { type: "WhileStatement", test: test, body: body ?? [], location: location() }; }
-  / ForToken __ id:VariableIdentifier __ "=" __ init:Expression __ ToToken __ test:Expression __ update:(StepToken __ Expression)? EOS
+  / ForToken __ id:VariableIdentifier __ "=" __ init:Expression __ ToToken __ test:Expression __ update:(StepToken __ @Expression)? EOS
       __ body:StatementList? __
     NextToken __ EOS
-    { return { type: "ForStatement", id: id, init: init, test: test, update: extractOptional(update, 2), body: optionalList(body), location: location() }; }
+    { return { type: "ForStatement", id: id, init: init, test: test, update: update, body: optionalList(body), location: location() }; }
   / ForToken __ left:VariableIdentifier __ InToken __ right:Expression
       __ body:StatementList? __
     NextToken __ EOS
@@ -1126,15 +1126,15 @@ SwitchStatement
 
 CaseBlock
   = __
-    before:(CaseClauses __)?
+    before:(@CaseClauses __)?
     default_: DefaultClause __
-    after:(CaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return optionalList(extractOptional(before, 0))
+    after:(@CaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
+      return optionalList(before)
         .concat(default_)
-        .concat(optionalList(extractOptional(after, 0)));
+        .concat(optionalList(after));
     }
-  / __ clauses:(CaseClauses __)? { //FIXME: verify that "?" CAN be there
-    return optionalList(extractOptional(clauses, 0));
+  / __ clauses:(@CaseClauses __)? { //FIXME: verify that "?" CAN be there
+    return optionalList(clauses);
   } 
 
 
@@ -1143,12 +1143,12 @@ CaseClauses
 
 CaseClause
   = CaseToken __ tests: CaseValueList EOS
-    consequent: (__ StatementList)?
+    consequent: (__ @StatementList)?
     {
       return {
         type: "SwitchCase",
         tests: tests,
-        consequent: optionalList(extractOptional(consequent, 1)),
+        consequent: optionalList(consequent),
         location: location(),
       };
     }
@@ -1156,12 +1156,12 @@ CaseClause
 
 DefaultClause
   = CaseToken __ ElseToken __ EOS
-    consequent:(__ StatementList)?
+    consequent:(__ @StatementList)?
     {
       return {
         type: "SwitchCase",
         tests: null,
-        consequent: optionalList(extractOptional(consequent, 1)),
+        consequent: optionalList(consequent),
         location: location(),
       };
     }
