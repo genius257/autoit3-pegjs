@@ -921,9 +921,9 @@ StatementList
 //NOTE: VariableDeclarationStatement
 
 VariableStatement
-  = scope:($(LocalToken / GlobalToken / DimToken) __) declarations:VariableDeclarationList EOS {
+  = scope:(@$(LocalToken / GlobalToken / DimToken) __) declarations:VariableDeclarationList EOS {
     return {
-      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
+      scope: scope?.toLocaleLowerCase()??null,
       constant: false,
       static_: false,
       type: "VariableDeclaration",
@@ -931,9 +931,9 @@ VariableStatement
       location: location(),
     }
   }
-  / scope:($(LocalToken / GlobalToken / DimToken) __)? ConstToken __ declarations:ConstDeclarationList EOS {
+  / scope:(@$(LocalToken / GlobalToken / DimToken) __)? ConstToken __ declarations:ConstDeclarationList EOS {
     return {
-      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
+      scope: scope?.toLocaleLowerCase()??null,
       constant: true,
       static_: false,
       type: "VariableDeclaration",
@@ -941,9 +941,9 @@ VariableStatement
       location: location(),
     }
   }
-  / scope:($(LocalToken / GlobalToken) __)? StaticToken __ declarations:VariableDeclarationList EOS {
+  / scope:(@$(LocalToken / GlobalToken) __)? StaticToken __ declarations:VariableDeclarationList EOS {
     return {
-      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
+      scope: scope?.toLocaleLowerCase()??null,
       constant: false,
       static_: true,
       type: "VariableDeclaration",
@@ -951,9 +951,9 @@ VariableStatement
       location: location(),
     }
   }
-  / StaticToken __ scope:($(LocalToken / GlobalToken) __)? declarations:VariableDeclarationList EOS {
+  / StaticToken __ scope:(@$(LocalToken / GlobalToken) __)? declarations:VariableDeclarationList EOS {
     return {
-      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
+      scope: scope?.toLocaleLowerCase()??null,
       constant: false,
       static_: true,
       type: "VariableDeclaration",
@@ -978,15 +978,15 @@ VariableStatement
       location: location(),
     };
   }
-  / scope:($(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace [+\-*]? $[0-9]+ )? __ declarations:EnumDeclarationList EOS {
+  / scope:(@$(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace @[+\-*]? @$[0-9]+ )? __ declarations:EnumDeclarationList EOS {
     return {
-      scope: extractOptional(scope, 0)?.toLocaleLowerCase()??null,
+      scope: scope?.toLocaleLowerCase()??null,
       constant: !!constant,
       static: false,
       type: "EnumDeclaration",
       declarations: declarations,
-      stepoperator: extractOptional(step, 3) ?? '+',
-      stepval: parseInt(extractOptional(step, 4) ?? 1),
+      stepoperator: step?.[0] ?? '+',
+      stepval: parseInt(step?.[1] ?? 1),
       location: location(),
     }
   }
@@ -1102,10 +1102,10 @@ Expression
     }
 
 ExitStatement
-  = ExitToken argument:(__ AssignmentExpression / __ "(" __ ")" { return null; } )? EOS {
+  = ExitToken argument:(__ @AssignmentExpression / __ "(" __ ")" { return null; } )? EOS {
     return {
       type: "ExitStatement",
-      argument: extractOptional(argument, 1),
+      argument: argument,
       location: location(),
     }
   }
