@@ -91,18 +91,18 @@ LineContinuation = LiteralWhitespace+ '_' LiteralWhitespace* SingleLineComment? 
 Newline = LineTerminatorSequence
 
 ConstDeclarationList
-  = head: ConstDeclaration tail:(__ "," __ ConstDeclaration)* {
-    return buildList(head, tail, 3);
+  = head: ConstDeclaration tail:(__ "," __ @ConstDeclaration)* {
+    return [head, ...tail];
   }
 
 EnumDeclarationList
-  = head:EnumDeclaration tail:(__ "," __ EnumDeclaration)* {
-      return buildList(head, tail, 3);
+  = head:EnumDeclaration tail:(__ "," __ @EnumDeclaration)* {
+      return [head, ...tail];
     }
 
 VariableDeclarationList
-  = head:VariableDeclaration tail:(__ "," __ VariableDeclaration)* {
-      return buildList(head, tail, 3);
+  = head:VariableDeclaration tail:(__ "," __ @VariableDeclaration)* {
+      return [head, ...tail];
     }
 
 VariableDeclaration
@@ -198,8 +198,8 @@ ArrayDeclaration = "[" __ elements:ArrayDeclarationElementList? __ "]" {
 }
 
 ArrayDeclarationElementList
-  = head:(Expression / ArrayDeclaration) tail:(__ "," __ (Expression / ArrayDeclaration))* {
-      return buildList(head, tail, 3);
+  = head:(Expression / ArrayDeclaration) tail:(__ "," __ @(Expression / ArrayDeclaration))* {
+      return [head, ...tail];
     }
 
 Identifier = !ReservedWord name:IdentifierName { return name; }
@@ -451,7 +451,7 @@ SelectCaseBlock
   }
 
 SelectCaseClauses
-  = head:SelectCaseClause tail:(__ SelectCaseClause)* { return buildList(head, tail, 1); }
+  = head:SelectCaseClause tail:(__ @SelectCaseClause)* { return [head, ...tail]; }
 
 SelectCaseClause
   = CaseToken __ tests: AssignmentExpression EOS
@@ -649,8 +649,8 @@ Arguments
     }
 
 ArgumentList
-  = head:AssignmentExpression tail:(__ "," __ AssignmentExpression)* {
-      return buildList(head, tail, 3);
+  = head:AssignmentExpression tail:(__ "," __ @AssignmentExpression)* {
+      return [head, ...tail];
     }
 
 LeftHandSideExpression
@@ -813,8 +813,8 @@ Program
     }
 
 SourceElements
-  = head:SourceElement tail:(__ SourceElement)* {
-      return buildList(head, tail, 1);
+  = head:SourceElement tail:(__ @SourceElement)* {
+      return [head, ...tail];
     }
 
 SourceElement
@@ -845,8 +845,8 @@ FunctionDeclaration
       return buildList(head, tail, 3);
     }*/
 FormalParameterList
-  = head:FormalParameter tail:(__ "," __ FormalParameter)* {
-      return buildList(head, tail, 3);
+  = head:FormalParameter tail:(__ "," __ @FormalParameter)* {
+      return [head, ...tail];
     }
 
 // HACK: start of custom support of function arguements with default value
@@ -912,7 +912,7 @@ EmptyStatement
 
 
 StatementList
-  = head:Statement tail:(__ Statement)* { return buildList(head, tail, 1); }
+  = head:Statement tail:(__ @Statement)* { return [head, ...tail]; }
 
 //NOTE: VariableDeclarationStatement
 
@@ -967,10 +967,10 @@ VariableStatement
       location: location(),
     }
   }
-  / RedimToken __ head:RedimIdentifierExpression tail:(__ "," __ RedimIdentifierExpression)* EOS {
+  / RedimToken __ head:RedimIdentifierExpression tail:(__ "," __ @RedimIdentifierExpression)* EOS {
     return {
       type: "RedimExpression",
-      declarations: buildList(head, tail, 3),
+      declarations: [head, ...tail],
       location: location(),
     };
   }
@@ -1029,7 +1029,7 @@ IfStatement
     }
 
 ElseIfClauses
-  = head:ElseIfClause tail:(__ ElseIfClause)* { return buildList(head, tail, 1); }
+  = head:ElseIfClause tail:(__ @ElseIfClause)* { return [head, ...tail]; }
 
 ElseIfClause
   = ElseIfToken __ test:Expression __ ThenToken __ EOS
@@ -1135,7 +1135,7 @@ CaseBlock
 
 
 CaseClauses
-  = head:CaseClause tail:(__ CaseClause)* { return buildList(head, tail, 1); }
+  = head:CaseClause tail:(__ @CaseClause)* { return [head, ...tail]; }
 
 CaseClause
   = CaseToken __ tests: CaseValueList EOS
@@ -1163,8 +1163,8 @@ DefaultClause
     }
 
 CaseValueList
-  = head:SwitchCaseValue tail:(__ "," __ SwitchCaseValue)* {
-      return buildList(head, tail, 3);
+  = head:SwitchCaseValue tail:(__ "," __ @SwitchCaseValue)* {
+      return [head, ...tail];
     }
 
 SwitchCaseValue
