@@ -10,14 +10,6 @@
     MemberExpression: "object",
   };
 
-  function extractList(list, index) {
-    return list.map(function(element) { return element[index]; });
-  }
-
-  function buildList(head, tail, index) {
-    return [head].concat(extractList(tail, index));
-  }
-
   function buildBinaryExpression(head, tail) {
     return tail.reduce(function(result, element) {
       return {
@@ -40,10 +32,6 @@
         location: location(),
       };
     }, head);
-  }
-
-  function optionalList(value) {
-    return value !== null ? value : [];
   }
 }
 
@@ -442,9 +430,7 @@ SelectCaseBlock
     before:(@SelectCaseClauses __)?
     default_: DefaultClause __
     after:(@SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return (before??[])
-        .concat(default_)
-        .concat(after??[]);
+      return [...before??[], default_, ...after??[]];
     }
   / __ clauses:(@SelectCaseClauses __)? { //FIXME: verify that "?" CAN be there
     return clauses??[];
@@ -1125,9 +1111,7 @@ CaseBlock
     before:(@CaseClauses __)?
     default_: DefaultClause __
     after:(@CaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return (before??[])
-        .concat(default_)
-        .concat(after??[]);
+      return [...before??[], default_, ...after??[]];
     }
   / __ clauses:(@CaseClauses __)? { //FIXME: verify that "?" CAN be there
     return clauses??[];
