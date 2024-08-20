@@ -390,7 +390,7 @@ EndWithToken EOS {
   return {
     type: "WithStatement",
     object: object,
-    body: optionalList(body),
+    body: body??[],
     location: location()
   };
 }
@@ -442,12 +442,12 @@ SelectCaseBlock
     before:(@SelectCaseClauses __)?
     default_: DefaultClause __
     after:(@SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return optionalList(before)
+      return (before??[])
         .concat(default_)
-        .concat(optionalList(after));
+        .concat(after??[]);
     }
   / __ clauses:(@SelectCaseClauses __)? { //FIXME: verify that "?" CAN be there
-    return optionalList(clauses);
+    return clauses??[];
   }
 
 SelectCaseClauses
@@ -460,7 +460,7 @@ SelectCaseClause
       return {
         type: "SelectCase",
         tests: tests,
-        consequent: optionalList(consequent),
+        consequent: consequent??[],
         location: location(),
       };
     }
@@ -645,7 +645,7 @@ CallExpression
 
 Arguments
   = "(" __ args:(@ArgumentList __)? ")" {
-      return optionalList(args);
+      return args??[];
     }
 
 ArgumentList
@@ -808,7 +808,7 @@ Program
   = body:SourceElements? {
       return {
         type: "Program",
-        body: optionalList(body)
+        body: body??[]
       };
     }
 
@@ -834,8 +834,8 @@ FunctionDeclaration
       type: "FunctionDeclaration",
       volatile: volatile !== null,
       id: id,
-      params: optionalList(params),
-      body: optionalList(body),
+      params: params??[],
+      body: body??[],
       location: location()
     };
   }
@@ -1064,11 +1064,11 @@ IterationStatement
   / ForToken __ id:VariableIdentifier __ "=" __ init:Expression __ ToToken __ test:Expression __ update:(StepToken __ @Expression)? EOS
       __ body:StatementList? __
     NextToken __ EOS
-    { return { type: "ForStatement", id: id, init: init, test: test, update: update, body: optionalList(body), location: location() }; }
+    { return { type: "ForStatement", id: id, init: init, test: test, update: update, body: body??[], location: location() }; }
   / ForToken __ left:VariableIdentifier __ InToken __ right:Expression
       __ body:StatementList? __
     NextToken __ EOS
-    { return { type: "ForInStatement", left: left, right: right, body: optionalList(body), location: location() } }
+    { return { type: "ForInStatement", left: left, right: right, body: body??[], location: location() } }
 
 EOS
   = _ SingleLineComment? ( LineTerminatorSequence / EOF)
@@ -1125,12 +1125,12 @@ CaseBlock
     before:(@CaseClauses __)?
     default_: DefaultClause __
     after:(@CaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return optionalList(before)
+      return (before??[])
         .concat(default_)
-        .concat(optionalList(after));
+        .concat(after??[]);
     }
   / __ clauses:(@CaseClauses __)? { //FIXME: verify that "?" CAN be there
-    return optionalList(clauses);
+    return clauses??[];
   } 
 
 
@@ -1144,7 +1144,7 @@ CaseClause
       return {
         type: "SwitchCase",
         tests: tests,
-        consequent: optionalList(consequent),
+        consequent: consequent??[],
         location: location(),
       };
     }
@@ -1157,7 +1157,7 @@ DefaultClause
       return {
         type: "SwitchCase",
         tests: null,
-        consequent: optionalList(consequent),
+        consequent: consequent??[],
         location: location(),
       };
     }
