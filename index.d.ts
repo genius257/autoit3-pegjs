@@ -275,12 +275,12 @@ export type AssignmentExpression = {
 
 export type AssignmentOperator = "*=" | "/=" | "+=" | "-=" | "&=";
 
-export type CaseBlock = [...CaseClauses, DefaultClause, ...CaseClauses];
+export type CaseBlock = Array<CaseClauses[any] | DefaultClause>;
 
 /** File URI */
 export type IncludeFileName = [boolean, string];
 
-export type SelectCaseBlock = [...SelectCaseClauses, DefaultClause, ...SelectCaseClauses];
+export type SelectCaseBlock = Array<SelectCaseClauses[any] | DefaultClause>;
 
 export type VariableIdentifier = {
     type: "VariableIdentifier",
