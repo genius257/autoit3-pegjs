@@ -112,17 +112,23 @@ export type ElseClause = {
     location: PeggyLocationRange,
 };
 
-export type IterationStatement = {
+export type IterationStatement = DoWhileStatement | WhileStatement | ForStatement | ForInStatement;
+
+export type DoWhileStatement = {
     type: "DoWhileStatement",
     body: StatementList,
     test: Expression,
     location: PeggyLocationRange,
-} | {
+};
+
+export type WhileStatement = {
     type: "WhileStatement",
     test: Expression,
     body: StatementList,
     location: PeggyLocationRange,
-} | {
+};
+
+export type ForStatement = {
     type: "ForStatement",
     id: VariableIdentifier,
     init: Expression,
@@ -130,13 +136,15 @@ export type IterationStatement = {
     update: Expression|null,
     body: StatementList,
     location: PeggyLocationRange,
-} | {
+};
+
+export type ForInStatement = {
     type: "ForInStatement",
     left: VariableIdentifier,
     right: Expression,
     body: StatementList,
     location: PeggyLocationRange,
-}
+};
 
 export type ContinueLoopStatement = {
     type: "ContinueLoopStatement",
