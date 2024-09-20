@@ -128,19 +128,32 @@ export type WhileStatement = {
     location: PeggyLocationRange,
 };
 
-export type ForStatement = {
-    type: "ForStatement",
+export type ForLoopVariableDeclaration = {
+    type: "VariableDeclarator",
     id: VariableIdentifier,
     init: Expression,
+    location: PeggyLocationRange,
+}
+
+export type ForStatement = {
+    type: "ForStatement",
+    init: ForLoopVariableDeclaration,
     test: Expression,
     update: Expression|null,
     body: StatementList,
     location: PeggyLocationRange,
 };
 
+export type ForInLoopVariableDeclaration = {
+    type: "VariableDeclarator",
+    id: VariableIdentifier,
+    init: null,
+    location: PeggyLocationRange,
+}
+
 export type ForInStatement = {
     type: "ForInStatement",
-    left: VariableIdentifier,
+    left: ForInLoopVariableDeclaration,
     right: Expression,
     body: StatementList,
     location: PeggyLocationRange,

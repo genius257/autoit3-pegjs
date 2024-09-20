@@ -1038,6 +1038,26 @@ ElseClause
       }
     }
 
+ForLoopVariableDeclaration = id:VariableIdentifier __ "=" __ init:Expression
+{
+  return {
+    type: "VariableDeclarator",
+    id: id,
+    init: init,
+    location: location(),
+  }
+}
+
+ForInLoopVariableDeclaration = id: VariableIdentifier
+{
+  return {
+    type: "VariableDeclarator",
+    id: id,
+    init: null,
+    location: location(),
+  }
+}
+
 IterationStatement
   = DoToken __ EOS
     __ body:StatementList? __
@@ -1047,11 +1067,11 @@ IterationStatement
     __ body:StatementList? __
     WEndToken __ EOS
     { return { type: "WhileStatement", test: test, body: body ?? [], location: location() }; }
-  / ForToken __ id:VariableIdentifier __ "=" __ init:Expression __ ToToken __ test:Expression __ update:(StepToken __ @Expression)? EOS
+  / ForToken __ init:ForLoopVariableDeclaration __ ToToken __ test:Expression __ update:(StepToken __ @Expression)? EOS
       __ body:StatementList? __
     NextToken __ EOS
-    { return { type: "ForStatement", id: id, init: init, test: test, update: update, body: body??[], location: location() }; }
-  / ForToken __ left:VariableIdentifier __ InToken __ right:Expression
+    { return { type: "ForStatement", init: init, test: test, update: update, body: body??[], location: location() }; }
+  / ForToken __ left:ForInLoopVariableDeclaration __ InToken __ right:Expression
       __ body:StatementList? __
     NextToken __ EOS
     { return { type: "ForInStatement", left: left, right: right, body: body??[], location: location() } }
