@@ -7,7 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.0]
+## [2.0.0] - 2024-09-21
+
+### Added
+
+- More grannular typescript types, to better access each node case within the `IterationStatement`
+
+### Changed
+
+- `ForStatement` id property removed from AST node and init property now contains a `VariableDeclarator` node
+- `ForInStatement` left property in AST node now contains a `VariableDeclarator` node isntead
+
+## [1.2.0] - 2024-03-30
 
 ### Added
 
@@ -126,7 +137,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/v1.2.0...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/genius257/autoit3-pegjs/compare/1.2.0...2.0.0
 [1.2.0]: https://github.com/genius257/autoit3-pegjs/compare/1.1.7...1.2.0
 [1.1.7]: https://github.com/genius257/autoit3-pegjs/compare/1.1.6...1.1.7
 [1.1.6]: https://github.com/genius257/autoit3-pegjs/compare/1.1.5...1.1.6
