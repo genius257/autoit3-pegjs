@@ -95,7 +95,7 @@ export type IfStatement = {
 } | {
     type: "IfStatement",
     test: Expression,
-    consequent: Exclude<EmptyStatement|Comment, ExpressionStatement|VariableStatement|ContinueLoopStatement|ContinueCaseStatement|ExitLoopStatement|ReturnStatement|ExitStatement>,
+    consequent: Exclude<EmptyStatement|SingleLineComment|MultiLineComment, ExpressionStatement|VariableStatement|ContinueLoopStatement|ContinueCaseStatement|ExitLoopStatement|ReturnStatement|ExitStatement>,
     location: PeggyLocationRange,
 }
 
