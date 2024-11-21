@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - NotExpression precedence issue causing it to be disallowed on the right-hand side of BinaryExpressions. (#8)
 - SingleLineComment used EOS intead of LineTerminatorSequence / EOF
+- Wrong TypeScript type "Comment" used instead of "SingleLineComment|MultiLineComment"
 
 ## [2.0.0] - 2024-09-21
 
