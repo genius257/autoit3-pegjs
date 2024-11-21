@@ -872,7 +872,7 @@ FormalParameter
 Statement
   = VariableStatement //TODO: should we dilute?
   / EmptyStatement
-  / slc:SingleLineComment EOS {return slc;}
+  / slc:SingleLineComment (LineTerminatorSequence / EOF) {return slc;}
   / ExpressionStatement
   / IfStatement
   / IterationStatement
