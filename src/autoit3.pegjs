@@ -826,10 +826,6 @@ FunctionDeclaration
     };
   }
 
-/*FormalParameterList
-  = head:VariableIdentifier tail:(__ "," __ VariableIdentifier)* {
-      return buildList(head, tail, 3);
-    }*/
 FormalParameterList
   = head:FormalParameter tail:(__ "," __ @FormalParameter)* {
       return [head, ...tail];
