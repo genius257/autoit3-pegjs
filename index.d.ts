@@ -340,7 +340,7 @@ export type SelectCaseClauses = SelectCaseClause[]
 export type Initialiser = AssignmentExpression | ArrayDeclaration;
 
 export type LogicalORExpression = LogicalExpression<LogicalOROperator, LogicalANDExpression>
-export type LogicalANDExpression = LogicalExpression<LogicalANDOperator, NotExpression>
+export type LogicalANDExpression = LogicalExpression<LogicalANDOperator, EqualityExpression>
 
 export type LogicalOROperator = OrToken;
 export type LogicalANDOperator = AndToken;
@@ -374,12 +374,6 @@ export type ArrayDeclaration = {
     elements: ArrayDeclarationElementList|null,
     location: PeggyLocationRange,
 }
-
-export type NotExpression = {
-    type: "NotExpression",
-    value: EqualityExpression,
-    location: PeggyLocationRange,
-} | EqualityExpression
 
 export type CaseValueList = Array<SwitchCaseValue>;
 
@@ -423,11 +417,17 @@ export type AdditiveOperator = "+"
 | "-"
 | "&"
 
-export type ExponentialExpression = BinaryExpression<ExponentialOperator, UnaryExpression>;
+export type ExponentialExpression = BinaryExpression<ExponentialOperator, NotExpression>;
 
 export type MultiplicativeOperator = "*"
 | "/"
 //| $("%" !"=")
+
+export type NotExpression = {
+    type: "NotExpression",
+    value: UnaryExpression,
+    location: PeggyLocationRange,
+} | UnaryExpression
 
 export type UnaryExpression = LeftHandSideExpression | {
     type: "UnaryExpression",

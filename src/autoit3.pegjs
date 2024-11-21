@@ -698,8 +698,8 @@ LogicalORExpression
     { return buildLogicalExpression(head, tail); }
 
 LogicalANDExpression
-  = head:NotExpression
-    tail:(__ LogicalANDOperator __ NotExpression)*
+  = head:EqualityExpression
+    tail:(__ LogicalANDOperator __ EqualityExpression)*
     { return buildLogicalExpression(head, tail); }
 
 LogicalOROperator
@@ -707,14 +707,6 @@ LogicalOROperator
 
 LogicalANDOperator
  = $AndToken
-
-NotExpression
-  = (NotToken __) value:EqualityExpression { return {
-    type: "NotExpression",
-    value: value,
-    location: location(),
-  } }
-  / EqualityExpression
 
 EqualityExpression //FIXME: support NOT
   = head:RelationalExpression
@@ -760,12 +752,20 @@ MultiplicativeOperator
   // $("%" !"=")
 
 ExponentialExpression
-  = head:UnaryExpression
-    tail:(__ ExponentialOperator __ UnaryExpression)*
+  = head:NotExpression
+    tail:(__ ExponentialOperator __ NotExpression)*
     { return buildBinaryExpression(head, tail); }
 
 ExponentialOperator
   = $("^" !"=")
+
+NotExpression
+  = (NotToken __) value:UnaryExpression { return {
+    type: "NotExpression",
+    value: value,
+    location: location(),
+  } }
+  / UnaryExpression
 
 UnaryExpression
   = LeftHandSideExpression
