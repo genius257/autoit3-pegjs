@@ -9,30 +9,6 @@
     CallExpression:   "callee",
     MemberExpression: "object",
   };
-
-  function buildBinaryExpression(head, tail) {
-    return tail.reduce(function(result, element) {
-      return {
-        type: "BinaryExpression",
-        operator: element[1],
-        left: result,
-        right: element[3],
-        location: location(),
-      };
-    }, head);
-  }
-
-  function buildLogicalExpression(head, tail) {
-    return tail.reduce(function(result, element) {
-      return {
-        type: "LogicalExpression",
-        operator: element[1],
-        left: result,
-        right: element[3],
-        location: location(),
-      };
-    }, head);
-  }
 }
 
 Start
@@ -430,7 +406,7 @@ SelectCaseBlock
     before:(@SelectCaseClauses __)?
     default_: DefaultClause __
     after:(@SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return [...before??[], default_, ...after??[]];
+      return [...before??[], default_, ...after??[]]/* as Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>*/;
     }
   / __ clauses:(@SelectCaseClauses __)? { //FIXME: verify that "?" CAN be there
     return clauses??[];
@@ -692,15 +668,25 @@ AssignmentExpression
     }
   / LogicalORExpression
 
-LogicalORExpression
-  = head:LogicalANDExpression
-    tail:(__ LogicalOROperator __ LogicalANDExpression)*
-    { return buildLogicalExpression(head, tail); }
+LogicalORExpression = left:LogicalANDExpression __ operator:LogicalOROperator __ right:LogicalORExpression {
+  return {
+    type: "LogicalExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / LogicalANDExpression
 
-LogicalANDExpression
-  = head:EqualityExpression
-    tail:(__ LogicalANDOperator __ EqualityExpression)*
-    { return buildLogicalExpression(head, tail); }
+LogicalANDExpression = left:EqualityExpression __ operator:LogicalANDOperator __ right:LogicalANDExpression {
+  return {
+    type: "LogicalExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / EqualityExpression
 
 LogicalOROperator
   = $OrToken
@@ -708,10 +694,15 @@ LogicalOROperator
 LogicalANDOperator
  = $AndToken
 
-EqualityExpression //FIXME: support NOT
-  = head:RelationalExpression
-    tail:(__ EqualityOperator __ RelationalExpression)*
-    { return buildBinaryExpression(head, tail); }
+EqualityExpression = left:RelationalExpression __ operator:EqualityOperator __ right:EqualityExpression {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / RelationalExpression
 
 EqualityOperator
   = "=="
@@ -719,45 +710,65 @@ EqualityOperator
   / "="
   // "!="
 
-RelationalExpression
-  = head:AdditiveExpression
-    tail:(__ RelationalOperator __ AdditiveExpression)*
-    { return buildBinaryExpression(head, tail); }
+RelationalExpression = left:AdditiveExpression __ operator:RelationalOperator __ right:AdditiveExpression {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / AdditiveExpression
 
-AdditiveExpression
-  = head:MultiplicativeExpression
-    tail:(__ AdditiveOperator __ MultiplicativeExpression)*
-    { return buildBinaryExpression(head, tail); }
+AdditiveExpression = left:MultiplicativeExpression __ operator:AdditiveOperator __ right:AdditiveExpression {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / MultiplicativeExpression
 
 AdditiveOperator
-  = $("+" ![+=])
-  / $("-" ![-=])
-  / $("&" ![=])
+  = (@"+" ![+=])
+  / (@"-" ![-=])
+  / (@"&" ![=])
 
 RelationalOperator
   = "<="
   / ">="
   / "<>" //TODO: this may not belong here
-  / $("<" !"<")
-  / $(">" !">")
+  / (@"<" !"<")
+  / (@">" !">")
 
-MultiplicativeExpression
-  = head:ExponentialExpression
-    tail:(__ MultiplicativeOperator __ ExponentialExpression)*
-    { return buildBinaryExpression(head, tail); }
+MultiplicativeExpression = left:ExponentialExpression __ operator:MultiplicativeOperator __ right:MultiplicativeExpression {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / ExponentialExpression
 
 MultiplicativeOperator
-  = $("*" !"=")
-  / $("/" !"=")
+  = (@"*" !"=")
+  / (@"/" !"=")
   // $("%" !"=")
 
-ExponentialExpression
-  = head:NotExpression
-    tail:(__ ExponentialOperator __ NotExpression)*
-    { return buildBinaryExpression(head, tail); }
+ExponentialExpression = left:NotExpression __ operator:ExponentialOperator __ right:ExponentialExpression {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / NotExpression
 
 ExponentialOperator
-  = $("^" !"=")
+  = (@"^" !"=")
 
 NotExpression
   = (NotToken __) value:UnaryExpression { return {
@@ -997,7 +1008,7 @@ IfStatement
         type: "IfStatement",
         test: test,
         consequent: consequent,
-        alternate: [...alternates ?? [], ...alternate],
+        alternate: [...alternates ?? [], ...alternate] /*as Array<NonNullable<typeof alternates>[number]|NonNullable<typeof alternate>[number]>*/,
         location: location(),
       }
     }
@@ -1127,7 +1138,7 @@ CaseBlock
     before:(@CaseClauses __)?
     default_: DefaultClause __
     after:(@CaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return [...before??[], default_, ...after??[]];
+      return [...before??[], default_, ...after??[]]/* as Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>*/;
     }
   / __ clauses:(@CaseClauses __)? { //FIXME: verify that "?" CAN be there
     return clauses??[];
