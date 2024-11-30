@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/genius257/autoit3-pegjs#readme",
   "dependencies": {
-    "peggy": "^2.0.1"
+    "peggy": "^4.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.15.3",
