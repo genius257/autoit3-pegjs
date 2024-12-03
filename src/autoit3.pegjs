@@ -406,7 +406,7 @@ SelectCaseBlock
     before:(@SelectCaseClauses __)?
     default_: DefaultClause __
     after:(@SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return [...before??[], default_, ...after??[]]/* as Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>*/;
+      return /** @type {Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>} */([...before??[], default_, ...after??[]]);
     }
   / __ clauses:(@SelectCaseClauses __)? { //FIXME: verify that "?" CAN be there
     return clauses??[];
@@ -1003,12 +1003,13 @@ IfStatement
     __ alternates:ElseIfClauses? __
     __ alternate:ElseClause? __
     EndIfToken EOS {
-      alternate = alternate ? [alternate] : [];
+      const alternateArray = alternate ? [alternate] : [];
+      const _alternate = /** @type {Array<NonNullable<typeof alternates>[number]|NonNullable<typeof alternate>[number]>} */ ([...alternates ?? [], ...alternateArray]);
       return {
         type: "IfStatement",
         test: test,
         consequent: consequent,
-        alternate: [...alternates ?? [], ...alternate] /*as Array<NonNullable<typeof alternates>[number]|NonNullable<typeof alternate>[number]>*/,
+        alternate: _alternate,
         location: location(),
       }
     }
@@ -1138,7 +1139,7 @@ CaseBlock
     before:(@CaseClauses __)?
     default_: DefaultClause __
     after:(@CaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
-      return [...before??[], default_, ...after??[]]/* as Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>*/;
+      return /** @type {Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>} */ ([...before??[], default_, ...after??[]]);
     }
   / __ clauses:(@CaseClauses __)? { //FIXME: verify that "?" CAN be there
     return clauses??[];
