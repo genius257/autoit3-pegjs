@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "lib": ["esnext"],
+        "module": "preserve",
+        "noEmit": true,
+
+        "noImplicitAny": true,
+    }
+}
