@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2025-01-18
+
+### Changed
+
+- TypeScript types are now auto-generated instead of hand written, to remove the element of human error. (This is a breaking change)
+
 ### Fixed
 
 - NotExpression precedence issue causing it to be disallowed on the right-hand side of BinaryExpressions. (#8)
@@ -143,7 +149,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/v2.0.0...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/3.0.0...HEAD
+[3.0.0]: https://github.com/genius257/autoit3-pegjs/compare/2.0.0...3.0.0
 [2.0.0]: https://github.com/genius257/autoit3-pegjs/compare/1.2.0...2.0.0
 [1.2.0]: https://github.com/genius257/autoit3-pegjs/compare/1.1.7...1.2.0
 [1.1.7]: https://github.com/genius257/autoit3-pegjs/compare/1.1.6...1.1.7
