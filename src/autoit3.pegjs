@@ -567,9 +567,12 @@ PrimaryExpression
   / Literal //FIXME: this does not make sense with dot and array access in au3
   // ArrayLiteral
   // ObjectLiteral
-  / "(" __ expression:Expression __ ")" { return expression; }
+  / ParenthesizedExpression
   //FIXME: rules below are not sure if belong
   / Keyword:DefaultKeyword !AdditiveOperator { return Keyword; }
+
+ParenthesizedExpression
+  = "(" __ expression:Expression __ ")" { return {type: "ParenthesizedExpression", expression: expression}; }
 
 CallExpression
   = head:(
