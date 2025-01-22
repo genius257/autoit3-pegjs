@@ -572,7 +572,7 @@ PrimaryExpression
   / Keyword:DefaultKeyword !AdditiveOperator { return Keyword; }
 
 ParenthesizedExpression
-  = "(" __ expression:Expression __ ")" { return {type: "ParenthesizedExpression", expression: expression}; }
+  = "(" __ expression:Expression __ ")" { return {type: "ParenthesizedExpression", expression: expression, location: location() }; }
 
 CallExpression
   = head:(
