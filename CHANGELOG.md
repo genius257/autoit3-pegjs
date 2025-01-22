@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Missing location property on `ParenthesizedExpression` AST node.
+- Updated peggy-to-ts to fix mismatch between location function return value and Peggy LocationRange type.
 
 ## [3.0.1] - 2025-01-22
 
