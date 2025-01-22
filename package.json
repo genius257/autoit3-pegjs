@@ -22,7 +22,7 @@
   "homepage": "https://github.com/genius257/autoit3-pegjs#readme",
   "dependencies": {
     "peggy": "^4.2.0",
-    "peggy-to-ts": "github:genius257/peggy-to-ts#semver:^1.0.3",
+    "peggy-to-ts": "github:genius257/peggy-to-ts#semver:^1.0.4",
     "tsx": "^4.19.2"
   },
   "devDependencies": {
