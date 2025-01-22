@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 2025-01-22
+
+### Fixed
+
+- Recursion typescript error for circular type reference
+- Wrong types was generated for MemberExpression and CallExpression rules.
+
 ## [3.0.0] - 2025-01-18
 
 ### Changed
@@ -149,7 +156,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/3.0.0...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/3.0.1...HEAD
+[3.0.1]: https://github.com/genius257/autoit3-pegjs/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/genius257/autoit3-pegjs/compare/2.0.0...3.0.0
 [2.0.0]: https://github.com/genius257/autoit3-pegjs/compare/1.2.0...2.0.0
 [1.2.0]: https://github.com/genius257/autoit3-pegjs/compare/1.1.7...1.2.0
