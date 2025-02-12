@@ -30,19 +30,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - NotExpression precedence issue causing it to be disallowed on the right-hand side of BinaryExpressions. (#8)
-- SingleLineComment used EOS intead of LineTerminatorSequence / EOF
+- SingleLineComment used EOS instead of LineTerminatorSequence / EOF
 - Wrong TypeScript type "Comment" used instead of "SingleLineComment|MultiLineComment"
 
 ## [2.0.0] - 2024-09-21
 
 ### Added
 
-- More grannular typescript types, to better access each node case within the `IterationStatement`
+- More granular typescript types, to better access each node case within the `IterationStatement`
 
 ### Changed
 
 - `ForStatement` id property removed from AST node and init property now contains a `VariableDeclarator` node
-- `ForInStatement` left property in AST node now contains a `VariableDeclarator` node isntead
+- `ForInStatement` left property in AST node now contains a `VariableDeclarator` node instead
 
 ## [1.2.0] - 2024-03-30
 
@@ -82,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Default keyword returning array instead of expected keyword AST element object
-- Problems introduced from the inital fix of issue #29
+- Problems introduced from the initial fix of issue #29
 
 ## [1.1.4] - 2024-01-16
 
@@ -93,7 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - SingleLineComment above first case in switch block resulted in array value, instead of expected SingleLineComment element object
-- Single line IfStatement consequent requrements was too loose ( #29 )
+- Single line IfStatement consequent requirements was too loose ( #29 )
 - RedimIdentifierExpression was not implemented ( #20 )
 - Scope string value in VariableDeclarations and EnumDeclarations should be lowercase ( #31 )
 - EnumDeclaration TS type was missing `null` as a possible scope value
@@ -111,7 +111,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - MultiLineComment too strict ( #18 )
 - SwitchStatement did not allow empty statement before first case ( #38 )
-- Seperator after keyword should be required ( #35 )
+- Separator after keyword should be required ( #35 )
 - TS MultilineComment was of type string, but actual value was array of strings.
 
 ## [1.1.1] - 2023-04-02
