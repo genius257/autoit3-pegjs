@@ -29,7 +29,7 @@ typeExtractor.getTypes().then((types) => {
         throw new Error('type "CallExpression" not found in "AutoIt3" namespace');
     }
 
-    alias2.setType(`{type: "CallExpression", callee: MemberExpression | CallExpression, arguments: Arguments, location: LocationRange } | {type: "MemberExpression", property: Expression | IdentifierName, computed: boolean, location: LocationRange }`);
+    alias2.setType(`{type: "CallExpression", callee: MemberExpression | CallExpression, arguments: Arguments, location: LocationRange } | {type: "MemberExpression", object: MemberExpression | CallExpression, property: Expression | IdentifierName, computed: boolean, location: LocationRange }`);
 
     const alias3 = namespace.getTypeAlias("IncludeStatement");
     if (alias3 === undefined) {
