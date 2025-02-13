@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Manual type replacement added for `IncludeStatement` rule, to fix wrong interpreted type for properties `library` and `file`.
+- Missing `object` property from TS type object with property `type` equals `MemberExpression` from `CallExpression` rule
 
 ## [3.0.2] - 2025-01-22
 
