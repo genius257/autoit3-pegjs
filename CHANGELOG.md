@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.3] - 2025-02-13
+
 ### Fixed
 
 - Manual type replacement added for `IncludeStatement` rule, to fix wrong interpreted type for properties `library` and `file`.
