@@ -1,12 +1,13 @@
 import { expect, test } from 'vitest';
 import fs from 'fs';
-import parser, { Program } from "../index";
+import parser, { AutoIt3 } from "../dist/autoit3";
 
 test('FunctionDeclaration', () => {
     expect(
         parser.parse(
             `Func MyFunction()
-            EndFunc`
+            EndFunc`,
+            {grammarSource: ""}
         )
     ).toStrictEqual({
         type: 'Program',
@@ -27,7 +28,7 @@ test('FunctionDeclaration', () => {
                             column: 16,
                             offset: 15,
                         },
-                        source: undefined,
+                        source: "",
                     }
                 },
                 params: [],
@@ -43,17 +44,18 @@ test('FunctionDeclaration', () => {
                         column: 20,
                         offset: 37,
                     },
-                    source: undefined,
+                    source: "",
                 },
                 volatile: false,
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     expect(
         parser.parse(
             `Func MyFunction($a, Byref Const $b = 1)
-            EndFunc`
+            EndFunc`,
+            {grammarSource: ""}
         )
     ).toStrictEqual({
         type: 'Program',
@@ -74,7 +76,7 @@ test('FunctionDeclaration', () => {
                             column: 16,
                             offset: 15,
                         },
-                        source: undefined,
+                        source: "",
                     }
                 },
                 params: [
@@ -97,7 +99,7 @@ test('FunctionDeclaration', () => {
                                     column: 19,
                                     offset: 18,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         location: {
@@ -111,7 +113,7 @@ test('FunctionDeclaration', () => {
                                 column: 19,
                                 offset: 18,
                             },
-                            source: undefined,
+                            source: "",
                         }
                     },
                     {
@@ -132,7 +134,7 @@ test('FunctionDeclaration', () => {
                                     column: 39,
                                     offset: 38,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         id: {
@@ -149,7 +151,7 @@ test('FunctionDeclaration', () => {
                                     column: 35,
                                     offset: 34,
                                 },
-                                source: undefined,
+                                source: "",
                             },
                         },
                         location: {
@@ -163,7 +165,7 @@ test('FunctionDeclaration', () => {
                                 column: 39,
                                 offset: 38,
                             },
-                            source: undefined,
+                            source: "",
                         }
                     }
                 ],
@@ -179,10 +181,10 @@ test('FunctionDeclaration', () => {
                         column: 20,
                         offset: 59,
                     },
-                    source: undefined,
+                    source: "",
                 },
                 volatile: false,
             }
         ]
-    } satisfies Program)
+    } satisfies AutoIt3.Program)
 });

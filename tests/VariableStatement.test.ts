@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import parser, { Location, LocationRange, Program, SyntaxError, VariableDeclaration } from "../index";
+import parser, { Location, LocationRange, SyntaxError, AutoIt3 } from "../dist/autoit3";
 
 const isPeggySyntaxError = (error: unknown): error is SyntaxError => {
     if (!(error instanceof Error)) {
@@ -25,7 +25,7 @@ const assertParserError = (input: string, startOffset: number, endOffset: number
     let thrown: unknown = null;
 
     try {
-        return parser.parse(input);
+        return parser.parse(input, {grammarSource: ""});
     } catch (error) {
         if (!isPeggySyntaxError(error)) {
             throw error;
@@ -62,7 +62,7 @@ test('VariableDeclaration', () => {
     assertParserError('Static Dim Const $dim_e = 1', 7);
     assertParserError('Static Const Dim $dim_f = 1', 7);
 
-    expect(parser.parse('Local Const $local_g = 1')).toStrictEqual({
+    expect(parser.parse('Local Const $local_g = 1', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -87,7 +87,7 @@ test('VariableDeclaration', () => {
                                     column: 21,
                                     offset: 20,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -105,7 +105,7 @@ test('VariableDeclaration', () => {
                                     column: 25,
                                     offset: 24,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         location: {
@@ -119,7 +119,7 @@ test('VariableDeclaration', () => {
                                 column: 25,
                                 offset: 24,
                             },
-                            source: undefined,
+                            source: "",
                         }
                     }
                 ],
@@ -134,13 +134,13 @@ test('VariableDeclaration', () => {
                         column: 25,
                         offset: 24,
                     },
-                    source: undefined,
+                    source: "",
                 }
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Local Static $local_h')).toStrictEqual({
+    expect(parser.parse('Local Static $local_h', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -165,7 +165,7 @@ test('VariableDeclaration', () => {
                                     column: 22,
                                     offset: 21,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -181,7 +181,7 @@ test('VariableDeclaration', () => {
                                 column: 22,
                                 offset: 21,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -196,15 +196,15 @@ test('VariableDeclaration', () => {
                         column: 22,
                         offset: 21,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Const Local $local_i = 1', 6);
 
-    expect(parser.parse('Static Local $local_j')).toStrictEqual({
+    expect(parser.parse('Static Local $local_j', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -229,7 +229,7 @@ test('VariableDeclaration', () => {
                                     column: 22,
                                     offset: 21,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -245,7 +245,7 @@ test('VariableDeclaration', () => {
                                 column: 22,
                                 offset: 21,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -260,13 +260,13 @@ test('VariableDeclaration', () => {
                         column: 22,
                         offset: 21,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Local $local_k')).toStrictEqual({
+    expect(parser.parse('Local $local_k', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -291,7 +291,7 @@ test('VariableDeclaration', () => {
                                     column: 15,
                                     offset: 14,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -307,7 +307,7 @@ test('VariableDeclaration', () => {
                                 column: 15,
                                 offset: 14,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -322,13 +322,13 @@ test('VariableDeclaration', () => {
                         column: 15,
                         offset: 14,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Global Const $global_g = 1')).toStrictEqual({
+    expect(parser.parse('Global Const $global_g = 1', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -353,7 +353,7 @@ test('VariableDeclaration', () => {
                                     column: 23,
                                     offset: 22,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: {
@@ -370,7 +370,7 @@ test('VariableDeclaration', () => {
                                     column: 27,
                                     offset: 26,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -385,7 +385,7 @@ test('VariableDeclaration', () => {
                                 column: 27,
                                 offset: 26,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -400,13 +400,13 @@ test('VariableDeclaration', () => {
                         column: 27,
                         offset: 26,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Global Static $global_h')).toStrictEqual({
+    expect(parser.parse('Global Static $global_h', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -431,7 +431,7 @@ test('VariableDeclaration', () => {
                                     column: 24,
                                     offset: 23,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -447,7 +447,7 @@ test('VariableDeclaration', () => {
                                 column: 24,
                                 offset: 23,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -462,15 +462,15 @@ test('VariableDeclaration', () => {
                         column: 24,
                         offset: 23,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Const Global $global_i = 1', 6);
 
-    expect(parser.parse('Static Global $global_j')).toStrictEqual({
+    expect(parser.parse('Static Global $global_j', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -495,7 +495,7 @@ test('VariableDeclaration', () => {
                                     column: 24,
                                     offset: 23,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -511,7 +511,7 @@ test('VariableDeclaration', () => {
                                 column: 24,
                                 offset: 23,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -526,13 +526,13 @@ test('VariableDeclaration', () => {
                         column: 24,
                         offset: 23,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Global $global_k')).toStrictEqual({
+    expect(parser.parse('Global $global_k', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -557,7 +557,7 @@ test('VariableDeclaration', () => {
                                     column: 17,
                                     offset: 16,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -573,7 +573,7 @@ test('VariableDeclaration', () => {
                                 column: 17,
                                 offset: 16,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -588,13 +588,13 @@ test('VariableDeclaration', () => {
                         column: 17,
                         offset: 16,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Dim Const $dim_g = 1')).toStrictEqual({
+    expect(parser.parse('Dim Const $dim_g = 1', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -619,7 +619,7 @@ test('VariableDeclaration', () => {
                                     column: 17,
                                     offset: 16,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -637,7 +637,7 @@ test('VariableDeclaration', () => {
                                     column: 21,
                                     offset: 20,
                                 },
-                                source: undefined,
+                                source: "",
                             },
                         },
                         location: {
@@ -651,7 +651,7 @@ test('VariableDeclaration', () => {
                                 column: 21,
                                 offset: 20,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -666,17 +666,17 @@ test('VariableDeclaration', () => {
                         column: 21,
                         offset: 20,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Dim Static $dim_h', 4);
     assertParserError('Const Dim $dim_i = 1', 6);
     assertParserError('Static Dim $dim_j', 7);
 
-    expect(parser.parse('Dim $dim_k')).toStrictEqual({
+    expect(parser.parse('Dim $dim_k', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -701,7 +701,7 @@ test('VariableDeclaration', () => {
                                     column: 11,
                                     offset: 10,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -717,7 +717,7 @@ test('VariableDeclaration', () => {
                                 column: 11,
                                 offset: 10,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -732,16 +732,16 @@ test('VariableDeclaration', () => {
                         column: 11,
                         offset: 10,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Const Static $l = 1', 6);
     assertParserError('Static Const $m = 1', 7);
 
-    expect(parser.parse('Const $n = 1')).toStrictEqual({
+    expect(parser.parse('Const $n = 1', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -766,7 +766,7 @@ test('VariableDeclaration', () => {
                                     column: 9,
                                     offset: 8,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -784,7 +784,7 @@ test('VariableDeclaration', () => {
                                     column: 13,
                                     offset: 12,
                                 },
-                                source: undefined,
+                                source: "",
                             },
                         },
                         location: {
@@ -798,7 +798,7 @@ test('VariableDeclaration', () => {
                                 column: 13,
                                 offset: 12,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -813,13 +813,13 @@ test('VariableDeclaration', () => {
                         column: 13,
                         offset: 12,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Static $o')).toStrictEqual({
+    expect(parser.parse('Static $o', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -844,7 +844,7 @@ test('VariableDeclaration', () => {
                                     column: 10,
                                     offset: 9,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -860,7 +860,7 @@ test('VariableDeclaration', () => {
                                 column: 10,
                                 offset: 9,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -875,13 +875,13 @@ test('VariableDeclaration', () => {
                         column: 10,
                         offset: 9,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } as Program);
+    } as AutoIt3.Program);
 
-    expect(parser.parse('$p = 1')).toStrictEqual({
+    expect(parser.parse('$p = 1', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -906,7 +906,7 @@ test('VariableDeclaration', () => {
                                     column: 3,
                                     offset: 2,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [],
@@ -924,7 +924,7 @@ test('VariableDeclaration', () => {
                                     column: 7,
                                     offset: 6,
                                 },
-                                source: undefined,
+                                source: "",
                             },
                         },
                         location: {
@@ -938,7 +938,7 @@ test('VariableDeclaration', () => {
                                 column: 7,
                                 offset: 6,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -953,13 +953,13 @@ test('VariableDeclaration', () => {
                         column: 7,
                         offset: 6,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Enum $q')).toStrictEqual({
+    expect(parser.parse('Enum $q', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -986,7 +986,7 @@ test('VariableDeclaration', () => {
                                     column: 8,
                                     offset: 7,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: null,
@@ -1001,7 +1001,7 @@ test('VariableDeclaration', () => {
                                 column: 8,
                                 offset: 7,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1016,13 +1016,13 @@ test('VariableDeclaration', () => {
                         column: 8,
                         offset: 7,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
-    expect(parser.parse('Local Enum $local_r')).toStrictEqual({
+    expect(parser.parse('Local Enum $local_r', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -1049,7 +1049,7 @@ test('VariableDeclaration', () => {
                                     column: 20,
                                     offset: 19,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: null,
@@ -1064,7 +1064,7 @@ test('VariableDeclaration', () => {
                                 column: 20,
                                 offset: 19,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1079,15 +1079,15 @@ test('VariableDeclaration', () => {
                         column: 20,
                         offset: 19,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Enum Local $local_s', 5);
 
-    expect(parser.parse('Global Enum $global_r')).toStrictEqual({
+    expect(parser.parse('Global Enum $global_r', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -1114,7 +1114,7 @@ test('VariableDeclaration', () => {
                                     column: 22,
                                     offset: 21,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: null,
@@ -1129,7 +1129,7 @@ test('VariableDeclaration', () => {
                                 column: 22,
                                 offset: 21,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1144,15 +1144,15 @@ test('VariableDeclaration', () => {
                         column: 22,
                         offset: 21,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Enum Global $global_s', 5);
 
-    expect(parser.parse('Dim Enum $dim_r')).toStrictEqual({
+    expect(parser.parse('Dim Enum $dim_r', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -1179,7 +1179,7 @@ test('VariableDeclaration', () => {
                                     column: 16,
                                     offset: 15,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: null,
@@ -1194,7 +1194,7 @@ test('VariableDeclaration', () => {
                                 column: 16,
                                 offset: 15,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1209,17 +1209,17 @@ test('VariableDeclaration', () => {
                         column: 16,
                         offset: 15,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Enum Dim $dim_s', 5);
     assertParserError('Static Enum $static_r', 7);
     assertParserError('Enum Static $static_s', 5);
 
-    expect(parser.parse('Const Enum $const_r')).toStrictEqual({
+    expect(parser.parse('Const Enum $const_r', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -1246,7 +1246,7 @@ test('VariableDeclaration', () => {
                                     column: 20,
                                     offset: 19,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: null,
@@ -1261,7 +1261,7 @@ test('VariableDeclaration', () => {
                                 column: 20,
                                 offset: 19,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1276,15 +1276,15 @@ test('VariableDeclaration', () => {
                         column: 20,
                         offset: 19,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Enum Const $const_s', 5);
 
-    expect(parser.parse('Local Const Enum $local_const_r')).toStrictEqual({
+    expect(parser.parse('Local Const Enum $local_const_r', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -1311,7 +1311,7 @@ test('VariableDeclaration', () => {
                                     column: 32,
                                     offset: 31,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: null,
@@ -1326,7 +1326,7 @@ test('VariableDeclaration', () => {
                                 column: 32,
                                 offset: 31,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1341,11 +1341,11 @@ test('VariableDeclaration', () => {
                         column: 32,
                         offset: 31,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Local Enum Const $local_const_s', 11);
     assertParserError('Const Local Enum $const_local_t', 6);
@@ -1353,7 +1353,7 @@ test('VariableDeclaration', () => {
     assertParserError('Enum Local Const $const_local_v', 5);
     assertParserError('Enum Const Local $enum_local_w', 5);
 
-    expect(parser.parse('Global Const Enum $global_const_r')).toStrictEqual({
+    expect(parser.parse('Global Const Enum $global_const_r', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -1380,7 +1380,7 @@ test('VariableDeclaration', () => {
                                     column: 34,
                                     offset: 33,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: null,
@@ -1395,7 +1395,7 @@ test('VariableDeclaration', () => {
                                 column: 34,
                                 offset: 33,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1410,11 +1410,11 @@ test('VariableDeclaration', () => {
                         column: 34,
                         offset: 33,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Global Enum Const $global_const_s', 12);
     assertParserError('Const Global Enum $const_global_t', 6);
@@ -1422,7 +1422,7 @@ test('VariableDeclaration', () => {
     assertParserError('Enum Global Const $const_global_v', 5);
     assertParserError('Enum Const Global $enum_global_w', 5);
 
-    expect(parser.parse('Dim Const Enum $dim_const_r')).toStrictEqual({
+    expect(parser.parse('Dim Const Enum $dim_const_r', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -1449,7 +1449,7 @@ test('VariableDeclaration', () => {
                                     column: 28,
                                     offset: 27,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         init: null,
@@ -1464,7 +1464,7 @@ test('VariableDeclaration', () => {
                                 column: 28,
                                 offset: 27,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1479,11 +1479,11 @@ test('VariableDeclaration', () => {
                         column: 28,
                         offset: 27,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 
     assertParserError('Dim Enum Const $dim_const_s', 9);
     assertParserError('Const Dim Enum $const_dim_t', 6);
@@ -1493,7 +1493,7 @@ test('VariableDeclaration', () => {
 });
 
 test('Constant array declaration with dimensions specified', () => {
-    expect(parser.parse('Const $const_array[3] = [1, 2, 3]')).toStrictEqual({
+    expect(parser.parse('Const $const_array[3] = [1, 2, 3]', {grammarSource: ""})).toStrictEqual({
         type: 'Program',
         body: [
             {
@@ -1518,7 +1518,7 @@ test('Constant array declaration with dimensions specified', () => {
                                     column: 19,
                                     offset: 18,
                                 },
-                                source: undefined,
+                                source: "",
                             }
                         },
                         dimensions: [
@@ -1536,7 +1536,7 @@ test('Constant array declaration with dimensions specified', () => {
                                         column: 21,
                                         offset: 20,
                                     },
-                                    source: undefined,
+                                    source: "",
                                 }
                             }
                         ],
@@ -1557,7 +1557,7 @@ test('Constant array declaration with dimensions specified', () => {
                                             column: 27,
                                             offset: 26,
                                         },
-                                        source: undefined,
+                                        source: "",
                                     }
                                 },
                                 {
@@ -1574,7 +1574,7 @@ test('Constant array declaration with dimensions specified', () => {
                                             column: 30,
                                             offset: 29,
                                         },
-                                        source: undefined,
+                                        source: "",
                                     }
                                 },
                                 {
@@ -1591,7 +1591,7 @@ test('Constant array declaration with dimensions specified', () => {
                                             column: 33,
                                             offset: 32,
                                         },
-                                        source: undefined,
+                                        source: "",
                                     }
                                 },
                             ],
@@ -1606,7 +1606,7 @@ test('Constant array declaration with dimensions specified', () => {
                                     column: 34,
                                     offset: 33,
                                 },
-                                source: undefined,
+                                source: "",
                             },
                         },
                         location: {
@@ -1620,7 +1620,7 @@ test('Constant array declaration with dimensions specified', () => {
                                 column: 34,
                                 offset: 33,
                             },
-                            source: undefined,
+                            source: "",
                         },
                     },
                 ],
@@ -1635,9 +1635,9 @@ test('Constant array declaration with dimensions specified', () => {
                         column: 34,
                         offset: 33,
                     },
-                    source: undefined,
+                    source: "",
                 },
             }
         ]
-    } satisfies Program);
+    } satisfies AutoIt3.Program);
 });
