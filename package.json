@@ -1,11 +1,10 @@
 {
   "name": "autoit3-pegjs",
   "description": "A PEG.js parser for the AutoIt3 language",
-  "main": "out/autoit3.js",
+  "main": "dist/autoit3.js",
   "scripts": {
     "test": "vitest",
-    "build": "peggy -o out/autoit3.js src/autoit3.pegjs --cache --dts --return-types {\\\"Start\\\":\\\"AutoIt3.Start\\\"} && tsx build.ts",
-    "postinstall": "npm run build"
+    "build": "peggy -o dist/autoit3.js src/autoit3.pegjs --cache --dts --return-types {\\\"Start\\\":\\\"AutoIt3.Start\\\"} && tsx build.ts"
   },
   "repository": {
     "type": "git",

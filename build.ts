@@ -7,10 +7,10 @@ import {Project} from "ts-morph";
 const source = readFileSync("./src/autoit3.pegjs").toString();
 const typeExtractor = new TypeExtractor(source, {camelCaseTypeNames: true, removeReadonlyKeyword: true});
 typeExtractor.getTypes().then((types) => {
-    writeFileSync('./out/autoit3.d.ts', "\nexport namespace AutoIt3 {\n"+types+"\n}\n", {flag: 'a+'});
+    writeFileSync('./dist/autoit3.d.ts', "\nexport namespace AutoIt3 {\n"+types+"\n}\n", {flag: 'a+'});
 
     const project = new Project();
-    const file = project.addSourceFileAtPath('./out/autoit3.d.ts');
+    const file = project.addSourceFileAtPath('./dist/autoit3.d.ts');
 
     const namespace = file.getModule("AutoIt3");
     if (namespace === undefined) {
