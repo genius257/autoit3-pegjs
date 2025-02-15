@@ -5,7 +5,7 @@
   "scripts": {
     "test": "vitest",
     "build": "peggy -o out/autoit3.js src/autoit3.pegjs --cache --dts --return-types {\\\"Start\\\":\\\"AutoIt3.Start\\\"} && tsx build.ts",
-    "install": "npm run build"
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
