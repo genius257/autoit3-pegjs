@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2025-02-15
+
+### Changed
+
+- Changed package to be used via NPM instead.
+
 ## [3.0.4] - 2025-02-13
 
 ### Fixed
@@ -176,7 +182,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/3.0.4...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.0.0...HEAD
+[4.0.0]: https://github.com/genius257/autoit3-pegjs/compare/3.0.4...4.0.0
 [3.0.3]: https://github.com/genius257/autoit3-pegjs/compare/3.0.3...3.0.4
 [3.0.3]: https://github.com/genius257/autoit3-pegjs/compare/3.0.2...3.0.3
 [3.0.2]: https://github.com/genius257/autoit3-pegjs/compare/3.0.1...3.0.2
