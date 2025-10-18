@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Missing whitespace requirement between ByRef, const and a function parameter ( #47 )
+- ByRef function parameters allowed default values ( #44 )
+
 ## [4.0.0] - 2025-02-15
 
 ### Changed
@@ -48,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- NotExpression precedence issue causing it to be disallowed on the right-hand side of BinaryExpressions. (#8)
+- NotExpression precedence issue causing it to be disallowed on the right-hand side of BinaryExpressions. ( #8 )
 - SingleLineComment used EOS instead of LineTerminatorSequence / EOF
 - Wrong TypeScript type "Comment" used instead of "SingleLineComment|MultiLineComment"
 
@@ -178,7 +183,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Missing location information on DefaultKeyword pegjs rule (issue #21)
+- Missing location information on DefaultKeyword pegjs rule ( #21 )
 
 ## [1.0.0] - 2023-01-03
 
