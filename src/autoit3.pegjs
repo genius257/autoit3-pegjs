@@ -848,30 +848,30 @@ FormalParameterList
 // HACK: start of custom support of function arguements with default value
 //FIXME: currently this allows ($a, $b = 123, $c) but no parameters without Initializer allowed after first parameter with Initializer occurred
 FormalParameter
-  = _const:(@ConstToken __)? ByRefToken __ id:VariableIdentifier __ init:("=" __ @Expression)? {
+  = _const:(@ConstToken Whitespace)? ByRefToken Whitespace id:VariableIdentifier {
     return {
       type: "Parameter",
       "const": !!_const,
       byref: true,
       id: id,
-      init: init,
+      init: null,
       location: location(),
     };
   }
-  / byref:(@ByRefToken __)? ConstToken __ id:VariableIdentifier __ init:("=" __ @Expression)? {
+  / ByRefToken Whitespace ConstToken Whitespace id:VariableIdentifier {
     return {
       type: "Parameter",
-      byref: !!byref,
+      byref: true,
       "const": true,
       id: id,
-      init: init,
+      init: null,
       location: location(),
     };
   }
-  / id:VariableIdentifier __ init:("=" __ @Expression)? {
+  / _const:(@ConstToken Whitespace)? id:VariableIdentifier __ init:("=" __ @Expression)? {
     return {
       type: "Parameter",
-      "const": false,
+      "const": !!_const,
       byref: false,
       id: id,
       init: init,
