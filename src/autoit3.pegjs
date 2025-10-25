@@ -125,12 +125,11 @@ HexIntegerLiteral
 
 Integer = [0-9]+
 
-//FIXME: !('"' / LineTerminator) instead of [^"]
 StringLiteral "string"
-  = '"' chars:([^"] / '""')* '"' {
+  = '"' chars:(!('"' / LineTerminatorSequence) . / '""')* '"' {
     return { type: "Literal", value: chars.join(""), location: location(), }
   }
-  / "'" chars:([^'] / "''")* "'" {
+  / "'" chars:(!('"' / LineTerminatorSequence) . / "''")* "'" {
     return { type: "Literal", value: chars.join(""), location: location(), }
   }
 
