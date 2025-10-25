@@ -126,10 +126,10 @@ HexIntegerLiteral
 Integer = [0-9]+
 
 StringLiteral "string"
-  = '"' chars:(!('"' / LineTerminatorSequence) . / '""')* '"' {
+  = '"' chars:(!('"' / LineTerminatorSequence) . / '""' {return '"'})* '"' {
     return { type: "Literal", value: chars.join(""), location: location(), }
   }
-  / "'" chars:(!('"' / LineTerminatorSequence) . / "''")* "'" {
+  / "'" chars:(!('"' / LineTerminatorSequence) . / "''" {return "'"})* "'" {
     return { type: "Literal", value: chars.join(""), location: location(), }
   }
 
