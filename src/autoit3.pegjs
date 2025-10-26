@@ -407,8 +407,8 @@ SelectCaseBlock
     after:(@SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
       return /** @type {Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>} */([...before??[], default_, ...after??[]]);
     }
-  / __ clauses:(@SelectCaseClauses __)? { //FIXME: verify that "?" CAN be there
-    return clauses??[];
+  / __ clauses:(@SelectCaseClauses __) {
+    return clauses;
   }
 
 SelectCaseClauses
