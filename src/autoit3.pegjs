@@ -759,7 +759,7 @@ MultiplicativeOperator
   / (@"/" !"=")
   // $("%" !"=")
 
-ExponentialExpression = left:NotExpression __ operator:ExponentialOperator __ right:ExponentialExpression {
+ExponentialExpression = left:UnaryExpression __ operator:ExponentialOperator __ right:ExponentialExpression {
   return {
     type: "BinaryExpression",
     operator: operator,
@@ -767,18 +767,10 @@ ExponentialExpression = left:NotExpression __ operator:ExponentialOperator __ ri
     right: right,
     location: location(),
   };
-} / NotExpression
+} / UnaryExpression
 
 ExponentialOperator
   = (@"^" !"=")
-
-NotExpression
-  = (NotToken __) value:UnaryExpression { return {
-    type: "NotExpression",
-    value: value,
-    location: location(),
-  } }
-  / UnaryExpression
 
 UnaryExpression
   = LeftHandSideExpression
@@ -792,7 +784,7 @@ UnaryExpression
       };
     }
 
-UnaryOperator//FIXME: NOT token in here?
+UnaryOperator
   = 
   // "++"
   // "--"
@@ -800,6 +792,7 @@ UnaryOperator//FIXME: NOT token in here?
   / $("-" !"=")
   // "~"
   // "!"
+  / NotToken
 
 //BUG: --------------------------------------------------------------------------------------------------------------------------------------
 
