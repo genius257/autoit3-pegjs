@@ -1133,7 +1133,7 @@ CaseBlock
   = __
     before:(@CaseClauses __)?
     default_: DefaultClause __
-    after:(@CaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
+    after:(@CaseClauses __)? {
       return /** @type {Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>} */ ([...before??[], default_, ...after??[]]);
     }
   / __ clauses:(@CaseClauses __)? { //FIXME: verify that "?" CAN be there
