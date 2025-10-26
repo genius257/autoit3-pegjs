@@ -404,7 +404,7 @@ SelectCaseBlock
   = __
     before:(@SelectCaseClauses __)?
     default_: DefaultClause __
-    after:(@SelectCaseClauses __)? {//FIXME: verify that other case clauses can come after the default clase in au3
+    after:(@SelectCaseClauses __)? {
       return /** @type {Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>} */([...before??[], default_, ...after??[]]);
     }
   / __ clauses:(@SelectCaseClauses __) {
