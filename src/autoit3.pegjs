@@ -142,7 +142,7 @@ SingleLineComment = ';' body:([^\u000A\u000D]*) {
 MultiLineCommentStartTag = "#" (CSToken / CommentsStartToken)
 
 MultiLineComment
-  = MultiLineCommentStartTag beforeBody:$($(!Newline .)*)? body:$((MultiLineComment/!(Newline Whitespace* MultiLineCommentEndTag) .)* Newline Whitespace*) MultiLineCommentEndTag afterBody:$($(!Newline .)*)? {
+  = MultiLineCommentStartTag beforeBody:$($(!Newline .)*)? body:$((Newline Whitespace* MultiLineComment/!(Newline Whitespace* MultiLineCommentEndTag) .)* Newline Whitespace*) MultiLineCommentEndTag afterBody:$($(!Newline .)*)? {
     return {
       type: "MultiLineComment",
       body: beforeBody+body,
