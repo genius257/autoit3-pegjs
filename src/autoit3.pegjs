@@ -129,7 +129,7 @@ StringLiteral "string"
   = '"' chars:(!('"' / LineTerminatorSequence) . / '""' {return '"'})* '"' {
     return { type: "Literal", value: chars.join(""), location: location(), }
   }
-  / "'" chars:(!('"' / LineTerminatorSequence) . / "''" {return "'"})* "'" {
+  / "'" chars:(!("'" / LineTerminatorSequence) . / "''" {return "'"})* "'" {
     return { type: "Literal", value: chars.join(""), location: location(), }
   }
 
