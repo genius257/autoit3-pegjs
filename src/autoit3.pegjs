@@ -940,16 +940,6 @@ VariableStatement
       location: location(),
     }
   }
-  / declaration:ConstDeclaration EOS {
-    return {
-      scope: null,
-      constant: false,
-      static_: false,
-      type: "VariableDeclaration",
-      declarations: [declaration],
-      location: location(),
-    }
-  }
   / RedimToken __ head:RedimIdentifierExpression tail:(__ "," __ @RedimIdentifierExpression)* EOS {
     return {
       type: "RedimExpression",
