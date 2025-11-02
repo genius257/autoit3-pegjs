@@ -797,16 +797,11 @@ UnaryOperator
 //BUG: --------------------------------------------------------------------------------------------------------------------------------------
 
 Program
-  = body:SourceElements? {
+  = body:SourceElement* {
       return {
         type: "Program",
-        body: body??[]
+        body: body,
       };
-    }
-
-SourceElements
-  = head:SourceElement tail:(__ @SourceElement)* {
-      return [head, ...tail];
     }
 
 SourceElement
