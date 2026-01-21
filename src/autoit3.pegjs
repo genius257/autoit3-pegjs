@@ -410,7 +410,7 @@ FutureReservedWord
     = "@RESERVED" //NOTE: no future reserved words so far
 
 WithStatement = WithToken object:(__ @Expression) EOS
-__ body:StatementListInWith?
+__ body:StatementListInWith? __
 EndWithToken EOS {
   return {
     type: "WithStatement",
