@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support for With...EndWith code blocks
+
 ### Fixed
 
 - Missing whitespace requirement between ByRef, const and a function parameter ( #47 )
