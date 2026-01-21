@@ -59,13 +59,28 @@ ConstDeclarationList
     return [head, ...tail];
   }
 
+ConstDeclarationListInWith
+  = head: ConstDeclarationInWith tail:(__ "," __ @ConstDeclarationInWith)* {
+    return [head, ...tail];
+  }
+
 EnumDeclarationList
   = head:EnumDeclaration tail:(__ "," __ @EnumDeclaration)* {
       return [head, ...tail];
     }
 
+EnumDeclarationListInWith
+  = head:EnumDeclarationInWith tail:(__ "," __ @EnumDeclarationInWith)* {
+      return [head, ...tail];
+    }
+
 VariableDeclarationList
   = head:VariableDeclaration tail:(__ "," __ @VariableDeclaration)* {
+      return [head, ...tail];
+    }
+
+VariableDeclarationListInWith
+  = head:VariableDeclarationInWith tail:(__ "," __ @VariableDeclarationInWith)* {
       return [head, ...tail];
     }
 
@@ -80,7 +95,27 @@ VariableDeclaration
       };
     }
 
+VariableDeclarationInWith
+  = id:VariableIdentifier dimensions:(__ "[" __ @ExpressionInWith? __ "]" )* init:(__ @InitialiserInWith)? {
+      return {
+        type: "VariableDeclarator",
+        id: id,
+        dimensions: dimensions,
+        init: init,
+        location: location(),
+      };
+    }
+
 EnumDeclaration = id:VariableIdentifier init:(__ '=' __ @AssignmentExpression)? {
+  return {
+    type: "VariableDeclarator",
+    id: id,
+    init: init,
+    location: location(),
+  }
+}
+
+EnumDeclarationInWith = id:VariableIdentifier init:(__ '=' __ @AssignmentExpressionInWith)? {
   return {
     type: "VariableDeclarator",
     id: id,
@@ -100,8 +135,22 @@ ConstDeclaration
     }
   }
 
+ConstDeclarationInWith
+  = id:VariableIdentifier dimensions:(__ "[" __ @ExpressionInWith? __ "]")* __ '=' __ init:(AssignmentExpressionInWith/ArrayDeclarationInWith) {
+    return {
+      type: "VariableDeclarator",
+      id: id,
+      dimensions: dimensions,
+      init: init,
+      location: location(),
+    }
+  }
+
 Initialiser
   = "=" !"=" __ expression:(AssignmentExpression / ArrayDeclaration) { return expression; }
+
+InitialiserInWith
+  = "=" !"=" __ expression:(AssignmentExpressionInWith / ArrayDeclarationInWith) { return expression; }
 
 VariableIdentifier = '$' name:$[0-9a-zA-Z_]+
   {return {
@@ -160,8 +209,21 @@ ArrayDeclaration = "[" __ elements:ArrayDeclarationElementList? __ "]" {
   }
 }
 
+ArrayDeclarationInWith = "[" __ elements:ArrayDeclarationElementListInWith? __ "]" {
+  return {
+    type: "ArrayDeclaration",
+    elements: elements,
+    location: location(),
+  }
+}
+
 ArrayDeclarationElementList
   = head:(Expression / ArrayDeclaration) tail:(__ "," __ @(Expression / ArrayDeclaration))* {
+      return [head, ...tail];
+    }
+
+ArrayDeclarationElementListInWith
+  = head:(ExpressionInWith / ArrayDeclarationInWith) tail:(__ "," __ @(ExpressionInWith / ArrayDeclarationInWith))* {
       return [head, ...tail];
     }
 
@@ -347,8 +409,8 @@ Keyword
 FutureReservedWord
     = "@RESERVED" //NOTE: no future reserved words so far
 
-WithStatement = WithToken object:(__ @Expression) EOS //FIXME: WIP
-body:StatementList?
+WithStatement = WithToken object:(__ @Expression) EOS
+__ body:StatementListInWith?
 EndWithToken EOS {
   return {
     type: "WithStatement",
@@ -366,6 +428,14 @@ ReturnStatement = ReturnToken value:(__ @Expression)? EOS {
   };
 }
 
+ReturnStatementInWith = ReturnToken value:(__ @ExpressionInWith)? EOS {
+  return {
+    type: "ReturnStatement",
+    value: value,
+    location: location()
+  };
+}
+
 ExitLoopStatement = ExitLoopToken level:(__ @Expression)? EOS {
   return {
     type: "ExitLoopStatement",
@@ -374,7 +444,23 @@ ExitLoopStatement = ExitLoopToken level:(__ @Expression)? EOS {
   };
 }
 
+ExitLoopStatementInWith = ExitLoopToken level:(__ @ExpressionInWith)? EOS {
+  return {
+    type: "ExitLoopStatement",
+    level: level,
+    location: location()
+  };
+}
+
 ContinueLoopStatement = ContinueLoopToken level:(__ @Expression)? EOS {
+  return {
+    type: "ContinueLoopStatement",
+    level: level,
+    location: location()
+  };
+}
+
+ContinueLoopStatementInWith = ContinueLoopToken level:(__ @ExpressionInWith)? EOS {
   return {
     type: "ContinueLoopStatement",
     level: level,
@@ -400,6 +486,17 @@ EndSelectToken EOS {
     };
   }
 
+SelectStatementInWith = SelectToken EOS
+(EmptyStatement / __ SingleLineComment EOS)*
+cases:SelectCaseBlockInWith
+EndSelectToken EOS {
+    return {
+      type: "SelectStatement",
+      cases: cases,
+      location: location(),
+    };
+  }
+
 SelectCaseBlock
   = __
     before:(@SelectCaseClauses __)?
@@ -411,12 +508,38 @@ SelectCaseBlock
     return clauses;
   }
 
+SelectCaseBlockInWith
+  = __
+    before:(@SelectCaseClausesInWith __)?
+    default_: DefaultClauseInWith __
+    after:(@SelectCaseClausesInWith __)? {
+      return /** @type {Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>} */([...before??[], default_, ...after??[]]);
+    }
+  / __ clauses:(@SelectCaseClauses __) {
+    return clauses;
+  }
+
 SelectCaseClauses
   = head:SelectCaseClause tail:(__ @SelectCaseClause)* { return [head, ...tail]; }
+
+SelectCaseClausesInWith
+  = head:SelectCaseClauseInWith tail:(__ @SelectCaseClauseInWith)* { return [head, ...tail]; }
 
 SelectCaseClause
   = CaseToken __ tests: AssignmentExpression EOS
     consequent: (__ @StatementList)?
+    {
+      return {
+        type: "SelectCase",
+        tests: tests,
+        consequent: consequent??[],
+        location: location(),
+      };
+    }
+
+SelectCaseClauseInWith
+  = CaseToken __ tests: AssignmentExpressionInWith EOS
+    consequent: (__ @StatementListInWith)?
     {
       return {
         type: "SelectCase",
@@ -557,6 +680,60 @@ MemberExpression
     }
     / Macro
 
+MemberExpressionInWith
+  = head:(
+        "." __ property:IdentifierName {
+          return {
+            type: "MemberExpression",
+            object: null,
+            property: property,
+            computed: false,
+            location: location(),
+          };
+        }
+    )
+    tail:(
+        __ "[" __ property:ExpressionInWith __ "]" {
+          return { property: property, computed: true };
+        }
+      / __ "." __ property:IdentifierName {
+          return { property: property, computed: false };
+        }
+    )*
+    {
+      return tail.reduce(function(result, element) {
+        return {
+          type: "MemberExpression",
+          object: result,
+          property: element.property,
+          computed: element.computed,
+          location: location(),
+        };
+      }, head);
+    }
+  / head:(
+        PrimaryExpressionInWith
+    )
+    tail:(
+        __ "[" __ property:ExpressionInWith __ "]" {
+          return { property: property, computed: true };
+        }
+      / __ "." __ property:IdentifierName {
+          return { property: property, computed: false };
+        }
+    )*
+    {
+      return tail.reduce(function(result, element) {
+        return {
+          type: "MemberExpression",
+          object: result,
+          property: element.property,
+          computed: element.computed,
+          location: location(),
+        };
+      }, head);
+    }
+    / Macro
 
 DefaultKeyword = DefaultToken { return { type: "Keyword", value: "Default", location: location() }; }
 
@@ -568,6 +745,15 @@ PrimaryExpression
   // ObjectLiteral
   / ParenthesizedExpression
   //FIXME: rules below are not sure if belong
+  / Keyword:DefaultKeyword !AdditiveOperator { return Keyword; }
+
+PrimaryExpressionInWith
+  = Identifier
+  / VariableIdentifier
+  / Literal
+  // ArrayLiteral
+  // ObjectLiteral
+  / ParenthesizedExpression
   / Keyword:DefaultKeyword !AdditiveOperator { return Keyword; }
 
 ParenthesizedExpression
@@ -607,8 +793,47 @@ CallExpression
       }, head);
     }
 
+CallExpressionInWith
+  = head:(
+      callee:MemberExpressionInWith __ args:ArgumentsInWith {
+        return { type: "CallExpression", callee: callee, arguments: args, location: location() };
+      }
+    )
+    tail:(
+        __ args:ArgumentsInWith {
+          return { type: "CallExpression", arguments: args, location: location() };
+        }
+      / __ "[" __ property:Expression __ "]" {
+          return {
+            type: "MemberExpression",
+            property: property,
+            computed: true,
+            location: location(),
+          };
+        }
+      / __ "." __ property:IdentifierName {
+          return {
+            type: "MemberExpression",
+            property: property,
+            computed: false,
+            location: location(),
+          };
+        }
+    )*
+    {
+      return tail.reduce(function(result, element) {
+        element[TYPES_TO_PROPERTY_NAMES[element.type]] = result;
+        return element;
+      }, head);
+    }
+
 Arguments
   = "(" __ args:(@ArgumentList __)? ")" {
+      return args??[];
+    }
+
+ArgumentsInWith
+  = "(" __ args:(@ArgumentListInWith __)? ")" {
       return args??[];
     }
 
@@ -617,9 +842,18 @@ ArgumentList
       return [head, ...tail];
     }
 
+ArgumentListInWith
+  = head:AssignmentExpressionInWith tail:(__ "," __ @AssignmentExpressionInWith)* {
+      return [head, ...tail];
+    }
+
 LeftHandSideExpression
   = CallExpression
   / MemberExpression
+
+LeftHandSideExpressionInWith
+  = CallExpressionInWith
+  / MemberExpressionInWith
 
 AssignmentExpression
   = left:LeftHandSideExpression __
@@ -648,6 +882,33 @@ AssignmentExpression
     }
   / ConditionalExpression
 
+AssignmentExpressionInWith
+  = left:LeftHandSideExpressionInWith __
+    "=" !"=" __
+    right:AssignmentExpressionInWith
+    {
+      return {
+        type: "AssignmentExpression",
+        operator: "=",
+        left: left,
+        right: right,
+        location: location(),
+      };
+    }
+  / left:LeftHandSideExpressionInWith __
+    operator:AssignmentOperator __
+    right:AssignmentExpressionInWith
+    {
+      return {
+        type: "AssignmentExpression",
+        operator: operator,
+        left: left,
+        right: right,
+        location: location(),
+      };
+    }
+  / ConditionalExpressionInWith
+
   AssignmentOperator //WARNING: au3 does not allow assignemnt in inline-expressions
   = "*="
   / "/="
@@ -670,6 +931,21 @@ AssignmentExpression
     }
   / LogicalORExpression
 
+ConditionalExpressionInWith
+  = test:LogicalORExpressionInWith __
+    "?" __ consequent:AssignmentExpressionInWith __
+    ":" __ alternate:AssignmentExpressionInWith
+    {
+      return {
+        type: "ConditionalExpression",
+        test: test,
+        consequent: consequent,
+        alternate: alternate,
+        location: location(),
+      };
+    }
+  / LogicalORExpressionInWith
+
 LogicalORExpression = left:LogicalANDExpression __ operator:LogicalOROperator __ right:LogicalORExpression {
   return {
     type: "LogicalExpression",
@@ -680,6 +956,16 @@ LogicalORExpression = left:LogicalANDExpression __ operator:LogicalOROperator __
   };
 } / LogicalANDExpression
 
+LogicalORExpressionInWith = left:LogicalANDExpressionInWith __ operator:LogicalOROperator __ right:LogicalORExpressionInWith {
+  return {
+    type: "LogicalExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / LogicalANDExpressionInWith
+
 LogicalANDExpression = left:EqualityExpression __ operator:LogicalANDOperator __ right:LogicalANDExpression {
   return {
     type: "LogicalExpression",
@@ -689,6 +975,16 @@ LogicalANDExpression = left:EqualityExpression __ operator:LogicalANDOperator __
     location: location(),
   };
 } / EqualityExpression
+
+LogicalANDExpressionInWith = left:EqualityExpressionInWith __ operator:LogicalANDOperator __ right:LogicalANDExpressionInWith {
+  return {
+    type: "LogicalExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / EqualityExpressionInWith
 
 LogicalOROperator
   = $OrToken
@@ -706,6 +1002,16 @@ EqualityExpression = left:RelationalExpression __ operator:EqualityOperator __ r
   };
 } / RelationalExpression
 
+EqualityExpressionInWith = left:RelationalExpressionInWith __ operator:EqualityOperator __ right:EqualityExpressionInWith {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / RelationalExpressionInWith
+
 EqualityOperator
   = "=="
   // "!=="
@@ -722,6 +1028,16 @@ RelationalExpression = left:AdditiveExpression __ operator:RelationalOperator __
   };
 } / AdditiveExpression
 
+RelationalExpressionInWith = left:AdditiveExpressionInWith __ operator:RelationalOperator __ right:AdditiveExpressionInWith {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / AdditiveExpressionInWith
+
 AdditiveExpression = left:MultiplicativeExpression __ operator:AdditiveOperator __ right:AdditiveExpression {
   return {
     type: "BinaryExpression",
@@ -731,6 +1047,16 @@ AdditiveExpression = left:MultiplicativeExpression __ operator:AdditiveOperator 
     location: location(),
   };
 } / MultiplicativeExpression
+
+AdditiveExpressionInWith = left:MultiplicativeExpressionInWith __ operator:AdditiveOperator __ right:AdditiveExpressionInWith {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / MultiplicativeExpressionInWith
 
 AdditiveOperator
   = (@"+" ![+=])
@@ -754,6 +1080,16 @@ MultiplicativeExpression = left:ExponentialExpression __ operator:Multiplicative
   };
 } / ExponentialExpression
 
+MultiplicativeExpressionInWith = left:ExponentialExpressionInWith __ operator:MultiplicativeOperator __ right:MultiplicativeExpressionInWith {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / ExponentialExpressionInWith
+
 MultiplicativeOperator
   = (@"*" !"=")
   / (@"/" !"=")
@@ -769,12 +1105,34 @@ ExponentialExpression = left:UnaryExpression __ operator:ExponentialOperator __ 
   };
 } / UnaryExpression
 
+ExponentialExpressionInWith = left:UnaryExpressionInWith __ operator:ExponentialOperator __ right:ExponentialExpressionInWith {
+  return {
+    type: "BinaryExpression",
+    operator: operator,
+    left: left,
+    right: right,
+    location: location(),
+  };
+} / UnaryExpressionInWith
+
 ExponentialOperator
   = (@"^" !"=")
 
 UnaryExpression
   = LeftHandSideExpression
   / operator:UnaryOperator __ argument:UnaryExpression {
+      return {
+        type: "UnaryExpression",
+        operator: operator,
+        argument: argument,
+        prefix: true,
+        location: location(),
+      };
+    }
+
+UnaryExpressionInWith
+  = LeftHandSideExpressionInWith
+  / operator:UnaryOperator __ argument:UnaryExpressionInWith {
       return {
         type: "UnaryExpression",
         operator: operator,
@@ -890,12 +1248,33 @@ Statement
   / mlc:MultiLineComment EOS {return mlc;}
   / SelectStatement
 
+StatementInWith
+  = VariableStatementInWith
+  / EmptyStatement
+  / slc:SingleLineComment (LineTerminatorSequence / EOF) {return slc;}
+  / ExpressionStatementInWIth
+  / IfStatementInWith
+  / IterationStatementInWith
+  / ContinueLoopStatementInWith
+  / ContinueCaseStatement
+  / ExitLoopStatementInWith
+  / ReturnStatementInWith
+  / WithStatement
+  / SwitchStatementInWith
+  / ExitStatementInWIth
+  / PreProcStatement
+  / mlc:MultiLineComment EOS {return mlc;}
+  / SelectStatementInWith
+
 EmptyStatement
   = __ LineTerminatorSequence { return { type: "EmptyStatement", location: location() }; }
 
 
 StatementList
   = head:Statement tail:(__ @Statement)* { return [head, ...tail]; }
+
+StatementListInWith
+  = head:StatementInWith tail:(__ @StatementInWith)* { return [head, ...tail]; }
 
 //NOTE: VariableDeclarationStatement
 
@@ -960,6 +1339,67 @@ VariableStatement
     }
   }
 
+VariableStatementInWith
+  = scope:(@$(LocalToken / GlobalToken / DimToken) __) declarations:VariableDeclarationListInWith EOS {
+    return {
+      scope: scope?.toLocaleLowerCase()??null,
+      constant: false,
+      static_: false,
+      type: "VariableDeclaration",
+      declarations: declarations,
+      location: location(),
+    }
+  }
+  / scope:(@$(LocalToken / GlobalToken / DimToken) __)? ConstToken __ declarations:ConstDeclarationListInWith EOS {
+    return {
+      scope: scope?.toLocaleLowerCase()??null,
+      constant: true,
+      static_: false,
+      type: "VariableDeclaration",
+      declarations: declarations,
+      location: location(),
+    }
+  }
+  / scope:(@$(LocalToken / GlobalToken) __)? StaticToken __ declarations:VariableDeclarationListInWith EOS {
+    return {
+      scope: scope?.toLocaleLowerCase()??null,
+      constant: false,
+      static_: true,
+      type: "VariableDeclaration",
+      declarations: declarations,
+      location: location(),
+    }
+  }
+  / StaticToken __ scope:(@$(LocalToken / GlobalToken) __)? declarations:VariableDeclarationListInWith EOS {
+    return {
+      scope: scope?.toLocaleLowerCase()??null,
+      constant: false,
+      static_: true,
+      type: "VariableDeclaration",
+      declarations: declarations,
+      location: location(),
+    }
+  }
+  / RedimToken __ head:RedimIdentifierExpression tail:(__ "," __ @RedimIdentifierExpression)* EOS {
+    return {
+      type: "RedimExpression",
+      declarations: [head, ...tail],
+      location: location(),
+    };
+  }
+  / scope:(@$(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace @[+\-*]? @$[0-9]+ )? __ declarations:EnumDeclarationListInWith EOS {
+    return {
+      scope: scope?.toLocaleLowerCase()??null,
+      constant: !!constant,
+      static: false,
+      type: "EnumDeclaration",
+      declarations: declarations,
+      stepoperator: step?.[0] ?? '+',
+      stepval: parseInt(step?.[1] ?? 1),
+      location: location(),
+    }
+  }
+
   RedimIdentifierExpression = id:VariableIdentifier __ ("[" __ Expression __ "]")+ { //FIXME: implement the expressions array as a nested rule.
     return {
       type: "RedimIdentifierExpression",
@@ -970,6 +1410,15 @@ VariableStatement
 
 ExpressionStatement
   = !FuncToken expression:Expression EOS {
+      return {
+        type: "ExpressionStatement",
+        expression: expression,
+        location: location(),
+      };
+    }
+
+ExpressionStatementInWIth
+  = !FuncToken expression:ExpressionInWith EOS {
       return {
         type: "ExpressionStatement",
         expression: expression,
@@ -1002,12 +1451,51 @@ IfStatement
       }
     }
 
+IfStatementInWith
+  = IfToken __ test:ExpressionInWith __ ThenToken __ EOS
+       consequent:(__ @StatementList __)?
+    __ alternates:ElseIfClausesInWith? __
+    __ alternate:ElseClauseInWith? __
+    EndIfToken EOS {
+      const alternateArray = alternate ? [alternate] : [];
+      const _alternate = /** @type {Array<NonNullable<typeof alternates>[number]|NonNullable<typeof alternate>[number]>} */ ([...alternates ?? [], ...alternateArray]);
+      return {
+        type: "IfStatement",
+        test: test,
+        consequent: consequent,
+        alternate: _alternate,
+        location: location(),
+      }
+    }
+    / IfToken __ test:Expression __ ThenToken __ !(EmptyStatement/Comment) consequent:(ExpressionStatement/VariableStatement/ContinueLoopStatement/ContinueCaseStatement/ExitLoopStatement/ReturnStatement/ExitStatement) {
+      return {
+        type: "IfStatement",
+        test: test,
+        consequent: consequent,
+        location: location(),
+      }
+    }
+
 ElseIfClauses
   = head:ElseIfClause tail:(__ @ElseIfClause)* { return [head, ...tail]; }
+
+ElseIfClausesInWith
+  = head:ElseIfClauseInWith tail:(__ @ElseIfClauseInWith)* { return [head, ...tail]; }
 
 ElseIfClause
   = ElseIfToken __ test:Expression __ ThenToken __ EOS
     consequent:(__ @StatementList __)? {
+      return {
+        type: "ElseIfStatement",
+        test: test,
+        consequent: consequent,
+        location: location(),
+      }
+    }
+
+ElseIfClauseInWith
+  = ElseIfToken __ test:ExpressionInWith __ ThenToken __ EOS
+    consequent:(__ @StatementListInWith __)? {
       return {
         type: "ElseIfStatement",
         test: test,
@@ -1026,7 +1514,27 @@ ElseClause
       }
     }
 
+ElseClauseInWith
+  = ElseToken __ EOS
+    consequent:(__ @StatementListInWith __)? {
+      return {
+        type: "ElseStatement",
+        consequent: consequent,
+        location: location(),
+      }
+    }
+
 ForLoopVariableDeclaration = id:VariableIdentifier __ "=" __ init:Expression
+{
+  return {
+    type: "VariableDeclarator",
+    id: id,
+    init: init,
+    location: location(),
+  }
+}
+
+ForLoopVariableDeclarationInWith = id:VariableIdentifier __ "=" __ init:ExpressionInWith
 {
   return {
     type: "VariableDeclarator",
@@ -1064,6 +1572,24 @@ IterationStatement
     NextToken __ EOS
     { return { type: "ForInStatement", left: left, right: right, body: body??[], location: location() } }
 
+IterationStatementInWith
+  = DoToken __ EOS
+    __ body:StatementListInWith? __
+    UntilToken __ test:ExpressionInWith __ EOS
+    { return { type: "DoWhileStatement", body: body ?? [], test: test, location: location() }; }
+  / WhileToken __ test:ExpressionInWith __ EOS
+    __ body:StatementListInWith? __
+    WEndToken __ EOS
+    { return { type: "WhileStatement", test: test, body: body ?? [], location: location() }; }
+  / ForToken __ init:ForLoopVariableDeclarationInWith __ ToToken __ test:ExpressionInWith __ update:(StepToken __ @ExpressionInWith)? EOS
+      __ body:StatementListInWith? __
+    NextToken __ EOS
+    { return { type: "ForStatement", init: init, test: test, update: update, body: body??[], location: location() }; }
+  / ForToken __ left:ForInLoopVariableDeclaration __ InToken __ right:ExpressionInWith
+      __ body:StatementListInWith? __
+    NextToken __ EOS
+    { return { type: "ForInStatement", left: left, right: right, body: body??[], location: location() } }
+
 EOS
   = _ SingleLineComment? ( LineTerminatorSequence / EOF)
   / __ EOF
@@ -1091,8 +1617,22 @@ Expression
       return head;
     }
 
+ExpressionInWith
+  = head:AssignmentExpressionInWith {
+      return head;
+    }
+
 ExitStatement
   = ExitToken argument:(__ @AssignmentExpression / __ "(" __ ")" { return null; } )? EOS {
+    return {
+      type: "ExitStatement",
+      argument: argument,
+      location: location(),
+    }
+  }
+
+ExitStatementInWIth
+  = ExitToken argument:(__ @AssignmentExpressionInWith / __ "(" __ ")" { return null; } )? EOS {
     return {
       type: "ExitStatement",
       argument: argument,
@@ -1114,6 +1654,20 @@ SwitchStatement
     };
   }
 
+SwitchStatementInWith
+  = SwitchToken __ discriminant:ExpressionInWith __ EOS
+    EmptyStatement*
+    cases:CaseBlockInWith
+  EndSwitchToken EOS
+  {
+    return {
+      type: "SwitchStatement",
+      discriminant: discriminant,
+      cases: cases,
+      location: location(),
+    };
+  }
+
 CaseBlock
   = __
     before:(@CaseClauses __)?
@@ -1125,13 +1679,39 @@ CaseBlock
     return clauses;
   } 
 
+CaseBlockInWith
+  = __
+    before:(@CaseClausesInWith __)?
+    default_: DefaultClauseInWith __
+    after:(@CaseClausesInWith __)? {
+      return /** @type {Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>} */ ([...before??[], default_, ...after??[]]);
+    }
+  / __ clauses:(@CaseClausesInWith __) {
+    return clauses;
+  }
 
 CaseClauses
   = head:CaseClause tail:(__ @CaseClause)* { return [head, ...tail]; }
 
+CaseClausesInWith
+  = head:CaseClauseInWith tail:(__ @CaseClauseInWith)* { return [head, ...tail]; }
+
 CaseClause
   = CaseToken __ tests: CaseValueList EOS
     consequent: (__ @StatementList)?
+    {
+      return {
+        type: "SwitchCase",
+        tests: tests,
+        consequent: consequent??[],
+        location: location(),
+      };
+    }
+  / slc:SingleLineComment EOS {return slc;}
+
+CaseClauseInWith
+  = CaseToken __ tests: CaseValueListInWith EOS
+    consequent: (__ @StatementListInWith)?
     {
       return {
         type: "SwitchCase",
@@ -1154,8 +1734,25 @@ DefaultClause
       };
     }
 
+DefaultClauseInWith
+  = CaseToken __ ElseToken __ EOS
+    consequent:(__ @StatementListInWith)?
+    {
+      return {
+        type: "SwitchCase",
+        tests: null,
+        consequent: consequent??[],
+        location: location(),
+      };
+    }
+
 CaseValueList
   = head:SwitchCaseValue tail:(__ "," __ @SwitchCaseValue)* {
+      return [head, ...tail];
+    }
+
+CaseValueListInWith
+  = head:SwitchCaseValueInWith tail:(__ "," __ @SwitchCaseValueInWith)* {
       return [head, ...tail];
     }
 
@@ -1169,3 +1766,14 @@ SwitchCaseValue
     }
   }
   / Expression
+
+SwitchCaseValueInWith
+  = from:ExpressionInWith __ ToToken __ to:ExpressionInWith {
+    return {
+      type: "SwitchCaseRange",
+      from: from,
+      to: to,
+      location: location(),
+    }
+  }
+  / ExpressionInWith

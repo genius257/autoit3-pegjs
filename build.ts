@@ -17,25 +17,39 @@ typeExtractor.getTypes().then((types) => {
         throw new Error('namespace "AutoIt3" not found');
     }
 
-    const alias = namespace.getTypeAlias("MemberExpression");
-    if (alias === undefined) {
+    const memberExpressionAlias = namespace.getTypeAlias("MemberExpression");
+    if (memberExpressionAlias === undefined) {
         throw new Error('type "MemberExpression" not found in "AutoIt3" namespace');
     }
 
-    alias.setType(`PrimaryExpression | ({type: "MemberExpression", object: MemberExpression|PrimaryExpression, location: LocationRange } & ({property: Expression, computed: true} | {property:IdentifierName, computed: false}))`);
+    memberExpressionAlias.setType(`PrimaryExpression | ({type: "MemberExpression", object: MemberExpression|PrimaryExpression, location: LocationRange } & ({property: Expression, computed: true} | {property:IdentifierName, computed: false}))`);
 
-    const alias2 = namespace.getTypeAlias("CallExpression");
-    if (alias2 === undefined) {
+    const memberExpressionInWithAlias = namespace.getTypeAlias("MemberExpressionInWith");
+    if (memberExpressionInWithAlias === undefined) {
+        throw new Error('type "MemberExpression" not found in "AutoIt3" namespace');
+    }
+
+    memberExpressionInWithAlias.setType(`PrimaryExpression | ({type: "MemberExpression", object: MemberExpression|PrimaryExpression, location: LocationRange } & ({property: Expression, computed: true} | {property:IdentifierName, computed: false}))`);
+
+    const callExpressionAlias = namespace.getTypeAlias("CallExpression");
+    if (callExpressionAlias === undefined) {
         throw new Error('type "CallExpression" not found in "AutoIt3" namespace');
     }
 
-    alias2.setType(`{type: "CallExpression", callee: MemberExpression | CallExpression, arguments: Arguments, location: LocationRange } | {type: "MemberExpression", object: MemberExpression | CallExpression, property: Expression | IdentifierName, computed: boolean, location: LocationRange }`);
+    callExpressionAlias.setType(`{type: "CallExpression", callee: MemberExpression | CallExpression, arguments: Arguments, location: LocationRange } | {type: "MemberExpression", object: MemberExpression | CallExpression, property: Expression | IdentifierName, computed: boolean, location: LocationRange }`);
 
-    const alias3 = namespace.getTypeAlias("IncludeStatement");
-    if (alias3 === undefined) {
+    const callExpressionInWithAlias = namespace.getTypeAlias("CallExpressionInWith");
+    if (callExpressionInWithAlias === undefined) {
+        throw new Error('type "CallExpression" not found in "AutoIt3" namespace');
+    }
+
+    callExpressionInWithAlias.setType(`{type: "CallExpression", callee: MemberExpression | CallExpression, arguments: Arguments, location: LocationRange } | {type: "MemberExpression", object: MemberExpression | CallExpression | null, property: Expression | IdentifierName, computed: boolean, location: LocationRange }`);
+
+    const includeStatementAlias = namespace.getTypeAlias("IncludeStatement");
+    if (includeStatementAlias === undefined) {
         throw new Error('type "IncludeStatement" not found in "AutoIt3" namespace');
     }
-    alias3.setType(`{type: "IncludeStatement", library: boolean, file: string, location: LocationRange}`);
+    includeStatementAlias.setType(`{type: "IncludeStatement", library: boolean, file: string, location: LocationRange}`);
 
     file.saveSync();
 });
