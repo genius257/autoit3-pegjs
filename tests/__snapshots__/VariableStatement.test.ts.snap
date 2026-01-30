@@ -1,0 +1,1578 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Constant array declaration with dimensions specified 1`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "dimensions": [
+            {
+              "location": {
+                "end": {
+                  "column": 21,
+                  "line": 1,
+                  "offset": 20,
+                },
+                "source": "",
+                "start": {
+                  "column": 20,
+                  "line": 1,
+                  "offset": 19,
+                },
+              },
+              "type": "Literal",
+              "value": 3,
+            },
+          ],
+          "id": {
+            "location": {
+              "end": {
+                "column": 19,
+                "line": 1,
+                "offset": 18,
+              },
+              "source": "",
+              "start": {
+                "column": 7,
+                "line": 1,
+                "offset": 6,
+              },
+            },
+            "name": "const_array",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "elements": [
+              {
+                "location": {
+                  "end": {
+                    "column": 27,
+                    "line": 1,
+                    "offset": 26,
+                  },
+                  "source": "",
+                  "start": {
+                    "column": 26,
+                    "line": 1,
+                    "offset": 25,
+                  },
+                },
+                "type": "Literal",
+                "value": 1,
+              },
+              {
+                "location": {
+                  "end": {
+                    "column": 30,
+                    "line": 1,
+                    "offset": 29,
+                  },
+                  "source": "",
+                  "start": {
+                    "column": 29,
+                    "line": 1,
+                    "offset": 28,
+                  },
+                },
+                "type": "Literal",
+                "value": 2,
+              },
+              {
+                "location": {
+                  "end": {
+                    "column": 33,
+                    "line": 1,
+                    "offset": 32,
+                  },
+                  "source": "",
+                  "start": {
+                    "column": 32,
+                    "line": 1,
+                    "offset": 31,
+                  },
+                },
+                "type": "Literal",
+                "value": 3,
+              },
+            ],
+            "location": {
+              "end": {
+                "column": 34,
+                "line": 1,
+                "offset": 33,
+              },
+              "source": "",
+              "start": {
+                "column": 25,
+                "line": 1,
+                "offset": 24,
+              },
+            },
+            "type": "ArrayDeclaration",
+          },
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 1,
+              "offset": 33,
+            },
+            "source": "",
+            "start": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 34,
+          "line": 1,
+          "offset": 33,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 1`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 21,
+                "line": 1,
+                "offset": 20,
+              },
+              "source": "",
+              "start": {
+                "column": 13,
+                "line": 1,
+                "offset": 12,
+              },
+            },
+            "name": "local_g",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 25,
+                "line": 1,
+                "offset": 24,
+              },
+              "source": "",
+              "start": {
+                "column": 24,
+                "line": 1,
+                "offset": 23,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 25,
+              "line": 1,
+              "offset": 24,
+            },
+            "source": "",
+            "start": {
+              "column": 13,
+              "line": 1,
+              "offset": 12,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 25,
+          "line": 1,
+          "offset": 24,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 2`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 22,
+                "line": 1,
+                "offset": 21,
+              },
+              "source": "",
+              "start": {
+                "column": 14,
+                "line": 1,
+                "offset": 13,
+              },
+            },
+            "name": "local_h",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 22,
+              "line": 1,
+              "offset": 21,
+            },
+            "source": "",
+            "start": {
+              "column": 14,
+              "line": 1,
+              "offset": 13,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 22,
+          "line": 1,
+          "offset": 21,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 3`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 22,
+                "line": 1,
+                "offset": 21,
+              },
+              "source": "",
+              "start": {
+                "column": 14,
+                "line": 1,
+                "offset": 13,
+              },
+            },
+            "name": "local_j",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 22,
+              "line": 1,
+              "offset": 21,
+            },
+            "source": "",
+            "start": {
+              "column": 14,
+              "line": 1,
+              "offset": 13,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 22,
+          "line": 1,
+          "offset": 21,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 4`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 15,
+                "line": 1,
+                "offset": 14,
+              },
+              "source": "",
+              "start": {
+                "column": 7,
+                "line": 1,
+                "offset": 6,
+              },
+            },
+            "name": "local_k",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 15,
+              "line": 1,
+              "offset": 14,
+            },
+            "source": "",
+            "start": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 15,
+          "line": 1,
+          "offset": 14,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 5`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 23,
+                "line": 1,
+                "offset": 22,
+              },
+              "source": "",
+              "start": {
+                "column": 14,
+                "line": 1,
+                "offset": 13,
+              },
+            },
+            "name": "global_g",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 27,
+                "line": 1,
+                "offset": 26,
+              },
+              "source": "",
+              "start": {
+                "column": 26,
+                "line": 1,
+                "offset": 25,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 27,
+              "line": 1,
+              "offset": 26,
+            },
+            "source": "",
+            "start": {
+              "column": 14,
+              "line": 1,
+              "offset": 13,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 27,
+          "line": 1,
+          "offset": 26,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 6`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 24,
+                "line": 1,
+                "offset": 23,
+              },
+              "source": "",
+              "start": {
+                "column": 15,
+                "line": 1,
+                "offset": 14,
+              },
+            },
+            "name": "global_h",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 24,
+              "line": 1,
+              "offset": 23,
+            },
+            "source": "",
+            "start": {
+              "column": 15,
+              "line": 1,
+              "offset": 14,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 23,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 7`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 24,
+                "line": 1,
+                "offset": 23,
+              },
+              "source": "",
+              "start": {
+                "column": 15,
+                "line": 1,
+                "offset": 14,
+              },
+            },
+            "name": "global_j",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 24,
+              "line": 1,
+              "offset": 23,
+            },
+            "source": "",
+            "start": {
+              "column": 15,
+              "line": 1,
+              "offset": 14,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 23,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 8`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 17,
+                "line": 1,
+                "offset": 16,
+              },
+              "source": "",
+              "start": {
+                "column": 8,
+                "line": 1,
+                "offset": 7,
+              },
+            },
+            "name": "global_k",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 17,
+              "line": 1,
+              "offset": 16,
+            },
+            "source": "",
+            "start": {
+              "column": 8,
+              "line": 1,
+              "offset": 7,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 17,
+          "line": 1,
+          "offset": 16,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 9`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 17,
+                "line": 1,
+                "offset": 16,
+              },
+              "source": "",
+              "start": {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "name": "dim_g",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 21,
+                "line": 1,
+                "offset": 20,
+              },
+              "source": "",
+              "start": {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 21,
+              "line": 1,
+              "offset": 20,
+            },
+            "source": "",
+            "start": {
+              "column": 11,
+              "line": 1,
+              "offset": 10,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 21,
+          "line": 1,
+          "offset": 20,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "dim",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 10`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+              "source": "",
+              "start": {
+                "column": 5,
+                "line": 1,
+                "offset": 4,
+              },
+            },
+            "name": "dim_k",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 11,
+              "line": 1,
+              "offset": 10,
+            },
+            "source": "",
+            "start": {
+              "column": 5,
+              "line": 1,
+              "offset": 4,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 11,
+          "line": 1,
+          "offset": 10,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "dim",
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 11`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 9,
+                "line": 1,
+                "offset": 8,
+              },
+              "source": "",
+              "start": {
+                "column": 7,
+                "line": 1,
+                "offset": 6,
+              },
+            },
+            "name": "n",
+            "type": "VariableIdentifier",
+          },
+          "init": {
+            "location": {
+              "end": {
+                "column": 13,
+                "line": 1,
+                "offset": 12,
+              },
+              "source": "",
+              "start": {
+                "column": 12,
+                "line": 1,
+                "offset": 11,
+              },
+            },
+            "type": "Literal",
+            "value": 1,
+          },
+          "location": {
+            "end": {
+              "column": 13,
+              "line": 1,
+              "offset": 12,
+            },
+            "source": "",
+            "start": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 13,
+          "line": 1,
+          "offset": 12,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static_": false,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 12`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "dimensions": [],
+          "id": {
+            "location": {
+              "end": {
+                "column": 10,
+                "line": 1,
+                "offset": 9,
+              },
+              "source": "",
+              "start": {
+                "column": 8,
+                "line": 1,
+                "offset": 7,
+              },
+            },
+            "name": "o",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 1,
+              "offset": 9,
+            },
+            "source": "",
+            "start": {
+              "column": 8,
+              "line": 1,
+              "offset": 7,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 10,
+          "line": 1,
+          "offset": 9,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static_": true,
+      "type": "VariableDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 13`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "left": {
+          "location": {
+            "end": {
+              "column": 3,
+              "line": 1,
+              "offset": 2,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "name": "p",
+          "type": "VariableIdentifier",
+        },
+        "location": {
+          "end": {
+            "column": 7,
+            "line": 1,
+            "offset": 6,
+          },
+          "source": "",
+          "start": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "operator": "=",
+        "right": {
+          "location": {
+            "end": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+            "source": "",
+            "start": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "type": "Literal",
+          "value": 1,
+        },
+        "type": "AssignmentExpression",
+      },
+      "location": {
+        "end": {
+          "column": 7,
+          "line": 1,
+          "offset": 6,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 14`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 8,
+                "line": 1,
+                "offset": 7,
+              },
+              "source": "",
+              "start": {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "name": "q",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 1,
+              "offset": 7,
+            },
+            "source": "",
+            "start": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 8,
+          "line": 1,
+          "offset": 7,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static": false,
+      "stepoperator": "+",
+      "stepval": 1,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 15`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+              "source": "",
+              "start": {
+                "column": 12,
+                "line": 1,
+                "offset": 11,
+              },
+            },
+            "name": "local_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 1,
+              "offset": 19,
+            },
+            "source": "",
+            "start": {
+              "column": 12,
+              "line": 1,
+              "offset": 11,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 20,
+          "line": 1,
+          "offset": 19,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static": false,
+      "stepoperator": "+",
+      "stepval": 1,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 16`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 22,
+                "line": 1,
+                "offset": 21,
+              },
+              "source": "",
+              "start": {
+                "column": 13,
+                "line": 1,
+                "offset": 12,
+              },
+            },
+            "name": "global_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 22,
+              "line": 1,
+              "offset": 21,
+            },
+            "source": "",
+            "start": {
+              "column": 13,
+              "line": 1,
+              "offset": 12,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 22,
+          "line": 1,
+          "offset": 21,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static": false,
+      "stepoperator": "+",
+      "stepval": 1,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 17`] = `
+{
+  "body": [
+    {
+      "constant": false,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 16,
+                "line": 1,
+                "offset": 15,
+              },
+              "source": "",
+              "start": {
+                "column": 10,
+                "line": 1,
+                "offset": 9,
+              },
+            },
+            "name": "dim_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 16,
+              "line": 1,
+              "offset": 15,
+            },
+            "source": "",
+            "start": {
+              "column": 10,
+              "line": 1,
+              "offset": 9,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 16,
+          "line": 1,
+          "offset": 15,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "dim",
+      "static": false,
+      "stepoperator": "+",
+      "stepval": 1,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 18`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+              "source": "",
+              "start": {
+                "column": 12,
+                "line": 1,
+                "offset": 11,
+              },
+            },
+            "name": "const_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 1,
+              "offset": 19,
+            },
+            "source": "",
+            "start": {
+              "column": 12,
+              "line": 1,
+              "offset": 11,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 20,
+          "line": 1,
+          "offset": 19,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": null,
+      "static": false,
+      "stepoperator": "+",
+      "stepval": 1,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 19`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 32,
+                "line": 1,
+                "offset": 31,
+              },
+              "source": "",
+              "start": {
+                "column": 18,
+                "line": 1,
+                "offset": 17,
+              },
+            },
+            "name": "local_const_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 32,
+              "line": 1,
+              "offset": 31,
+            },
+            "source": "",
+            "start": {
+              "column": 18,
+              "line": 1,
+              "offset": 17,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 32,
+          "line": 1,
+          "offset": 31,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "local",
+      "static": false,
+      "stepoperator": "+",
+      "stepval": 1,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 20`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 34,
+                "line": 1,
+                "offset": 33,
+              },
+              "source": "",
+              "start": {
+                "column": 19,
+                "line": 1,
+                "offset": 18,
+              },
+            },
+            "name": "global_const_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 1,
+              "offset": 33,
+            },
+            "source": "",
+            "start": {
+              "column": 19,
+              "line": 1,
+              "offset": 18,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 34,
+          "line": 1,
+          "offset": 33,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "global",
+      "static": false,
+      "stepoperator": "+",
+      "stepval": 1,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`VariableDeclaration 21`] = `
+{
+  "body": [
+    {
+      "constant": true,
+      "declarations": [
+        {
+          "id": {
+            "location": {
+              "end": {
+                "column": 28,
+                "line": 1,
+                "offset": 27,
+              },
+              "source": "",
+              "start": {
+                "column": 16,
+                "line": 1,
+                "offset": 15,
+              },
+            },
+            "name": "dim_const_r",
+            "type": "VariableIdentifier",
+          },
+          "init": null,
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 1,
+              "offset": 27,
+            },
+            "source": "",
+            "start": {
+              "column": 16,
+              "line": 1,
+              "offset": 15,
+            },
+          },
+          "type": "VariableDeclarator",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 28,
+          "line": 1,
+          "offset": 27,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "scope": "dim",
+      "static": false,
+      "stepoperator": "+",
+      "stepval": 1,
+      "type": "EnumDeclaration",
+    },
+  ],
+  "type": "Program",
+}
+`;
