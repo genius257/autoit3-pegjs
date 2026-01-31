@@ -10,6 +10,5 @@ jobs:
                 node-version: 22
                 registry-url: https://registry.npmjs.org/
             - run: npm ci
-            - run: npm version --no-git-tag-version ${{github.event.release.tag_name}}
             - run: npm run build
             - run: npm test
