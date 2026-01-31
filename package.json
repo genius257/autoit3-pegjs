@@ -24,7 +24,7 @@
     "peggy": "^4.2.0",
     "peggy-to-ts": "github:genius257/peggy-to-ts#semver:^1.0.4",
     "tsx": "^4.19.2",
-    "vitest": "^1.3.1"
+    "vitest": "^1.6.1"
   },
   "files": [
     "dist",
