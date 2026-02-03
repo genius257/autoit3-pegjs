@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Subsequent SourceElements did not allow leading whitespace, caused by ea122e3ce373cfaf626ec308d714000d36adcad7
+
 ## [4.1.0] - 2026-02-02
 
 ### Added
