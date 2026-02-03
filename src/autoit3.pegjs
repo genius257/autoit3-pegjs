@@ -1155,7 +1155,7 @@ UnaryOperator
 //BUG: --------------------------------------------------------------------------------------------------------------------------------------
 
 Program
-  = body:SourceElement* {
+  = body:SourceElement|.., __| {
       return {
         type: "Program",
         body: body,
