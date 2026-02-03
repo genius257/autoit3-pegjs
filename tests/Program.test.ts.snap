@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`whitespace between SourceElements 1`] = `
+{
+  "body": [
+    {
+      "body": "",
+      "location": {
+        "end": {
+          "column": 2,
+          "line": 1,
+          "offset": 1,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "SingleLineComment",
+    },
+    {
+      "body": "",
+      "location": {
+        "end": {
+          "column": 3,
+          "line": 2,
+          "offset": 4,
+        },
+        "source": "",
+        "start": {
+          "column": 2,
+          "line": 2,
+          "offset": 3,
+        },
+      },
+      "type": "SingleLineComment",
+    },
+    {
+      "body": "",
+      "location": {
+        "end": {
+          "column": 3,
+          "line": 3,
+          "offset": 7,
+        },
+        "source": "",
+        "start": {
+          "column": 2,
+          "line": 3,
+          "offset": 6,
+        },
+      },
+      "type": "SingleLineComment",
+    },
+  ],
+  "type": "Program",
+}
+`;
