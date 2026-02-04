@@ -1281,7 +1281,7 @@ StatementListInWith
 VariableStatement
   = scope:(@$(LocalToken / GlobalToken / DimToken) __) declarations:VariableDeclarationList EOS {
     return {
-      scope: scope?.toLocaleLowerCase()??null,
+      scope: scope.toLocaleLowerCase(),
       constant: false,
       static_: false,
       type: "VariableDeclaration",
