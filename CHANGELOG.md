@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.1.1] - 2026-02-04
+
 ### Fixed
 
 - Subsequent SourceElements did not allow leading whitespace, caused by ea122e3ce373cfaf626ec308d714000d36adcad7
@@ -198,7 +200,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.0...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.1...HEAD
+[4.1.1]: https://github.com/genius257/autoit3-pegjs/compare/4.1.0...4.1.1
 [4.0.1]: https://github.com/genius257/autoit3-pegjs/compare/4.0.0...4.1.0
 [4.0.0]: https://github.com/genius257/autoit3-pegjs/compare/3.0.4...4.0.0
 [3.0.4]: https://github.com/genius257/autoit3-pegjs/compare/3.0.3...3.0.4
