@@ -663,7 +663,7 @@ MemberExpression
         __ "[" __ property:Expression __ "]" {
           return { property: property, computed: true };
         }
-      / __ "." __ property:IdentifierName {
+      / __ "." property:IdentifierName {
           return { property: property, computed: false };
         }
     )*
@@ -682,7 +682,7 @@ MemberExpression
 
 MemberExpressionInWith
   = head:(
-        "." __ property:IdentifierName {
+        "." property:IdentifierName {
           return {
             type: "MemberExpression",
             object: null,
@@ -696,7 +696,7 @@ MemberExpressionInWith
         __ "[" __ property:ExpressionInWith __ "]" {
           return { property: property, computed: true };
         }
-      / __ "." __ property:IdentifierName {
+      / __ "." property:IdentifierName {
           return { property: property, computed: false };
         }
     )*
@@ -718,7 +718,7 @@ MemberExpressionInWith
         __ "[" __ property:ExpressionInWith __ "]" {
           return { property: property, computed: true };
         }
-      / __ "." __ property:IdentifierName {
+      / __ "." property:IdentifierName {
           return { property: property, computed: false };
         }
     )*
@@ -777,7 +777,7 @@ CallExpression
             location: location(),
           };
         }
-      / __ "." __ property:IdentifierName {
+      / __ "." property:IdentifierName {
           return {
             type: "MemberExpression",
             property: property,
@@ -811,7 +811,7 @@ CallExpressionInWith
             location: location(),
           };
         }
-      / __ "." __ property:IdentifierName {
+      / __ "." property:IdentifierName {
           return {
             type: "MemberExpression",
             property: property,
