@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.1.2] - 2026-02-04
+
+### Fixed
+
+- Not keyword operator on UnaryExpression was array, instead of expected string
+- True keyword matching was not case-insensitive
+
 ## [4.1.1] - 2026-02-04
 
 ### Fixed
@@ -200,7 +207,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.1...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.2...HEAD
+[4.1.2]: https://github.com/genius257/autoit3-pegjs/compare/4.1.1...4.1.2
 [4.1.1]: https://github.com/genius257/autoit3-pegjs/compare/4.1.0...4.1.1
 [4.1.0]: https://github.com/genius257/autoit3-pegjs/compare/4.0.0...4.1.0
 [4.0.0]: https://github.com/genius257/autoit3-pegjs/compare/3.0.4...4.0.0
