@@ -1,0 +1,813 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dot notation whitespaces 1`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "computed": false,
+        "location": {
+          "end": {
+            "column": 5,
+            "line": 1,
+            "offset": 4,
+          },
+          "source": "",
+          "start": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "object": {
+          "location": {
+            "end": {
+              "column": 3,
+              "line": 1,
+              "offset": 2,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "name": "o",
+          "type": "VariableIdentifier",
+        },
+        "property": {
+          "location": {
+            "end": {
+              "column": 5,
+              "line": 1,
+              "offset": 4,
+            },
+            "source": "",
+            "start": {
+              "column": 4,
+              "line": 1,
+              "offset": 3,
+            },
+          },
+          "name": "a",
+          "type": "Identifier",
+        },
+        "type": "MemberExpression",
+      },
+      "location": {
+        "end": {
+          "column": 5,
+          "line": 1,
+          "offset": 4,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 2`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "computed": false,
+        "location": {
+          "end": {
+            "column": 7,
+            "line": 1,
+            "offset": 6,
+          },
+          "source": "",
+          "start": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "object": {
+          "computed": false,
+          "location": {
+            "end": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "object": {
+            "location": {
+              "end": {
+                "column": 3,
+                "line": 1,
+                "offset": 2,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "name": "o",
+            "type": "VariableIdentifier",
+          },
+          "property": {
+            "location": {
+              "end": {
+                "column": 5,
+                "line": 1,
+                "offset": 4,
+              },
+              "source": "",
+              "start": {
+                "column": 4,
+                "line": 1,
+                "offset": 3,
+              },
+            },
+            "name": "a",
+            "type": "Identifier",
+          },
+          "type": "MemberExpression",
+        },
+        "property": {
+          "location": {
+            "end": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+            "source": "",
+            "start": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "name": "b",
+          "type": "Identifier",
+        },
+        "type": "MemberExpression",
+      },
+      "location": {
+        "end": {
+          "column": 7,
+          "line": 1,
+          "offset": 6,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 3`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "computed": false,
+        "location": {
+          "end": {
+            "column": 6,
+            "line": 1,
+            "offset": 5,
+          },
+          "source": "",
+          "start": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "object": {
+          "location": {
+            "end": {
+              "column": 3,
+              "line": 1,
+              "offset": 2,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "name": "o",
+          "type": "VariableIdentifier",
+        },
+        "property": {
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+            "source": "",
+            "start": {
+              "column": 5,
+              "line": 1,
+              "offset": 4,
+            },
+          },
+          "name": "a",
+          "type": "Identifier",
+        },
+        "type": "MemberExpression",
+      },
+      "location": {
+        "end": {
+          "column": 6,
+          "line": 1,
+          "offset": 5,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 4`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "computed": false,
+        "location": {
+          "end": {
+            "column": 9,
+            "line": 1,
+            "offset": 8,
+          },
+          "source": "",
+          "start": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "object": {
+          "computed": false,
+          "location": {
+            "end": {
+              "column": 9,
+              "line": 1,
+              "offset": 8,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "object": {
+            "location": {
+              "end": {
+                "column": 3,
+                "line": 1,
+                "offset": 2,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "name": "o",
+            "type": "VariableIdentifier",
+          },
+          "property": {
+            "location": {
+              "end": {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+              "source": "",
+              "start": {
+                "column": 5,
+                "line": 1,
+                "offset": 4,
+              },
+            },
+            "name": "a",
+            "type": "Identifier",
+          },
+          "type": "MemberExpression",
+        },
+        "property": {
+          "location": {
+            "end": {
+              "column": 9,
+              "line": 1,
+              "offset": 8,
+            },
+            "source": "",
+            "start": {
+              "column": 8,
+              "line": 1,
+              "offset": 7,
+            },
+          },
+          "name": "b",
+          "type": "Identifier",
+        },
+        "type": "MemberExpression",
+      },
+      "location": {
+        "end": {
+          "column": 9,
+          "line": 1,
+          "offset": 8,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 5`] = `undefined`;
+
+exports[`dot notation whitespaces 6`] = `undefined`;
+
+exports[`dot notation whitespaces 7`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "computed": false,
+        "location": {
+          "end": {
+            "column": 6,
+            "line": 1,
+            "offset": 5,
+          },
+          "source": "",
+          "start": {
+            "column": 4,
+            "line": 1,
+            "offset": 3,
+          },
+        },
+        "object": {
+          "arguments": [],
+          "callee": {
+            "location": {
+              "end": {
+                "column": 2,
+                "line": 1,
+                "offset": 1,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "name": "f",
+            "type": "Identifier",
+          },
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 1,
+              "offset": 3,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "CallExpression",
+        },
+        "property": {
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+            "source": "",
+            "start": {
+              "column": 5,
+              "line": 1,
+              "offset": 4,
+            },
+          },
+          "name": "a",
+          "type": "Identifier",
+        },
+        "type": "MemberExpression",
+      },
+      "location": {
+        "end": {
+          "column": 6,
+          "line": 1,
+          "offset": 5,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 8`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "computed": false,
+        "location": {
+          "end": {
+            "column": 8,
+            "line": 1,
+            "offset": 7,
+          },
+          "source": "",
+          "start": {
+            "column": 6,
+            "line": 1,
+            "offset": 5,
+          },
+        },
+        "object": {
+          "computed": false,
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+            "source": "",
+            "start": {
+              "column": 4,
+              "line": 1,
+              "offset": 3,
+            },
+          },
+          "object": {
+            "arguments": [],
+            "callee": {
+              "location": {
+                "end": {
+                  "column": 2,
+                  "line": 1,
+                  "offset": 1,
+                },
+                "source": "",
+                "start": {
+                  "column": 1,
+                  "line": 1,
+                  "offset": 0,
+                },
+              },
+              "name": "f",
+              "type": "Identifier",
+            },
+            "location": {
+              "end": {
+                "column": 4,
+                "line": 1,
+                "offset": 3,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": "CallExpression",
+          },
+          "property": {
+            "location": {
+              "end": {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+              "source": "",
+              "start": {
+                "column": 5,
+                "line": 1,
+                "offset": 4,
+              },
+            },
+            "name": "a",
+            "type": "Identifier",
+          },
+          "type": "MemberExpression",
+        },
+        "property": {
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 1,
+              "offset": 7,
+            },
+            "source": "",
+            "start": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+          },
+          "name": "b",
+          "type": "Identifier",
+        },
+        "type": "MemberExpression",
+      },
+      "location": {
+        "end": {
+          "column": 8,
+          "line": 1,
+          "offset": 7,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 9`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "computed": false,
+        "location": {
+          "end": {
+            "column": 7,
+            "line": 1,
+            "offset": 6,
+          },
+          "source": "",
+          "start": {
+            "column": 4,
+            "line": 1,
+            "offset": 3,
+          },
+        },
+        "object": {
+          "arguments": [],
+          "callee": {
+            "location": {
+              "end": {
+                "column": 2,
+                "line": 1,
+                "offset": 1,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "name": "f",
+            "type": "Identifier",
+          },
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 1,
+              "offset": 3,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "CallExpression",
+        },
+        "property": {
+          "location": {
+            "end": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+            "source": "",
+            "start": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "name": "a",
+          "type": "Identifier",
+        },
+        "type": "MemberExpression",
+      },
+      "location": {
+        "end": {
+          "column": 7,
+          "line": 1,
+          "offset": 6,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 10`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "computed": false,
+        "location": {
+          "end": {
+            "column": 10,
+            "line": 1,
+            "offset": 9,
+          },
+          "source": "",
+          "start": {
+            "column": 7,
+            "line": 1,
+            "offset": 6,
+          },
+        },
+        "object": {
+          "computed": false,
+          "location": {
+            "end": {
+              "column": 7,
+              "line": 1,
+              "offset": 6,
+            },
+            "source": "",
+            "start": {
+              "column": 4,
+              "line": 1,
+              "offset": 3,
+            },
+          },
+          "object": {
+            "arguments": [],
+            "callee": {
+              "location": {
+                "end": {
+                  "column": 2,
+                  "line": 1,
+                  "offset": 1,
+                },
+                "source": "",
+                "start": {
+                  "column": 1,
+                  "line": 1,
+                  "offset": 0,
+                },
+              },
+              "name": "f",
+              "type": "Identifier",
+            },
+            "location": {
+              "end": {
+                "column": 4,
+                "line": 1,
+                "offset": 3,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": "CallExpression",
+          },
+          "property": {
+            "location": {
+              "end": {
+                "column": 7,
+                "line": 1,
+                "offset": 6,
+              },
+              "source": "",
+              "start": {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "name": "a",
+            "type": "Identifier",
+          },
+          "type": "MemberExpression",
+        },
+        "property": {
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 1,
+              "offset": 9,
+            },
+            "source": "",
+            "start": {
+              "column": 9,
+              "line": 1,
+              "offset": 8,
+            },
+          },
+          "name": "b",
+          "type": "Identifier",
+        },
+        "type": "MemberExpression",
+      },
+      "location": {
+        "end": {
+          "column": 10,
+          "line": 1,
+          "offset": 9,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 11`] = `undefined`;
+
+exports[`dot notation whitespaces 12`] = `undefined`;
