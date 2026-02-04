@@ -561,55 +561,55 @@ Literal
 
 // Tokens
 
-AndToken           = "And"i            !IdentifierPart
-ByRefToken         = "ByRef"i          !IdentifierPart
-CaseToken          = "Case"i           !IdentifierPart
-CEToken            = "ce"i
-CommentsStartToken = "comments-start"i
-CommentsEndToken   = "comments-end"i
-ConstToken         = "Const"i          !IdentifierPart
-ContinueCaseToken  = "ContinueCase"i   !IdentifierPart
-ContinueLoopToken  = "ContinueLoop"i   !IdentifierPart
-CSToken            = "cs"i
-DefaultToken       = "Default"i        !IdentifierPart
-DimToken           = "Dim"i            !IdentifierPart
-DoToken            = "Do"i             !IdentifierPart
-ElseToken          = "Else"i           !IdentifierPart
-ElseIfToken        = "ElseIf"i         !IdentifierPart
-EndFuncToken       = "EndFunc"i        !IdentifierPart
-EndIfToken         = "EndIf"i          !IdentifierPart
-EndSelectToken     = "EndSelect"i      !IdentifierPart
-EndSwitchToken     = "EndSwitch"i      !IdentifierPart
-EndWithToken       = "EndWith"i        !IdentifierPart
-EnumToken          = "Enum"i           !IdentifierPart
-ExitToken          = "Exit"i           !IdentifierPart
-ExitLoopToken      = "ExitLoop"i       !IdentifierPart
-FalseToken         = "False"i          !IdentifierPart
-ForToken           = "For"i            !IdentifierPart
-FuncToken          = "Func"i           !IdentifierPart
-GlobalToken        = "Global"i         !IdentifierPart
-IfToken            = "If"i             !IdentifierPart
-IncludeToken       = "Include"i        !IdentifierPart
-InToken            = "In"i             !IdentifierPart
-LocalToken         = "Local"i          !IdentifierPart
-NextToken          = "Next"i           !IdentifierPart
-NullToken          = "Null"i           !IdentifierPart
+AndToken           = @"And"i            !IdentifierPart
+ByRefToken         = @"ByRef"i          !IdentifierPart
+CaseToken          = @"Case"i           !IdentifierPart
+CEToken            = @"ce"i
+CommentsStartToken = @"comments-start"i
+CommentsEndToken   = @"comments-end"i
+ConstToken         = @"Const"i          !IdentifierPart
+ContinueCaseToken  = @"ContinueCase"i   !IdentifierPart
+ContinueLoopToken  = @"ContinueLoop"i   !IdentifierPart
+CSToken            = @"cs"i
+DefaultToken       = @"Default"i        !IdentifierPart
+DimToken           = @"Dim"i            !IdentifierPart
+DoToken            = @"Do"i             !IdentifierPart
+ElseToken          = @"Else"i           !IdentifierPart
+ElseIfToken        = @"ElseIf"i         !IdentifierPart
+EndFuncToken       = @"EndFunc"i        !IdentifierPart
+EndIfToken         = @"EndIf"i          !IdentifierPart
+EndSelectToken     = @"EndSelect"i      !IdentifierPart
+EndSwitchToken     = @"EndSwitch"i      !IdentifierPart
+EndWithToken       = @"EndWith"i        !IdentifierPart
+EnumToken          = @"Enum"i           !IdentifierPart
+ExitToken          = @"Exit"i           !IdentifierPart
+ExitLoopToken      = @"ExitLoop"i       !IdentifierPart
+FalseToken         = @"False"i          !IdentifierPart
+ForToken           = @"For"i            !IdentifierPart
+FuncToken          = @"Func"i           !IdentifierPart
+GlobalToken        = @"Global"i         !IdentifierPart
+IfToken            = @"If"i             !IdentifierPart
+IncludeToken       = @"Include"i        !IdentifierPart
+InToken            = @"In"i             !IdentifierPart
+LocalToken         = @"Local"i          !IdentifierPart
+NextToken          = @"Next"i           !IdentifierPart
+NullToken          = @"Null"i           !IdentifierPart
 NotToken           = @"Not"i            !IdentifierPart
-OrToken            = "Or"i             !IdentifierPart
-RedimToken         = "Redim"i          !IdentifierPart
-ReturnToken        = "Return"i         !IdentifierPart
-SelectToken        = "Select"i         !IdentifierPart
-StaticToken        = "Static"i         !IdentifierPart
-StepToken          = "Step"i           !IdentifierPart
-SwitchToken        = "Switch"i         !IdentifierPart
-ThenToken          = "Then"i           !IdentifierPart
-ToToken            = "To"i             !IdentifierPart
-UntilToken         = "Until"i          !IdentifierPart
-VolatileToken      = "Volatile"i       !IdentifierPart
-TrueToken          = "True"i            !IdentifierPart
-WEndToken          = "WEnd"i           !IdentifierPart
-WhileToken         = "While"i          !IdentifierPart
-WithToken          = "With"i           !IdentifierPart
+OrToken            = @"Or"i             !IdentifierPart
+RedimToken         = @"Redim"i          !IdentifierPart
+ReturnToken        = @"Return"i         !IdentifierPart
+SelectToken        = @"Select"i         !IdentifierPart
+StaticToken        = @"Static"i         !IdentifierPart
+StepToken          = @"Step"i           !IdentifierPart
+SwitchToken        = @"Switch"i         !IdentifierPart
+ThenToken          = @"Then"i           !IdentifierPart
+ToToken            = @"To"i             !IdentifierPart
+UntilToken         = @"Until"i          !IdentifierPart
+VolatileToken      = @"Volatile"i       !IdentifierPart
+TrueToken          = @"True"i            !IdentifierPart
+WEndToken          = @"WEnd"i           !IdentifierPart
+WhileToken         = @"While"i          !IdentifierPart
+WithToken          = @"With"i           !IdentifierPart
 
 Letter
   = [a-z]i
@@ -987,10 +987,10 @@ LogicalANDExpressionInWith = left:EqualityExpressionInWith __ operator:LogicalAN
 } / EqualityExpressionInWith
 
 LogicalOROperator
-  = $OrToken
+  = OrToken
 
 LogicalANDOperator
- = $AndToken
+ = AndToken
 
 EqualityExpression = left:RelationalExpression __ operator:EqualityOperator __ right:EqualityExpression {
   return {
