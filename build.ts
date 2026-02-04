@@ -45,11 +45,5 @@ typeExtractor.getTypes().then((types) => {
 
     callExpressionInWithAlias.setType(`{type: "CallExpression", callee: MemberExpression | CallExpression, arguments: Arguments, location: LocationRange } | {type: "MemberExpression", object: MemberExpression | CallExpression | null, property: Expression | IdentifierName, computed: boolean, location: LocationRange }`);
 
-    const includeStatementAlias = namespace.getTypeAlias("IncludeStatement");
-    if (includeStatementAlias === undefined) {
-        throw new Error('type "IncludeStatement" not found in "AutoIt3" namespace');
-    }
-    includeStatementAlias.setType(`{type: "IncludeStatement", library: boolean, file: string, location: LocationRange}`);
-
     file.saveSync();
 });

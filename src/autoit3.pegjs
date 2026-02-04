@@ -27,8 +27,8 @@ IncludeStatement
   = "#" IncludeToken LiteralWhitespace* file:IncludeFileName {
     return {
       type: "IncludeStatement",
-      library: file[0],
-      file: file[1],
+      library: file[0] === true,
+      file: String(file[1]),
       location: location(),
     };
   }
