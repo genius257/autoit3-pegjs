@@ -79,6 +79,100 @@ exports[`dot notation whitespaces 2`] = `
 {
   "body": [
     {
+      "body": [
+        {
+          "expression": {
+            "computed": false,
+            "location": {
+              "end": {
+                "column": 3,
+                "line": 2,
+                "offset": 10,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 2,
+                "offset": 8,
+              },
+            },
+            "object": null,
+            "property": {
+              "location": {
+                "end": {
+                  "column": 3,
+                  "line": 2,
+                  "offset": 10,
+                },
+                "source": "",
+                "start": {
+                  "column": 2,
+                  "line": 2,
+                  "offset": 9,
+                },
+              },
+              "name": "a",
+              "type": "Identifier",
+            },
+            "type": "MemberExpression",
+          },
+          "location": {
+            "end": {
+              "column": 1,
+              "line": 3,
+              "offset": 11,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 2,
+              "offset": 8,
+            },
+          },
+          "type": "ExpressionStatement",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 8,
+          "line": 3,
+          "offset": 18,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "object": {
+        "location": {
+          "end": {
+            "column": 8,
+            "line": 1,
+            "offset": 7,
+          },
+          "source": "",
+          "start": {
+            "column": 6,
+            "line": 1,
+            "offset": 5,
+          },
+        },
+        "name": "o",
+        "type": "VariableIdentifier",
+      },
+      "type": "WithStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 3`] = `
+{
+  "body": [
+    {
       "expression": {
         "computed": false,
         "location": {
@@ -184,7 +278,135 @@ exports[`dot notation whitespaces 2`] = `
 }
 `;
 
-exports[`dot notation whitespaces 3`] = `
+exports[`dot notation whitespaces 4`] = `
+{
+  "body": [
+    {
+      "body": [
+        {
+          "expression": {
+            "computed": false,
+            "location": {
+              "end": {
+                "column": 5,
+                "line": 2,
+                "offset": 12,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 2,
+                "offset": 8,
+              },
+            },
+            "object": {
+              "computed": false,
+              "location": {
+                "end": {
+                  "column": 3,
+                  "line": 2,
+                  "offset": 10,
+                },
+                "source": "",
+                "start": {
+                  "column": 1,
+                  "line": 2,
+                  "offset": 8,
+                },
+              },
+              "object": null,
+              "property": {
+                "location": {
+                  "end": {
+                    "column": 3,
+                    "line": 2,
+                    "offset": 10,
+                  },
+                  "source": "",
+                  "start": {
+                    "column": 2,
+                    "line": 2,
+                    "offset": 9,
+                  },
+                },
+                "name": "a",
+                "type": "Identifier",
+              },
+              "type": "MemberExpression",
+            },
+            "property": {
+              "location": {
+                "end": {
+                  "column": 5,
+                  "line": 2,
+                  "offset": 12,
+                },
+                "source": "",
+                "start": {
+                  "column": 4,
+                  "line": 2,
+                  "offset": 11,
+                },
+              },
+              "name": "b",
+              "type": "Identifier",
+            },
+            "type": "MemberExpression",
+          },
+          "location": {
+            "end": {
+              "column": 1,
+              "line": 3,
+              "offset": 13,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 2,
+              "offset": 8,
+            },
+          },
+          "type": "ExpressionStatement",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 8,
+          "line": 3,
+          "offset": 20,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "object": {
+        "location": {
+          "end": {
+            "column": 8,
+            "line": 1,
+            "offset": 7,
+          },
+          "source": "",
+          "start": {
+            "column": 6,
+            "line": 1,
+            "offset": 5,
+          },
+        },
+        "name": "o",
+        "type": "VariableIdentifier",
+      },
+      "type": "WithStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 5`] = `
 {
   "body": [
     {
@@ -259,7 +481,7 @@ exports[`dot notation whitespaces 3`] = `
 }
 `;
 
-exports[`dot notation whitespaces 4`] = `
+exports[`dot notation whitespaces 6`] = `
 {
   "body": [
     {
@@ -368,11 +590,143 @@ exports[`dot notation whitespaces 4`] = `
 }
 `;
 
-exports[`dot notation whitespaces 5`] = `undefined`;
-
-exports[`dot notation whitespaces 6`] = `undefined`;
-
 exports[`dot notation whitespaces 7`] = `
+{
+  "body": [
+    {
+      "body": [
+        {
+          "expression": {
+            "computed": false,
+            "location": {
+              "end": {
+                "column": 6,
+                "line": 2,
+                "offset": 13,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 2,
+                "offset": 8,
+              },
+            },
+            "object": {
+              "computed": false,
+              "location": {
+                "end": {
+                  "column": 3,
+                  "line": 2,
+                  "offset": 10,
+                },
+                "source": "",
+                "start": {
+                  "column": 1,
+                  "line": 2,
+                  "offset": 8,
+                },
+              },
+              "object": null,
+              "property": {
+                "location": {
+                  "end": {
+                    "column": 3,
+                    "line": 2,
+                    "offset": 10,
+                  },
+                  "source": "",
+                  "start": {
+                    "column": 2,
+                    "line": 2,
+                    "offset": 9,
+                  },
+                },
+                "name": "a",
+                "type": "Identifier",
+              },
+              "type": "MemberExpression",
+            },
+            "property": {
+              "location": {
+                "end": {
+                  "column": 6,
+                  "line": 2,
+                  "offset": 13,
+                },
+                "source": "",
+                "start": {
+                  "column": 5,
+                  "line": 2,
+                  "offset": 12,
+                },
+              },
+              "name": "b",
+              "type": "Identifier",
+            },
+            "type": "MemberExpression",
+          },
+          "location": {
+            "end": {
+              "column": 1,
+              "line": 3,
+              "offset": 14,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 2,
+              "offset": 8,
+            },
+          },
+          "type": "ExpressionStatement",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 8,
+          "line": 3,
+          "offset": 21,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "object": {
+        "location": {
+          "end": {
+            "column": 8,
+            "line": 1,
+            "offset": 7,
+          },
+          "source": "",
+          "start": {
+            "column": 6,
+            "line": 1,
+            "offset": 5,
+          },
+        },
+        "name": "o",
+        "type": "VariableIdentifier",
+      },
+      "type": "WithStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
+
+exports[`dot notation whitespaces 8`] = `undefined`;
+
+exports[`dot notation whitespaces 9`] = `undefined`;
+
+exports[`dot notation whitespaces 10`] = `undefined`;
+
+exports[`dot notation whitespaces 11`] = `undefined`;
+
+exports[`dot notation whitespaces 12`] = `
 {
   "body": [
     {
@@ -464,7 +818,7 @@ exports[`dot notation whitespaces 7`] = `
 }
 `;
 
-exports[`dot notation whitespaces 8`] = `
+exports[`dot notation whitespaces 13`] = `
 {
   "body": [
     {
@@ -590,7 +944,7 @@ exports[`dot notation whitespaces 8`] = `
 }
 `;
 
-exports[`dot notation whitespaces 9`] = `
+exports[`dot notation whitespaces 14`] = `
 {
   "body": [
     {
@@ -682,7 +1036,7 @@ exports[`dot notation whitespaces 9`] = `
 }
 `;
 
-exports[`dot notation whitespaces 10`] = `
+exports[`dot notation whitespaces 15`] = `
 {
   "body": [
     {
@@ -808,6 +1162,6 @@ exports[`dot notation whitespaces 10`] = `
 }
 `;
 
-exports[`dot notation whitespaces 11`] = `undefined`;
+exports[`dot notation whitespaces 16`] = `undefined`;
 
-exports[`dot notation whitespaces 12`] = `undefined`;
+exports[`dot notation whitespaces 17`] = `undefined`;
