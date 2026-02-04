@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Subsequent SourceElements did not allow leading whitespace, caused by ea122e3ce373cfaf626ec308d714000d36adcad7
+- MemberExpression should not allow whitespace between the dot and the property name ( #50 )
 
 ## [4.1.0] - 2026-02-02
 
