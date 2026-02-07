@@ -175,10 +175,10 @@ HexIntegerLiteral
 Integer = [0-9]+
 
 StringLiteral "string"
-  = '"' chars:(!('"' / LineTerminatorSequence) . / '""' {return '"'})* '"' {
+  = '"' chars:(!('"' / LineTerminatorSequence) @. / '""' {return '"'})* '"' {
     return { type: "Literal", value: chars.join(""), location: location(), }
   }
-  / "'" chars:(!("'" / LineTerminatorSequence) . / "''" {return "'"})* "'" {
+  / "'" chars:(!("'" / LineTerminatorSequence) @. / "''" {return "'"})* "'" {
     return { type: "Literal", value: chars.join(""), location: location(), }
   }
 
@@ -1252,7 +1252,7 @@ StatementInWith
   = VariableStatementInWith
   / EmptyStatement
   / slc:SingleLineComment (LineTerminatorSequence / EOF) {return slc;}
-  / ExpressionStatementInWIth
+  / ExpressionStatementInWith
   / IfStatementInWith
   / IterationStatementInWith
   / ContinueLoopStatementInWith
@@ -1261,7 +1261,7 @@ StatementInWith
   / ReturnStatementInWith
   / WithStatement
   / SwitchStatementInWith
-  / ExitStatementInWIth
+  / ExitStatementInWith
   / PreProcStatement
   / mlc:MultiLineComment EOS {return mlc;}
   / SelectStatementInWith
@@ -1417,7 +1417,7 @@ ExpressionStatement
       };
     }
 
-ExpressionStatementInWIth
+ExpressionStatementInWith
   = !FuncToken expression:ExpressionInWith EOS {
       return {
         type: "ExpressionStatement",
@@ -1631,7 +1631,7 @@ ExitStatement
     }
   }
 
-ExitStatementInWIth
+ExitStatementInWith
   = ExitToken argument:(__ @AssignmentExpressionInWith / __ "(" __ ")" { return null; } )? EOS {
     return {
       type: "ExitStatement",
