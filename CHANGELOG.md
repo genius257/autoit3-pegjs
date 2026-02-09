@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.1.3] - 2026-02-09
+
 ### Fixed
 
 - StringLiteral value had commas between letters after a fix, caused by 665db9e73e2e490093bf8ef56da9cb70ce21b92a
