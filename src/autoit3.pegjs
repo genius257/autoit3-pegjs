@@ -753,11 +753,14 @@ PrimaryExpressionInWith
   / Literal
   // ArrayLiteral
   // ObjectLiteral
-  / ParenthesizedExpression
+  / ParenthesizedExpressionInWith
   / Keyword:DefaultKeyword !AdditiveOperator { return Keyword; }
 
 ParenthesizedExpression
   = "(" __ expression:Expression __ ")" { return {type: "ParenthesizedExpression", expression: expression, location: location() }; }
+
+ParenthesizedExpressionInWith
+  = "(" __ expression:ExpressionInWith __ ")" { return {type: "ParenthesizedExpression", expression: expression, location: location() }; }
 
 CallExpression
   = head:(
