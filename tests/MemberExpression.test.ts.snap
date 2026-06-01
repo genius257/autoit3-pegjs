@@ -718,13 +718,113 @@ exports[`dot notation whitespaces 7`] = `
 }
 `;
 
-exports[`dot notation whitespaces 8`] = `undefined`;
+exports[`dot notation whitespaces 8`] = `
+{
+  "expected": [
+    {
+      "description": "identifier",
+      "type": "other",
+    },
+  ],
+  "found": " ",
+  "location": {
+    "end": {
+      "column": 5,
+      "line": 1,
+      "offset": 4,
+    },
+    "source": "",
+    "start": {
+      "column": 4,
+      "line": 1,
+      "offset": 3,
+    },
+  },
+  "message": "Expected identifier but " " found.",
+  "name": "SyntaxError",
+}
+`;
 
-exports[`dot notation whitespaces 9`] = `undefined`;
+exports[`dot notation whitespaces 9`] = `
+{
+  "expected": [
+    {
+      "description": "identifier",
+      "type": "other",
+    },
+  ],
+  "found": " ",
+  "location": {
+    "end": {
+      "column": 3,
+      "line": 2,
+      "offset": 10,
+    },
+    "source": "",
+    "start": {
+      "column": 2,
+      "line": 2,
+      "offset": 9,
+    },
+  },
+  "message": "Expected identifier but " " found.",
+  "name": "SyntaxError",
+}
+`;
 
-exports[`dot notation whitespaces 10`] = `undefined`;
+exports[`dot notation whitespaces 10`] = `
+{
+  "expected": [
+    {
+      "description": "identifier",
+      "type": "other",
+    },
+  ],
+  "found": " ",
+  "location": {
+    "end": {
+      "column": 7,
+      "line": 1,
+      "offset": 6,
+    },
+    "source": "",
+    "start": {
+      "column": 6,
+      "line": 1,
+      "offset": 5,
+    },
+  },
+  "message": "Expected identifier but " " found.",
+  "name": "SyntaxError",
+}
+`;
 
-exports[`dot notation whitespaces 11`] = `undefined`;
+exports[`dot notation whitespaces 11`] = `
+{
+  "expected": [
+    {
+      "description": "identifier",
+      "type": "other",
+    },
+  ],
+  "found": " ",
+  "location": {
+    "end": {
+      "column": 5,
+      "line": 2,
+      "offset": 12,
+    },
+    "source": "",
+    "start": {
+      "column": 4,
+      "line": 2,
+      "offset": 11,
+    },
+  },
+  "message": "Expected identifier but " " found.",
+  "name": "SyntaxError",
+}
+`;
 
 exports[`dot notation whitespaces 12`] = `
 {
@@ -1162,6 +1262,56 @@ exports[`dot notation whitespaces 15`] = `
 }
 `;
 
-exports[`dot notation whitespaces 16`] = `undefined`;
+exports[`dot notation whitespaces 16`] = `
+{
+  "expected": [
+    {
+      "description": "identifier",
+      "type": "other",
+    },
+  ],
+  "found": " ",
+  "location": {
+    "end": {
+      "column": 6,
+      "line": 1,
+      "offset": 5,
+    },
+    "source": "",
+    "start": {
+      "column": 5,
+      "line": 1,
+      "offset": 4,
+    },
+  },
+  "message": "Expected identifier but " " found.",
+  "name": "SyntaxError",
+}
+`;
 
-exports[`dot notation whitespaces 17`] = `undefined`;
+exports[`dot notation whitespaces 17`] = `
+{
+  "expected": [
+    {
+      "description": "identifier",
+      "type": "other",
+    },
+  ],
+  "found": " ",
+  "location": {
+    "end": {
+      "column": 8,
+      "line": 1,
+      "offset": 7,
+    },
+    "source": "",
+    "start": {
+      "column": 7,
+      "line": 1,
+      "offset": 6,
+    },
+  },
+  "message": "Expected identifier but " " found.",
+  "name": "SyntaxError",
+}
+`;

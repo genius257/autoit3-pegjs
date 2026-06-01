@@ -14,6 +14,14 @@ export const assertParserError = (input: string, startOffset: number, endOffset:
         thrown = error;
         expect(error.location.start.offset).toStrictEqual(startOffset);
         expect(error.location.end.offset).toStrictEqual(endOffset ?? (startOffset + 1));
+
+        return {
+            message: error.message,
+            expected: error.expected,
+            found: error.found,
+            location: error.location,
+            name: error.name,
+        };
     } finally {
         expect(thrown).not.toBe(null);
     }
