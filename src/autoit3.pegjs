@@ -1326,7 +1326,7 @@ VariableStatement
       location: location(),
     };
   }
-  / scope:(@$(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace @[+\-*]? @$[0-9]+ )? __ declarations:EnumDeclarationList EOS {
+  / scope:(@$(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace @[+\-*]? __ @$[0-9]+ )? __ declarations:EnumDeclarationList EOS {
     return {
       scope: scope?.toLocaleLowerCase()??null,
       constant: !!constant,
@@ -1387,7 +1387,7 @@ VariableStatementInWith
       location: location(),
     };
   }
-  / scope:(@$(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace @[+\-*]? @$[0-9]+ )? __ declarations:EnumDeclarationListInWith EOS {
+  / scope:(@$(LocalToken / GlobalToken / DimToken) __)? constant:(ConstToken __)? EnumToken step:( __ StepToken Whitespace @[+\-*]? __ @$[0-9]+ )? __ declarations:EnumDeclarationListInWith EOS {
     return {
       scope: scope?.toLocaleLowerCase()??null,
       constant: !!constant,
