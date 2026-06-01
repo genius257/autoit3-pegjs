@@ -1597,7 +1597,7 @@ EOS
 EOF
   = !.
 
-__ //FIXME: support line continuation
+__
   = Whitespace*
 //FIXME: implement this
 _ = __
