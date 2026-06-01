@@ -1467,7 +1467,7 @@ IfStatementInWith
         location: location(),
       }
     }
-    / IfToken __ test:Expression __ ThenToken __ !(EmptyStatement/Comment) consequent:(ExpressionStatement/VariableStatement/ContinueLoopStatement/ContinueCaseStatement/ExitLoopStatement/ReturnStatement/ExitStatement) {
+    / IfToken __ test:ExpressionInWith __ ThenToken __ !(EmptyStatement/Comment) consequent:(ExpressionStatementInWith/VariableStatementInWith/ContinueLoopStatementInWith/ContinueCaseStatement/ExitLoopStatementInWith/ReturnStatementInWith/ExitStatementInWith) {
       return {
         type: "IfStatement",
         test: test,
