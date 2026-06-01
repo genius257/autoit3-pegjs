@@ -1,0 +1,180 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`WithStatementTest 1`] = `
+{
+  "body": [
+    {
+      "body": [
+        {
+          "consequent": {
+            "location": {
+              "end": {
+                "column": 1,
+                "line": 3,
+                "offset": 33,
+              },
+              "source": "",
+              "start": {
+                "column": 17,
+                "line": 2,
+                "offset": 24,
+              },
+            },
+            "type": "ReturnStatement",
+            "value": {
+              "location": {
+                "end": {
+                  "column": 25,
+                  "line": 2,
+                  "offset": 32,
+                },
+                "source": "",
+                "start": {
+                  "column": 24,
+                  "line": 2,
+                  "offset": 31,
+                },
+              },
+              "type": "Literal",
+              "value": 1,
+            },
+          },
+          "location": {
+            "end": {
+              "column": 1,
+              "line": 3,
+              "offset": 33,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 2,
+              "offset": 8,
+            },
+          },
+          "test": {
+            "left": {
+              "computed": false,
+              "location": {
+                "end": {
+                  "column": 6,
+                  "line": 2,
+                  "offset": 13,
+                },
+                "source": "",
+                "start": {
+                  "column": 4,
+                  "line": 2,
+                  "offset": 11,
+                },
+              },
+              "object": null,
+              "property": {
+                "location": {
+                  "end": {
+                    "column": 6,
+                    "line": 2,
+                    "offset": 13,
+                  },
+                  "source": "",
+                  "start": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 12,
+                  },
+                },
+                "name": "a",
+                "type": "Identifier",
+              },
+              "type": "MemberExpression",
+            },
+            "location": {
+              "end": {
+                "column": 11,
+                "line": 2,
+                "offset": 18,
+              },
+              "source": "",
+              "start": {
+                "column": 4,
+                "line": 2,
+                "offset": 11,
+              },
+            },
+            "operator": "=",
+            "right": {
+              "computed": false,
+              "location": {
+                "end": {
+                  "column": 11,
+                  "line": 2,
+                  "offset": 18,
+                },
+                "source": "",
+                "start": {
+                  "column": 9,
+                  "line": 2,
+                  "offset": 16,
+                },
+              },
+              "object": null,
+              "property": {
+                "location": {
+                  "end": {
+                    "column": 11,
+                    "line": 2,
+                    "offset": 18,
+                  },
+                  "source": "",
+                  "start": {
+                    "column": 10,
+                    "line": 2,
+                    "offset": 17,
+                  },
+                },
+                "name": "b",
+                "type": "Identifier",
+              },
+              "type": "MemberExpression",
+            },
+            "type": "AssignmentExpression",
+          },
+          "type": "IfStatement",
+        },
+      ],
+      "location": {
+        "end": {
+          "column": 8,
+          "line": 3,
+          "offset": 40,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "object": {
+        "location": {
+          "end": {
+            "column": 8,
+            "line": 1,
+            "offset": 7,
+          },
+          "source": "",
+          "start": {
+            "column": 6,
+            "line": 1,
+            "offset": 5,
+          },
+        },
+        "name": "o",
+        "type": "VariableIdentifier",
+      },
+      "type": "WithStatement",
+    },
+  ],
+  "type": "Program",
+}
+`;
