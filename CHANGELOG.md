@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.1.4] - 2026-06-08
+
+### Fixed
+
+- Parenthesized expressions in with blocks did not allow leading dot property/method syntax 427c3d0ea268f5cb6f78e192d91b1afe1fbcd27e
+- Single line if statements did not allow leading dot property/method syntax 677d0f75985b0985dc336f6b323e04f5f1c15554
+- Whitespace and line continuation was not allowed between the step operator and step value in a enum-variable statement 848f3f8224ff2fb47980ef2592fd0506eba38f1a
+
 ## [4.1.3] - 2026-02-09
 
 ### Fixed
@@ -213,7 +221,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.3...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.4...HEAD
+[4.1.4]: https://github.com/genius257/autoit3-pegjs/compare/4.1.3...4.1.4
 [4.1.3]: https://github.com/genius257/autoit3-pegjs/compare/4.1.2...4.1.3
 [4.1.2]: https://github.com/genius257/autoit3-pegjs/compare/4.1.1...4.1.2
 [4.1.1]: https://github.com/genius257/autoit3-pegjs/compare/4.1.0...4.1.1
