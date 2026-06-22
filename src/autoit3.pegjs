@@ -1146,7 +1146,7 @@ UnaryExpressionInWith
     }
 
 UnaryOperator
-  = 
+  =
   // "++"
   // "--"
   $("+" !"=")
