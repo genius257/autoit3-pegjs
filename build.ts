@@ -26,7 +26,7 @@ typeExtractor.getTypes().then((types) => {
 
     const memberExpressionInWithAlias = namespace.getTypeAlias("MemberExpressionInWith");
     if (memberExpressionInWithAlias === undefined) {
-        throw new Error('type "MemberExpression" not found in "AutoIt3" namespace');
+        throw new Error('type "MemberExpressionInWith" not found in "AutoIt3" namespace');
     }
 
     memberExpressionInWithAlias.setType(`PrimaryExpression | ({type: "MemberExpression", object: MemberExpression|PrimaryExpression, location: LocationRange } & ({property: Expression, computed: true} | {property:IdentifierName, computed: false}))`);
@@ -40,7 +40,7 @@ typeExtractor.getTypes().then((types) => {
 
     const callExpressionInWithAlias = namespace.getTypeAlias("CallExpressionInWith");
     if (callExpressionInWithAlias === undefined) {
-        throw new Error('type "CallExpression" not found in "AutoIt3" namespace');
+        throw new Error('type "CallExpressionInWith" not found in "AutoIt3" namespace');
     }
 
     callExpressionInWithAlias.setType(`{type: "CallExpression", callee: MemberExpression | CallExpression, arguments: Arguments, location: LocationRange } | {type: "MemberExpression", object: MemberExpression | CallExpression | null, property: Expression | IdentifierName, computed: boolean, location: LocationRange }`);
