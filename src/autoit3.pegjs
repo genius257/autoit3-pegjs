@@ -1096,7 +1096,6 @@ MultiplicativeExpressionInWith = left:ExponentialExpressionInWith __ operator:Mu
 MultiplicativeOperator
   = (@"*" !"=")
   / (@"/" !"=")
-  // $("%" !"=")
 
 ExponentialExpression = left:UnaryExpression __ operator:ExponentialOperator __ right:ExponentialExpression {
   return {
@@ -1147,12 +1146,8 @@ UnaryExpressionInWith
 
 UnaryOperator
   =
-  // "++"
-  // "--"
   $("+" !"=")
   / $("-" !"=")
-  // "~"
-  // "!"
   / NotToken
 
 //BUG: --------------------------------------------------------------------------------------------------------------------------------------
