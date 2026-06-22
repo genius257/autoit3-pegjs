@@ -515,7 +515,7 @@ SelectCaseBlockInWith
     after:(@SelectCaseClausesInWith __)? {
       return /** @type {Array<NonNullable<typeof before>[number]|typeof default_|NonNullable<typeof after>[number]>} */([...before??[], default_, ...after??[]]);
     }
-  / __ clauses:(@SelectCaseClauses __) {
+  / __ clauses:(@SelectCaseClausesInWith __) {
     return clauses;
   }
 
@@ -806,7 +806,7 @@ CallExpressionInWith
         __ args:ArgumentsInWith {
           return { type: "CallExpression", arguments: args, location: location() };
         }
-      / __ "[" __ property:Expression __ "]" {
+      / __ "[" __ property:ExpressionInWith __ "]" {
           return {
             type: "MemberExpression",
             property: property,
