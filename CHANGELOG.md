@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.1.5] - 2026-07-06
+
+### Fixed
+
+- `IfStatementInWith` used non with-rule variant of `StatementList` in consequent part of IfBlock
+
 ## [4.1.4] - 2026-06-10
 
 ### Fixed
@@ -221,7 +227,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.4...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.5...HEAD
+[4.1.5]: https://github.com/genius257/autoit3-pegjs/compare/4.1.4...4.1.5
 [4.1.4]: https://github.com/genius257/autoit3-pegjs/compare/4.1.3...4.1.4
 [4.1.3]: https://github.com/genius257/autoit3-pegjs/compare/4.1.2...4.1.3
 [4.1.2]: https://github.com/genius257/autoit3-pegjs/compare/4.1.1...4.1.2
