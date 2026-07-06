@@ -1451,7 +1451,7 @@ IfStatement
 
 IfStatementInWith
   = IfToken __ test:ExpressionInWith __ ThenToken __ EOS
-       consequent:(__ @StatementList __)?
+       consequent:(__ @StatementListInWith __)?
     __ alternates:ElseIfClausesInWith? __
     __ alternate:ElseClauseInWith? __
     EndIfToken EOS {
