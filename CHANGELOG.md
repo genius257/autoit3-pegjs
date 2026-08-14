@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.2.0] - 2026-08-14
+
 ### Added
 
 - location property to `Program` AST node
@@ -232,7 +234,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.1.5...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.2.0...HEAD
+[4.2.0]: https://github.com/genius257/autoit3-pegjs/compare/4.1.5...4.2.0
 [4.1.5]: https://github.com/genius257/autoit3-pegjs/compare/4.1.4...4.1.5
 [4.1.4]: https://github.com/genius257/autoit3-pegjs/compare/4.1.3...4.1.4
 [4.1.3]: https://github.com/genius257/autoit3-pegjs/compare/4.1.2...4.1.3
