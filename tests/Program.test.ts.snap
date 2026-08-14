@@ -55,6 +55,19 @@ exports[`whitespace between SourceElements 1`] = `
       "type": "SingleLineComment",
     },
   ],
+  "location": {
+    "end": {
+      "column": 1,
+      "line": 4,
+      "offset": 8,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;

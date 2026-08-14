@@ -146,6 +146,19 @@ exports[`Constant array declaration with dimensions specified 1`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 34,
+      "line": 1,
+      "offset": 33,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -226,6 +239,19 @@ exports[`VariableDeclaration 1`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 25,
+      "line": 1,
+      "offset": 24,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -290,6 +316,19 @@ exports[`VariableDeclaration 2`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 22,
+      "line": 1,
+      "offset": 21,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -354,6 +393,19 @@ exports[`VariableDeclaration 3`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 22,
+      "line": 1,
+      "offset": 21,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -418,6 +470,19 @@ exports[`VariableDeclaration 4`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 15,
+      "line": 1,
+      "offset": 14,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -498,6 +563,19 @@ exports[`VariableDeclaration 5`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 27,
+      "line": 1,
+      "offset": 26,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -562,6 +640,19 @@ exports[`VariableDeclaration 6`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 24,
+      "line": 1,
+      "offset": 23,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -626,6 +717,19 @@ exports[`VariableDeclaration 7`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 24,
+      "line": 1,
+      "offset": 23,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -690,6 +794,19 @@ exports[`VariableDeclaration 8`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 17,
+      "line": 1,
+      "offset": 16,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -770,6 +887,19 @@ exports[`VariableDeclaration 9`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 21,
+      "line": 1,
+      "offset": 20,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -834,6 +964,19 @@ exports[`VariableDeclaration 10`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 11,
+      "line": 1,
+      "offset": 10,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -914,6 +1057,19 @@ exports[`VariableDeclaration 11`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 13,
+      "line": 1,
+      "offset": 12,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -978,6 +1134,19 @@ exports[`VariableDeclaration 12`] = `
       "type": "VariableDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 10,
+      "line": 1,
+      "offset": 9,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1053,6 +1222,19 @@ exports[`VariableDeclaration 13`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 7,
+      "line": 1,
+      "offset": 6,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1118,6 +1300,19 @@ exports[`VariableDeclaration 14`] = `
       "type": "EnumDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 8,
+      "line": 1,
+      "offset": 7,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1183,6 +1378,19 @@ exports[`VariableDeclaration 15`] = `
       "type": "EnumDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 20,
+      "line": 1,
+      "offset": 19,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1248,6 +1456,19 @@ exports[`VariableDeclaration 16`] = `
       "type": "EnumDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 22,
+      "line": 1,
+      "offset": 21,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1313,6 +1534,19 @@ exports[`VariableDeclaration 17`] = `
       "type": "EnumDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 16,
+      "line": 1,
+      "offset": 15,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1378,6 +1612,19 @@ exports[`VariableDeclaration 18`] = `
       "type": "EnumDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 20,
+      "line": 1,
+      "offset": 19,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1443,6 +1690,19 @@ exports[`VariableDeclaration 19`] = `
       "type": "EnumDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 32,
+      "line": 1,
+      "offset": 31,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1508,6 +1768,19 @@ exports[`VariableDeclaration 20`] = `
       "type": "EnumDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 34,
+      "line": 1,
+      "offset": 33,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1573,6 +1846,19 @@ exports[`VariableDeclaration 21`] = `
       "type": "EnumDeclaration",
     },
   ],
+  "location": {
+    "end": {
+      "column": 28,
+      "line": 1,
+      "offset": 27,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;

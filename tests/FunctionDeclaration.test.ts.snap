@@ -40,6 +40,19 @@ exports[`FunctionDeclaration 1`] = `
       "volatile": false,
     },
   ],
+  "location": {
+    "end": {
+      "column": 20,
+      "line": 2,
+      "offset": 37,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -157,6 +170,19 @@ exports[`FunctionDeclaration 2`] = `
       "volatile": false,
     },
   ],
+  "location": {
+    "end": {
+      "column": 20,
+      "line": 2,
+      "offset": 55,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;

@@ -37,6 +37,19 @@ exports[`parses string literals 1`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 11,
+      "line": 1,
+      "offset": 10,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;

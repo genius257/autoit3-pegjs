@@ -71,6 +71,19 @@ exports[`dot notation whitespaces 1`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 5,
+      "line": 1,
+      "offset": 4,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -165,6 +178,19 @@ exports[`dot notation whitespaces 2`] = `
       "type": "WithStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 8,
+      "line": 3,
+      "offset": 18,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -274,6 +300,19 @@ exports[`dot notation whitespaces 3`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 7,
+      "line": 1,
+      "offset": 6,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -402,6 +441,19 @@ exports[`dot notation whitespaces 4`] = `
       "type": "WithStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 8,
+      "line": 3,
+      "offset": 20,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -477,6 +529,19 @@ exports[`dot notation whitespaces 5`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 6,
+      "line": 1,
+      "offset": 5,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -586,6 +651,19 @@ exports[`dot notation whitespaces 6`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 9,
+      "line": 1,
+      "offset": 8,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -714,6 +792,19 @@ exports[`dot notation whitespaces 7`] = `
       "type": "WithStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 8,
+      "line": 3,
+      "offset": 21,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -914,6 +1005,19 @@ exports[`dot notation whitespaces 12`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 6,
+      "line": 1,
+      "offset": 5,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1040,6 +1144,19 @@ exports[`dot notation whitespaces 13`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 8,
+      "line": 1,
+      "offset": 7,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1132,6 +1249,19 @@ exports[`dot notation whitespaces 14`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 7,
+      "line": 1,
+      "offset": 6,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
@@ -1258,6 +1388,19 @@ exports[`dot notation whitespaces 15`] = `
       "type": "ExpressionStatement",
     },
   ],
+  "location": {
+    "end": {
+      "column": 10,
+      "line": 1,
+      "offset": 9,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
   "type": "Program",
 }
 `;
