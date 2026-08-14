@@ -1157,6 +1157,7 @@ Program
       return {
         type: "Program",
         body: body,
+        location: location(),
       };
     }
 
