@@ -5,6 +5,19 @@
 //
 
 {
+  // Words that `Identifier` must reject. Kept in sync with:
+  //   Keyword (41 alternatives), NullToken, TrueToken, FalseToken
+  // `FutureReservedWord` ("@RESERVED") is intentionally absent: it is a placeholder
+  // for future reserved words, and "@" cannot start an Identifier anyway.
+  // When real future reserved words are added, add them here.
+  var RESERVED_WORDS = new Set([
+    "and", "byref", "case", "const", "continuecase", "continueloop", "default",
+    "dim", "do", "else", "elseif", "endfunc", "endif", "endselect", "endswitch",
+    "endwith", "enum", "exit", "exitloop", "false", "for", "func", "global", "if",
+    "in", "local", "next", "not", "null", "or", "redim", "return", "select",
+    "static", "step", "switch", "then", "to", "true", "until", "volatile", "wend",
+    "while", "with",
+  ]);
   var TYPES_TO_PROPERTY_NAMES = {
     CallExpression:   "callee",
     MemberExpression: "object",
@@ -227,24 +240,25 @@ ArrayDeclarationElementListInWith
       return [head, ...tail];
     }
 
-Identifier = !ReservedWord name:IdentifierName { return name; }
+Identifier = name:IdentifierName &{ return !RESERVED_WORDS.has(name.name.toLowerCase()); } { return name; }
 
 IdentifierName "identifier"
-  = head:IdentifierStart tail:IdentifierPart* {
+  = name:$(IdentifierStart IdentifierPart*) {
       return {
         type: "Identifier",
-        name: head + tail.join(""),
+        name: name,
         location: location(),
       };
     }
 
+// Single source of truth for what may appear in an identifier.
+// Change these two rules and IdentifierName, all *Token rules and
+// NumericLiteral follow automatically.
 IdentifierStart
-  = Letter
-  / "_"
+  = [a-zA-Z_]
 
 IdentifierPart
-  = IdentifierStart
-  / DecimalDigit
+  = [0-9a-zA-Z_]
 
 Macro
     = value: $("@" (
@@ -610,9 +624,6 @@ TrueToken          = @"True"i            !IdentifierPart
 WEndToken          = @"WEnd"i           !IdentifierPart
 WhileToken         = @"While"i          !IdentifierPart
 WithToken          = @"With"i           !IdentifierPart
-
-Letter
-  = [a-z]i
 
 //BUG: --------------------------------------------------------------------------------------------------------------------------------------
 
