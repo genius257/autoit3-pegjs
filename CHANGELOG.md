@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Reserved words are now rejected with a single `Set` lookup in `Identifier`, instead of trying up to 40 keyword rules at every identifier position
 - `IdentifierName` matches through `IdentifierStart`/`IdentifierPart` and returns a text slice, instead of matching per character and joining the matched characters. `IdentifierStart`/`IdentifierPart` are now plain character classes, so they stay the single place to change what an identifier may contain. The now unused `Letter` rule was removed
+- `SingleLineComment` body is now a text slice, instead of a matched character array that was joined afterwards
 
 Parsing is roughly 2-4 times faster, most notably on identifier dense files. The generated AST is unchanged; error messages for invalid input now list the reserved words that were also possible at the failure position.
 
