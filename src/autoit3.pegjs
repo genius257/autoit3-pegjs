@@ -1653,7 +1653,7 @@ ExitStatementInWith
 
 SwitchStatement
   = SwitchToken __ discriminant:Expression __ EOS
-    EmptyStatement*
+    (EmptyStatement / __ SingleLineComment EOS)*
     cases:CaseBlock
   EndSwitchToken EOS
   {
@@ -1667,7 +1667,7 @@ SwitchStatement
 
 SwitchStatementInWith
   = SwitchToken __ discriminant:ExpressionInWith __ EOS
-    EmptyStatement*
+    (EmptyStatement / __ SingleLineComment EOS)*
     cases:CaseBlockInWith
   EndSwitchToken EOS
   {
