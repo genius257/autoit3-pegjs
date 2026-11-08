@@ -57,7 +57,7 @@ IncludeFileName
     return [false, file];
   }
 
-LiteralWhitespace = "\u0009" / "\u0020"
+LiteralWhitespace = [\u0009\u0020]
 
 Whitespace = LineContinuation LiteralWhitespace* / LiteralWhitespace+
 
