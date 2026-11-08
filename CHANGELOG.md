@@ -12,12 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Reserved words are now rejected with a single `Set` lookup in `Identifier`, instead of trying up to 40 keyword rules at every identifier position
 - `IdentifierName` matches through `IdentifierStart`/`IdentifierPart` and returns a text slice, instead of matching per character and joining the matched characters. `IdentifierStart`/`IdentifierPart` are now plain character classes, so they stay the single place to change what an identifier may contain. The now unused `Letter` rule was removed
 - `SingleLineComment` body is now a text slice, instead of a matched character array that was joined afterwards
+- `__` matches `LiteralWhitespace` runs directly instead of walking the per-character `Whitespace` rule
 
 ### Fixed
 
 - EmptyStatement did not parse after SingleLineComment in SwitchStatement, before first CaseBlock
+- Consecutive line continuations were mis-parsed: the trailing whitespace of one continuation was consumed before the next one could claim it as its own leading whitespace, so the second `_` was parsed as an identifier and emitted as a spurious `ExpressionStatement` referencing an identifier that does not exist in the source. Consecutive continuations now join into a single statement
 
-Parsing is roughly 2-4 times faster, most notably on identifier dense files. The generated AST is unchanged; error messages for invalid input now list the reserved words that were also possible at the failure position.
+Parsing is roughly 2-4 times faster, most notably on identifier dense files. The generated AST is unchanged except for the consecutive continuation fix above; error messages for invalid input now list the reserved words that were also possible at the failure position.
 
 ## [4.2.0] - 2026-08-14
 
