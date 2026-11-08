@@ -1609,7 +1609,7 @@ EOF
   = !.
 
 __
-  = Whitespace*
+  = (LineContinuation / LiteralWhitespace+)*
 //FIXME: implement this
 _ = __
 
