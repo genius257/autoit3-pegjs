@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `SingleLineComment` body is now a text slice, instead of a matched character array that was joined afterwards
 - `__` matches `LiteralWhitespace` runs directly instead of walking the per-character `Whitespace` rule
 - `LineTerminatorSequence` tries `\r\n` first and then a single character class, instead of five ordered alternatives
+- Renamed the `Initialiser` rule type export to `Initializer`, fixing the spelling
 
 ### Fixed
 

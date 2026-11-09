@@ -98,7 +98,7 @@ VariableDeclarationListInWith
     }
 
 VariableDeclaration
-  = id:VariableIdentifier dimensions:(__ "[" __ @Expression? __ "]" )* init:(__ @Initialiser)? {
+  = id:VariableIdentifier dimensions:(__ "[" __ @Expression? __ "]" )* init:(__ @Initializer)? {
       return {
         type: "VariableDeclarator",
         id: id,
@@ -109,7 +109,7 @@ VariableDeclaration
     }
 
 VariableDeclarationInWith
-  = id:VariableIdentifier dimensions:(__ "[" __ @ExpressionInWith? __ "]" )* init:(__ @InitialiserInWith)? {
+  = id:VariableIdentifier dimensions:(__ "[" __ @ExpressionInWith? __ "]" )* init:(__ @InitializerInWith)? {
       return {
         type: "VariableDeclarator",
         id: id,
@@ -159,10 +159,10 @@ ConstDeclarationInWith
     }
   }
 
-Initialiser
+Initializer
   = "=" !"=" __ expression:(AssignmentExpression / ArrayDeclaration) { return expression; }
 
-InitialiserInWith
+InitializerInWith
   = "=" !"=" __ expression:(AssignmentExpressionInWith / ArrayDeclarationInWith) { return expression; }
 
 VariableIdentifier = '$' name:$[0-9a-zA-Z_]+
