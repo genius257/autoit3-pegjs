@@ -1615,11 +1615,8 @@ _ = __
 
 //TODO: verify the chars in here!
 LineTerminatorSequence "end of line"
-  = "\n"
-  / "\r\n"
-  / "\r"
-  / "\u2028"
-  / "\u2029"
+  = "\r\n"
+  / [\n\r\u2028\u2029]
 
 
 //FIXME: validate if this is true for au3
