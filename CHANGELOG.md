@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - EmptyStatement did not parse after SingleLineComment in SwitchStatement, before first CaseBlock
 - Consecutive line continuations were mis-parsed: the trailing whitespace of one continuation was consumed before the next one could claim it as its own leading whitespace, so the second `_` was parsed as an identifier and emitted as a spurious `ExpressionStatement` referencing an identifier that does not exist in the source. Consecutive continuations now join into a single statement
+- Nested `CallExpression` and `MemberExpression` nodes had wrong locations: a wrapping node only spanned the syntax wrapping the previous node, such as the trailing parentheses of `InetGet('url')()`, and `MemberExpression` nodes spanned the entire chain instead of ending at their own last property. Wrapped nodes now span from the start of the expression they wrap to their own end ( #43 )
 
 Parsing is roughly 2-4 times faster, most notably on identifier dense files. The generated AST is unchanged except for the consecutive continuation fix above; error messages for invalid input now list the reserved words that were also possible at the failure position.
 

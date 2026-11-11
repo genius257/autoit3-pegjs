@@ -1,0 +1,107 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CallExpressionTest 1`] = `
+{
+  "body": [
+    {
+      "expression": {
+        "arguments": [],
+        "callee": {
+          "arguments": [
+            {
+              "location": {
+                "end": {
+                  "column": 14,
+                  "line": 1,
+                  "offset": 13,
+                },
+                "source": "",
+                "start": {
+                  "column": 9,
+                  "line": 1,
+                  "offset": 8,
+                },
+              },
+              "type": "Literal",
+              "value": "url",
+            },
+          ],
+          "callee": {
+            "location": {
+              "end": {
+                "column": 8,
+                "line": 1,
+                "offset": 7,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "name": "InetGet",
+            "type": "Identifier",
+          },
+          "location": {
+            "end": {
+              "column": 15,
+              "line": 1,
+              "offset": 14,
+            },
+            "source": "",
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "CallExpression",
+        },
+        "location": {
+          "end": {
+            "column": 17,
+            "line": 1,
+            "offset": 16,
+          },
+          "source": "",
+          "start": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "type": "CallExpression",
+      },
+      "location": {
+        "end": {
+          "column": 17,
+          "line": 1,
+          "offset": 16,
+        },
+        "source": "",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "ExpressionStatement",
+    },
+  ],
+  "location": {
+    "end": {
+      "column": 17,
+      "line": 1,
+      "offset": 16,
+    },
+    "source": "",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "type": "Program",
+}
+`;

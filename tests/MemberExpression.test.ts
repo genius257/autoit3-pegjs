@@ -37,3 +37,34 @@ it('dot notation whitespaces', () => {
 
     expect(assertParserError(`f().a. b`, 6)).toMatchSnapshot();
 });
+
+it('member chain locations', () => {
+    // Each wrapped node must span from the start of the expression to its own
+    // end. The reduce used to call location() after the whole rule matched, so
+    // every wrapped node claimed the span of the entire chain.
+    const collectSpans = (input: string): Array<[number, number]> => {
+        const collected: Array<[number, number]> = [];
+        const walk = (node: any): void => {
+            if (Array.isArray(node)) {
+                node.forEach(walk);
+            } else if (node && typeof node === 'object') {
+                if (node.type === 'MemberExpression') {
+                    collected.push([node.location.start.offset, node.location.end.offset]);
+                }
+                Object.values(node).forEach(walk);
+            }
+        };
+        walk(parser.parse(input, { grammarSource: '' }));
+        return collected;
+    };
+
+    // Collected outermost first.
+    expect(collectSpans(`$a.b.c.d`)).toStrictEqual([[0, 8], [0, 6], [0, 4]]);
+
+    // Two properties -> two wrapped nodes.
+    expect(collectSpans(`$o .a .b`)).toStrictEqual([[0, 8], [0, 5]]);
+
+    expect(collectSpans(`f().a.b`)).toStrictEqual([[0, 7], [0, 5]]);
+
+    expect(collectSpans(`$arr[1][2][3]`)).toStrictEqual([[0, 13], [0, 10], [0, 7]]);
+});

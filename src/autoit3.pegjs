@@ -22,6 +22,21 @@
     CallExpression:   "callee",
     MemberExpression: "object",
   };
+  // Builds a location spanning from the start of `startLocation` to the end of
+  // `endLocation`. Used by the head/tail + reduce structure of CallExpression
+  // and MemberExpression, where each wrapped node must cover everything it
+  // wraps, not just the wrapping element itself.
+  function spanLocation(startLocation, endLocation) {
+    return {
+      source: endLocation.source,
+      start: {
+        offset: startLocation.start.offset,
+        line: startLocation.start.line,
+        column: startLocation.start.column,
+      },
+      end: endLocation.end,
+    };
+  }
 }
 
 Start
@@ -672,10 +687,10 @@ MemberExpression
     )
     tail:(
         __ "[" __ property:Expression __ "]" {
-          return { property: property, computed: true };
+          return { property: property, computed: true, location: location() };
         }
       / __ "." property:IdentifierName {
-          return { property: property, computed: false };
+          return { property: property, computed: false, location: location() };
         }
     )*
     {
@@ -685,7 +700,7 @@ MemberExpression
           object: result,
           property: element.property,
           computed: element.computed,
-          location: location(),
+          location: spanLocation(result.location, element.location),
         };
       }, head);
     }
@@ -705,10 +720,10 @@ MemberExpressionInWith
     )
     tail:(
         __ "[" __ property:ExpressionInWith __ "]" {
-          return { property: property, computed: true };
+          return { property: property, computed: true, location: location() };
         }
       / __ "." property:IdentifierName {
-          return { property: property, computed: false };
+          return { property: property, computed: false, location: location() };
         }
     )*
     {
@@ -718,7 +733,7 @@ MemberExpressionInWith
           object: result,
           property: element.property,
           computed: element.computed,
-          location: location(),
+          location: spanLocation(result.location, element.location),
         };
       }, head);
     }
@@ -727,10 +742,10 @@ MemberExpressionInWith
     )
     tail:(
         __ "[" __ property:ExpressionInWith __ "]" {
-          return { property: property, computed: true };
+          return { property: property, computed: true, location: location() };
         }
       / __ "." property:IdentifierName {
-          return { property: property, computed: false };
+          return { property: property, computed: false, location: location() };
         }
     )*
     {
@@ -740,7 +755,7 @@ MemberExpressionInWith
           object: result,
           property: element.property,
           computed: element.computed,
-          location: location(),
+          location: spanLocation(result.location, element.location),
         };
       }, head);
     }
@@ -803,6 +818,7 @@ CallExpression
     {
       return tail.reduce(function(result, element) {
         element[TYPES_TO_PROPERTY_NAMES[element.type]] = result;
+        element.location = spanLocation(result.location, element.location);
         return element;
       }, head);
     }
@@ -837,6 +853,7 @@ CallExpressionInWith
     {
       return tail.reduce(function(result, element) {
         element[TYPES_TO_PROPERTY_NAMES[element.type]] = result;
+        element.location = spanLocation(result.location, element.location);
         return element;
       }, head);
     }
