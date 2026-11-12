@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0] - 2026-11-12
+
 ### Changed
 
 - Reserved words are now rejected with a single `Set` lookup in `Identifier`, instead of trying up to 40 keyword rules at every identifier position
@@ -251,7 +253,8 @@ Parsing is roughly 2-4 times faster, most notably on identifier dense files. The
 
 ## [1.0.0] - 2023-01-03
 
-[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/4.2.0...HEAD
+[unreleased]: https://github.com/genius257/autoit3-pegjs/compare/5.0.0...HEAD
+[5.0.0]: https://github.com/genius257/autoit3-pegjs/compare/4.2.0...5.0.0
 [4.2.0]: https://github.com/genius257/autoit3-pegjs/compare/4.1.5...4.2.0
 [4.1.5]: https://github.com/genius257/autoit3-pegjs/compare/4.1.4...4.1.5
 [4.1.4]: https://github.com/genius257/autoit3-pegjs/compare/4.1.3...4.1.4
