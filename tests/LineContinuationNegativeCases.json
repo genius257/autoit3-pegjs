@@ -1,0 +1,13 @@
+{
+  "double_underscore_no_newline": "Func f()\n\tLocal $a = 1 __\n\t+ 2\nEndFunc\n",
+  "continuation_before_EndFunc": "Func f()\n\tLocal $a = 1 _\n\tEndFunc\n",
+  "continuation_then_comma": "Func f()\n\tLocal $a = 1 _\n\t, 2\nEndFunc\n",
+  "continuation_then_closing": "Func f()\n\tLocal $a = 1 _\n\t)\nEndFunc\n",
+  "continuation_then_colon": "Func f()\n\tLocal $a = 1 _\n\t: 2\nEndFunc\n",
+  "continuation_before_Next": "Func f()\n\tFor $i = 1 To 10 _\n\tNext\nEndFunc\n",
+  "continuation_before_EndIf": "Func f()\n\tIf 1 Then\n\t\t$a = 1 _\n\tEndIf\nEndFunc\n",
+  "continuation_in_param_list": "Func f(_\n\t$a)\n\tReturn $a\nEndFunc\n",
+  "continuation_before_Return_kw": "Func f()\n\t$a = 1 _\n\tReturn\nEndFunc\n",
+  "continuation_then_EndWith": "Func f($o)\n\tWith $o\n\t\t.a = 1 _\n\tEndWith\nEndFunc\n",
+  "continuation_then_endfunc_eof": "Func f()\n\tLocal $a = 1 _\nEndFunc\n_"
+}
